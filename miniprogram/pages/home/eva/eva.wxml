@@ -1,0 +1,27 @@
+<view class="evaluate">
+  <view class="shang">
+    <view style="font-size: 60rpx;font-weight:700;padding:0rpx 20rpx 0rpx 20rpx">评分</view>
+    <view style="padding:20rpx 20rpx 0rpx 0rpx">
+      <block wx:for="{{one_2}}" wx:key="index">
+      <image catchtap='in_xin' id='{{index+1}}' data-in='star' src='../../../image/star.png'></image>
+      </block>
+  <block wx:for="{{two_2}}" wx:key="index">
+      <image catchtap='in_xin' id='{{index+1}}' data-in='starg' src='../../../image/starg.png'></image>
+    </block>
+    
+    </view>
+    <view style="padding:35rpx 20rpx 0rpx 0rpx;color: #778899">{{one_2}}星</view>
+  </view>
+
+    
+
+  <view class="xia">
+    <textarea placeholder="{{start}}" class="textarea" bindfocus="textFocus" bindblur="textBlur" bindinput="textInput">
+    
+    </textarea> 
+     <view class="divLine"></view>
+    <button bindtap="btnSubmit">发布评论</button>
+  </view>
+
+
+</view>

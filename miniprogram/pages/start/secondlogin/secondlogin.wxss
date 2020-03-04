@@ -1,0 +1,70 @@
+.header {
+  padding: 15px 0;
+  text-align: center;
+  height: 300rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:  whitesmoke;
+}
+
+
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  margin-top: 80rpx;
+  margin-bottom: 18rpx;
+  border-radius: 50%;
+  border: 5rpx solid rgba(255, 255, 255, 0.699);
+  border-style: solid;
+  border-width: 0rpx;
+  overflow:hidden;  
+  display: block;    
+} 
+.photo{
+  width: 80px;
+  height: 80px;
+  margin-top: 100rpx;
+  margin-left: 100rpx;
+  margin-bottom: 18rpx;
+  border-radius: 50%;
+  border: 5rpx solid rgba(255, 255, 255, 0.699);
+  border-style: solid;
+  border-width: 0rpx;
+  overflow:hidden;  
+  display: block;   
+}
+
+.identity{
+  display: flex;
+  flex-direction: row;
+}
+
+ .identity .left{
+  width:50%;
+  background: rgba(186, 186, 190, 0.726);
+  height: 400rpx;
+  align-content: center;
+  text-align:center;
+  margin-top: 200rpx;
+   border-radius: 20%; 
+  border:whitesmoke 5rpx solid;
+}
+
+ .identity .right{
+  width:50%;
+  background:  rgb(216, 205, 188);
+  height: 400rpx;
+  align-content: center;
+  text-align:center;
+  margin-top: 200rpx;
+  border-radius: 20%;
+  border-right: whitesmoke 5rpx solid;
+}
+
+page{
+  background:whitesmoke
+}

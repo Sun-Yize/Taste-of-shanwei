@@ -1,0 +1,32 @@
+<view >
+  <!-- 上 -->
+  <view class="header">
+    <view class="header-center">
+      <image class="avatar" 
+        src="../../images/sh-ing.png"
+        mode="aspectFit"></image>
+    </view>
+  </view>  
+
+ <!--下  -->
+  <block wx:for="{{details}}"  wx:for-index="bindex" wx:key="key">
+
+    <view class="sub_order_content">
+        <view class="sub_order_img">
+          <image
+             src="{{item.imageurl}}"></image>
+        </view>
+        <view class="sub_order_img_detail">
+          <text class="order_img_name">{{item.title}}</text>
+          <view>
+            <text class="m30">所需积分：{{item.score}}</text>
+            <view class="pay_btn" bindtap="exchange" data-bindex='{{bindex}}'>立即兑换</view>
+          </view>
+        </view>
+    </view>
+
+   <view class="div-line" ></view>
+
+  </block>
+
+</view>

@@ -1,0 +1,38 @@
+/* page/users/tickets.wxss */
+.mine-tool {
+  display: flex;
+  flex-direction: row;
+  background: #AB956D;
+  height: 90px;
+  align-items: center;
+}
+.nav{
+  height: 100%;
+  width: 100%;
+}
+.mine-tool-item {
+  height: 100%;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.value-icon {
+  margin-left: 10rpx;
+}
+
+.mine-tool-item .title {
+  font-size: 24rpx;
+}
+
+.div-line{
+  height: 20rpx;
+  background-color: rgba(175, 172, 172, 0.185);
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
+}
+
+

@@ -1,0 +1,123 @@
+<view class="header class{{tapIndex}}" >
+  <view bindtap="onmyData">
+    <image class="avatar overflow{{tapIndex}}" src="{{userInfo.avatarUrl}}"></image>
+  </view>
+  <view class="literal">
+    <view style="font-size: 35rpx;color:#5c3a22;">{{userInfo.nickName}}</view>
+  </view>
+    <view class="sl">
+      <text wx:if="true">{{getting}}</text>    
+      <!-- 后端导入本月接单量 -->
+    </view>
+    <text style="color:#5c3a22;font-size: 30rpx;font-weight:550;">
+    本月接单量</text> 
+</view>
+
+<!-- 右上角 -->
+<view class="content__right">
+  <view class="user-action">
+
+    <view class="user-status" bind:tap="changeStatus">
+      <text class="">{{statusMap[tapIndex]}}</text>
+      <text class="iconfont icon-down"></text>
+    </view>
+
+  </view>
+</view>
+
+<!-- 四个主要工具 -->
+<view class="mine-tool">
+  <view class="mine-tool-item" bind:tap="myWallet">
+    <view class="value">
+        <image src="../images/shouru.png" 
+          style="height:80rpx;width:80rpx"></image>
+    </view>
+    <view class="title">收入</view>
+  </view>
+  <view class="mine-tool-item" bindtap="billDetail">
+   <view class="value">
+    <image src="../images/dingdan.png" 
+        style="height:80rpx;width:80rpx"></image>
+   </view>
+   <view class="title">全部订单</view>
+  </view>
+  <view class="mine-tool-item" bind:tap="mying">
+    <view class="value">
+      <image src="../images/jinxingzhong.png" 
+      style="height:80rpx;width:80rpx"></image>
+    </view>
+    <view class="title">正在进行</view>
+  </view>
+  <view class="mine-tool-item" bind:tap="myEvaluate">
+    <view class="value">
+      <image src="../images/dianzan.png" 
+          style="height:85rpx;width:85rpx"></image>
+    </view>
+    <view class="title">评价</view>
+  </view>
+  </view>
+
+<!-- 分界线 -->
+<view class="div-line" ></view>
+
+  <!--订单池  -->
+  <van-cell-group >
+  <van-cell title="实时订单池" ></van-cell>    
+  </van-cell-group> 
+
+    <block wx:for="{{orderlists}}"  wx:key="index">
+      <view class="order_header">
+      <view class="sub-left">
+          <text>{{item.destination}}</text> 
+      </view>
+      <view class="sub-center">
+          <text >{{item.date}}</text>  
+      </view>
+      <view class="sub-right">
+          <text>薪酬:￥{{item.money}}</text>
+      </view>
+      </view>
+      <view class="order_content">
+        <view class="order_img z">
+          <image
+             src="{{item.image}}" class="shop-show"></image>
+        </view>
+        <view class="order_img_detail z">
+          <text class="order_img_name">{{item.resname}}-{{item.start}}</text>
+          <view>
+            <text class="price">共计:￥{{item.billmoney}}</text>
+            <button  class="btn2"
+            data-item="{{item}}" style="width: 220rpx;height: 60rpx;" 
+            catchtap="btnTap">立即接单</button>
+          </view>
+        </view>
+      </view>
+    </block>
+
+<view style="height:10%;margin-top:20rpx;"></view>
+
+
+<view class="tabbar">
+  <view class="swtnav" bindtap="homeNav"> 
+    <view class="switch">
+      <image src="../../home/image/12.png" style="width:60rpx;height:60rpx"></image>
+      <text class="tabbarText">主页</text> 
+    </view>
+  </view>
+    <view class="switch">
+      <image src="../../home/image/21.png" style="width:60rpx;height:60rpx"></image>
+      <text class="tabbarText" style="color:#33AFFF">变身</text> 
+    </view>
+  <view class="swtnav" bindtap="orderNav"> 
+    <view class="switch">
+      <image src="../../home/image/32.png" style="width:60rpx;height:60rpx"></image>
+      <text class="tabbarText">订单</text> 
+    </view>
+  </view>
+  <view class="swtnav" bindtap="mineNav"> 
+    <view class="switch">
+      <image src="../../home/image/42.png" style="width:60rpx;height:60rpx;"></image>
+      <text class="tabbarText">我的</text> 
+    </view>
+  </view>
+</view>

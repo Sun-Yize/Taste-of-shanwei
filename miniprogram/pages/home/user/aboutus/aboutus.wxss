@@ -1,0 +1,57 @@
+page{
+  background: whitesmoke
+}
+
+.header {
+  padding: 15px 0;
+  text-align: center;
+  height: 300rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:  whitesmoke;
+}
+
+
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  margin-top: 80rpx;
+  margin-bottom: 18rpx;
+  border-radius: 50%;
+  border: 5rpx solid rgba(255, 255, 255, 0.699);
+  border-style: solid;
+  border-width: 0rpx;
+  overflow:hidden;  
+  display: block;    
+} 
+
+.content{
+  align-content: center;
+  text-align: center;
+   font-weight:bold; 
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.title{
+  align-content: center;
+  text-align: center;
+  margin-bottom: 30rpx;
+  margin-top:30rpx;
+}
+
+.common{
+  margin-top:30rpx;
+  margin-bottom: 30rpx;
+}
+
+.wish{
+  align-content: center;
+  text-align: center;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}

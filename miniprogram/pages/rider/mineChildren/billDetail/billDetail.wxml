@@ -1,0 +1,75 @@
+<view class="top">
+  <scroll-view  class="navbar-box">
+    <block wx:for="{{orderrule}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+      <view class="nav-item  " data-current="{{idx}}" bindtap="switchNav">
+        <text class="{{currentTab == idx ? 'active' : ''}}" >{{navItem.title}}</text>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+<view class="bottom">
+  <swiper style="margin-top:80rpx;height:{{winHeight - 40}}px;" class="tab-box" 
+       current="{{currentTab}}" duration="300" data-current="{{idx}}" bindchange="switchTab"
+       style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+      <!-- 今日 -->       
+      <swiper-item  wx:for="{{[0]}}" wx:for-item="tabItem" wx:for-index="idx" 
+        wx:key="idx" class="content" >
+        <block wx:for="{{ordersContent1}}" wx:key="key">
+          <view class="order_header">
+              <view class="sub-left">
+                  <text>{{item.destination}}</text> 
+              </view>
+              <view class="sub-center">
+                  <text >{{item.date}}</text>  
+              </view>
+              <view class="sub-right">
+                  <text>薪酬:￥{{item.money}}</text>
+              </view>
+              </view>
+              <view class="order_content">
+                <view class="order_img z">
+                  <image
+                    src="{{item.image}}" class="shop-show"></image>
+                </view>
+            <view class="order_img_detail z">
+              <text class="order_img_name">{{item.resname}}-{{item.start}}</text>
+              <view>
+                <text>用户:\n</text>
+                <text>{{item.user_name}}</text>
+              </view>
+            </view>
+          </view>
+         </block>
+      </swiper-item>
+      <!-- 全部-->
+      <swiper-item  wx:for="{{[1]}}" wx:for-item="tabItem" wx:for-index="idx" 
+        wx:key="idx">
+         <block wx:for="{{ordersContent2}}" wx:key="key">
+          <view class="order_header">
+              <view class="sub-left">
+                  <text>{{item.destination}}</text> 
+              </view>
+              <view class="sub-center">
+                  <text >{{item.date}}</text>  
+              </view>
+              <view class="sub-right">
+                  <text>薪酬:￥{{item.money}}</text>
+              </view>
+              </view>
+              <view class="order_content">
+                <view class="order_img z">
+                  <image
+                    src="{{item.image}}" class="shop-show"></image>
+                </view>
+              <view class="order_img_detail z">
+               <text class="order_img_name">{{item.resname}}-{{item.start}}</text>
+                <view>
+                  <text>用户:\n</text>
+                  <text>{{item.user_name}}</text>
+                </view>
+              </view>
+          </view>
+         </block>
+      </swiper-item>
+   </swiper>
+</view>

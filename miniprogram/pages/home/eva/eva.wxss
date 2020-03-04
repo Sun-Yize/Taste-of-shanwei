@@ -1,0 +1,44 @@
+.divLine{
+background: #E0E3DA;
+width: 100%;
+height: 5rpx;
+margin-bottom: 50rpx
+}
+
+.evaluate{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 255, 213, 0.863);
+
+}
+
+.evaluate .shang{
+  height: 60px;
+  border-radius: 30rpx;
+  background: #fff;
+  margin: 10px;
+  display: flex;
+
+}
+
+.evaluate .xia{
+  height: 600px;
+  border-radius: 30rpx;
+  background: #fff;
+  margin: 10px;
+  
+
+}
+
+.evaluate .xia .textarea{
+  width: 340px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+image{ 
+ height: 60rpx; 
+ width: 60rpx; 
+ display: inline-block
+}

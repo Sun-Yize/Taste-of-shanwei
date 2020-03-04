@@ -1,0 +1,45 @@
+<view class="top">
+  <view class="center">
+      <view class="text1">
+         <text class="t1">我的本月消费排名</text>
+      </view>
+      <view class="text2">
+         <text class="t2">110</text>      
+      </view>
+      <view class="text3">
+         <text class="t3">击败了全校<text
+              class="special3">30%</text>的人
+         </text>
+      </view>
+  </view>
+</view>
+
+
+<view class="bottom">
+  <view class="rank">
+    <scroll-view  class="navbar-box">
+      <block wx:for="{{rankrule}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+        <view class="nav-item  " data-current="{{idx}}" bindtap="switchNav">
+          <text class="{{currentTab == idx ? 'active' : ''}}">{{navItem.title}}</text>
+        </view>
+      </block>
+    </scroll-view>
+      
+    <swiper style="margin-top:80rpx;height:{{winHeight - 40}}px;" class="tab-box" 
+       current="{{currentTab}}" duration="300" data-current="{{idx}}" bindchange="switchTab">
+
+
+      <swiper-item  wx:for="{{[0]}}" wx:for-item="tabItem" wx:for-index="idx" 
+        wx:key="idx" class="tab-cnetent">
+        <text>暂未开放，尽请期待</text>
+      </swiper-item>
+
+
+      <swiper-item  wx:for="{{[1]}}" wx:for-item="tabItem" wx:for-index="idx" 
+        wx:key="idx" class="tab-cnetent">
+         <text>暂未开放，尽请期待</text>
+      </swiper-item>
+   </swiper>
+    
+  </view>
+</view>

@@ -1,0 +1,78 @@
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 5rpx;
+ margin-bottom: 20rpx;
+ 
+}
+
+
+.allorder{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgba(0, 255, 213, 0.863);
+}
+
+.allorder .top{
+  height: 200rpx;
+  border-radius: 30rpx;
+  background: #fff;
+  margin: 30rpx;
+  display: flex;
+  flex-direction: column
+
+
+}
+
+.allorder .title{
+  margin:10px;
+  font-size:20px;
+  background:#FFFF00;
+  border-radius: 20rpx;
+  width: 200rpx;
+  text-align: center;
+  height: 70rpx
+
+}
+
+.allorder .top .part{
+  height: 80px;
+  
+  margin: 8px;
+  display: flex;
+ 
+
+}
+
+.allorder .top .part .image{
+  height: 150rpx;
+  width: 150rpx;
+
+}
+
+.allorder .top .part .image image{
+  height: 100%;
+  width: 100%;
+  
+
+}
+
+.allorder .top .part .mes{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.allorder .top .part .btn{
+  width: 160rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end
+}
+
+.allorder .top .part .btn button{
+  width: 100%;
+  font-size: 30rpx;
+}

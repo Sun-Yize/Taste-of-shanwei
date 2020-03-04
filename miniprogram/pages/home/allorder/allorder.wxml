@@ -1,0 +1,51 @@
+<view class="allorder">
+  <scroll-view style="background: rgba(0, 255, 213, 0.863)">
+    <view class="title">正在进行</view>
+    <view class="divLine"></view>
+    <view class="top" wx:for="{{ongoing}}" wx:key="index">
+
+      <view class="part">
+        <view class="image">
+          <image src="{{item.image}}"></image>
+        </view>
+        <view class="mes">
+          <view style="height:40px;font-size:15px">商家名称:\t {{item.resname}}</view>
+          <view style="font-size:15px;color:#778899">下单时间：
+            <text style="font-size:10px;color:#778899">{{item.date}}</text>
+          </view>
+          <view style="font-size:15px;color:#778899">总价：￥{{item.billmoney}}</view>
+        </view>
+        <view class="btn">
+          <button bindtap="orderDetail" data-id="{{item._id}}">详情</button>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="divLine" style="margin-top:20px"></view>
+    <view class="title">已完成</view>
+    <view class="divLine"></view>
+
+    <view class="top" wx:for="{{allorder}}" wx:key="index">
+      <view class="part">
+        <view class="image">
+          <image src="{{item.image}}"></image>
+        </view>
+        <view class="mes">
+          <view style="height:40px;font-size:15px">商家名称:\t {{item.resname}}</view>
+          <view style="font-size:15px;color:#778899">下单时间：
+            <text style="font-size:10px;color:#778899">{{item.date}}</text>
+          </view>
+          <view style="font-size:15px;color:#778899">总价：￥{{item.billmoney}}</view>
+        </view>
+        <view class="btn">
+          <button bindtap="evaluate" data-id="{{item._id}}">评价</button>
+        </view>
+      </view>
+    </view>
+    <!-- <view style="height:100rpx;margin-top:100rpx">\n\n\n</view> -->
+
+
+  </scroll-view>
+
+</view>

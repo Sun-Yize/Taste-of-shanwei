@@ -1,0 +1,64 @@
+<view class="deliver">
+  <scroll-view>
+    <view class="top">
+      <view class="image">
+        <image src="../image/car.png"></image>
+      </view>
+      <view class="mes">
+        <view style="font-size:50rpx">{{condition}}</view>
+        <view style="color:#778899">预计20分钟后到达</view>
+      </view>
+    </view>
+
+    <view class="bottom">
+      <view class="image">
+        <image src="../image/map.png"> </image>
+      </view>
+      
+      <view class="divLine"></view>
+
+      <view class="btn">
+        <view class="part" >
+          <button style="background-color:#FFFFFF;border-style:solid;border-width:thin">联系商家</button>
+        </view>
+
+        <view class="part" style="padding-right:20rpx">
+          <button style="background-color:#FFFFFF;border-style:solid;border-width:thin">联系骑手</button>
+        </view>
+      </view>
+
+      <view class="divLine"></view>
+
+      <view class="detail">
+        <view class="first">
+          订单信息
+        </view>
+
+        <view class="divLine"></view>
+
+        <view class="second">
+          <view class="part">
+            <view style="width:40%;margin-left:10px;color:#778899">订单号</view>
+            <view style="width:50%;text-align:right;margin-right:10px">12345</view>
+          </view>
+
+          <view class="part">
+            <view style="width:40%;margin-left:10px;color:#778899">下单时间</view>
+            <view style="width:50%;text-align:right;margin-right:10px">12：00</view>
+          </view>
+
+        </view>
+      </view>
+    </view>
+
+
+  
+  
+  
+  
+  
+  
+  </scroll-view>
+
+
+</view>

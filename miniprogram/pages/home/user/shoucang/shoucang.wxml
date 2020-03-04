@@ -1,0 +1,26 @@
+<view class="goods-tab-box">
+  <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">收藏店铺</view>
+  <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">收藏菜品</view>
+
+  <view class="goods-content">
+    <!--收藏店铺 -->
+    <view wx:if="{{curIndex === 0}}">
+      <scroll-view class="right" scroll-y="true">
+        <view class="content">
+          <view class="item" wx:for="{{restaurantlist}}" wx:key="index">
+            <view class="item-left">
+              <image src="{{item.image}}" style=" border-radius: 10%;"></image>
+            </view>
+            <view class="item-right">
+              <view style="font-size:45rpx;font-weight:bold;margin:30rpx 0 0 0">{{item.restaurant}}</view>
+              <!-- <view style="font-size:22rpx;color:#ccc;margin:30rpx 0 30rpx 0;">{{condition[index]}}</view> -->
+              <button size="mini" class="btn" data-item='{{item}}' bindtap="getIntoStore">进入店铺</button>
+              <view style="font-size:28rpx;color:red;font-weight:bold;margin:30rpx 0 30rpx 0;">{{item.notice}}</view>
+            </view>
+          </view>
+          <view style="height:2px;background:gray" wx:for="{{restaurantlist}}" wx:key="index"></view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

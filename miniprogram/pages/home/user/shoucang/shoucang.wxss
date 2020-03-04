@@ -1,0 +1,80 @@
+/* page/users/shoucang.wxss */
+
+.btn{
+  margin-top: 20rpx;
+  background-color: white;
+  border-radius: 20%;
+}
+
+.goods-tab-nav {
+  display: inline-block;
+  width: 50%;
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #ededed;
+  box-sizing: border-box;
+  text-align: center;
+  color: #c7c7cb;
+}
+
+.goods-tab-nav.on {
+  color: #bcaa8a;
+  border-bottom: 5rpx solid #bcaa8a;
+}
+
+.goods-content {
+  padding: 40rpx;
+}
+
+page {
+  height: 100%;
+}
+
+.container .left {
+  width: 25%;
+  height: 100%;
+  background: rgb(226, 217, 203);
+}
+
+.container .left view {
+  padding: 10px 0px;
+  text-align: center;
+}
+
+.container .left view.active {
+  color: #ab956d;
+  background: white;
+  border-left: 10rpx solid #ab956d;
+}
+
+.right {
+  flex: 1;
+  height: 100%;
+}
+
+.content .item {
+  display: flex;
+}
+
+.item-left {
+  width: 30%;
+}
+
+.item-left image {
+  width: 200rpx;
+  height: 200rpx;
+  margin-left: 5rpx;
+  margin-top: 60rpx;
+}
+
+.item-right {
+  width: 70%;
+  align-content: center;
+  text-align: center;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}

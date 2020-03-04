@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="footer">
+    <van-cell title="姓名" value="{{tname}}" />   
+    <van-cell title="学工号" value="{{number}}" />
+    <van-cell title="奖罚规则" center is-link bindtap="ticketRule"></van-cell>
+    <van-cell bind:click="onchangeSetting" title="系统设置" center is-link></van-cell>
+  </view>
+  <!-- <view class="footer">
+    <van-cell title="手机号" value="{{userInfo.mobile}}" is-link />
+  </view> -->
+</view>

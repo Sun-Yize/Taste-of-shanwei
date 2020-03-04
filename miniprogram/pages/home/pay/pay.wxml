@@ -1,0 +1,74 @@
+<view class="pay">
+ <scroll-view scroll-y scroll-with-animation>
+  <view class="top" bindtap="changeAddress">
+    <view style="color:#000;font-size:40rpx">{{address.tname}}--{{address.destination}}</view>
+    <view style="color:#000;font-size:30rpx">  联系电话：{{address.phone}}</view>
+  </view>
+
+  <view class="bottom">
+    <view class="store-name">
+      商家名称:\t {{resname}}
+    </view>
+    <view class="divLine"></view>
+
+    <view class="dish" wx:for="{{showlist}}" wx:key="index">
+      <view class="image">
+        <image src="{{item.image}}"></image>
+      </view>
+      <view class="detail">
+        <view style="height:120rpx">{{item.name}}</view>
+        <view style="height:40rpx">x{{item.number}}</view>
+      </view>
+      <view class="price">￥{{item.per}}</view>
+    </view>
+
+    <view class="divLine"></view>
+
+    <!-- <view class="price1">
+      <view style="width:600rpx">包装费</view>
+      <view style="flow-grow:1;font-weight:700">￥2</view>
+    </view> -->
+     <view class="price1">
+      <view style="width:600rpx">配送费</view>
+      <view style="flow-grow:1;font-weight:700">￥2</view>
+    </view>
+
+
+    <view class="divLine"></view> 
+
+    <view class="discount">
+      <view class="image">
+        <image src="../image/discount.png"></image>
+      </view>
+
+      <view style="width:400rpx;">抵用券</view>
+      <view style="color:#778899">点击选择抵用券</view>
+    </view>
+    
+    
+    <view class="divLine"></view>
+
+    <view class="sum">
+      <view style="padding:10rpx 0rpx 0rpx 0rpx">已优惠</view>
+      <view style="color:#FF4500;margin-right:20rpx;padding:10rpx 0rpx 0rpx 0rpx">￥10</view>
+      <view style="padding:10rpx 0rpx 0rpx 0rpx">总计￥</view>
+      <view style="font-weight:700;font-size:50rpx">{{totalMoney}}</view>
+    </view>
+
+  </view>
+ </scroll-view>
+
+ <view class="fixed">
+  <view class="left">
+    <view style="height:55rpx;font-size:45rpx">￥{{totalMoney}}</view>
+    <view style="height:35rpx;font-size:25rpx;padding:0rpx 10rpx 10rpx 10rpx;color:#AFEEEE">已优惠￥10</view>
+  </view>
+
+  <view>
+    <button  style="border-radius: 0rpx 100rpx 100rpx 0rpx;background-color:#FFFF00;padding-top:25rpx" bindtap="submitOrder">提交订单</button>
+  </view>
+ </view>
+
+
+</view>
+

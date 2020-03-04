@@ -1,0 +1,34 @@
+<view class="main">
+   <view class="header" >
+  <view >
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image><!--{{userInfo.avatarUrl}}-->
+  </view>
+  <view class="literal">
+    <view style="font-size: 40rpx;color:#5c3a22;">{{userInfo.nickName}},欢迎来到吃遍山威！</view><!--{{{{userInfo.nickName}}}}-->
+    
+  </view>
+</view>
+
+  
+  <view style="font-weight:bold;" class="title">关于吃遍山威</view>
+   <text class="common">吃遍山威小程序是一款旨在为同学们提供更贴心、方便、快捷的用餐方式的外卖小程序。\n</text>
+   <view class='content'>
+   <text >不想挤食堂？\n</text>
+   <text> 排队太麻烦？\n</text>
+   <text> 想在饥肠辘辘的用餐时刻，回到宿舍便可享用一顿干净放心的美味？\n</text>
+   <text> 因为食堂口味太重或太淡想提出建议？\n</text>
+   <text> 想去食堂买饭的路上顺手带份饭赚点外快？\n</text>
+   </view>
+
+   <view class="wish">吃遍山威是你再好不过的选择！更多功能敬请期待。\n</view>
+   
+   <view class="wish" >祝吉吉利利，万事都如意。</view>
+
+   <view style="font-weight:bold;" class="title">关于我们</view>
+   <text class="common">我们来自数学与统计学院18数据科学班。希望可以给你带来美好的用餐体验~\n</text>
+   
+
+
+
+
+</view>

@@ -1,0 +1,195 @@
+<view class="store-container">
+
+  <!-- 上方显示商家信息 -->
+  <view class='head'>
+
+    <view class="head-img" bindtap='showStoreDetail'>
+      <image src='{{storeImgUrl}}'></image>
+    </view>
+
+    <view class="head-detail" bindtap='showStoreDetail'>
+      <view class="info">
+        <text>起送￥{{minDelPrice}}</text>
+        <text>{{restaurant[place1][place2]}}</text>
+      </view>
+      <view class="publicMsg">{{publicMsg}}</view>
+      <swiper class="actives" vertical autoplay circular>
+        <swiper-item wx:for="{{actives}}" wx:key="activeId" class="item" catchtouchmove='preventScrollSwiper'>
+          <view class='active-icon {{activesInfo[item.activeId].class}}'>{{activesInfo[item.activeId].text}}</view>
+          <view class='active-text'>{{item.acticeText}}</view>
+        </swiper-item>
+      </swiper>
+    </view>
+
+    <view class='head-btn'>
+      <view style="width:100%;flex-grow:1" bindtap='showStoreDetail'></view>
+      <view class="head-btn2" bindtap="showChange" >
+        <button bindtap="getStar" data-item="{{res_id}}" class="{{editTrue?'btnT':'btnF'}}">{{changeText}}</button>
+      </view>
+    </view>
+  </view>
+
+
+  <!-- 点击head时弹出具体信息 -->
+  <view class="modal" wx:if="{{showModal}}">
+    <view class="top" bindtap="closeModal"></view>
+    <view class="bottom">
+      <view wx:for="{{actives}}" wx:key="index" class="modal-active">
+        <view class='modal-icon {{activesInfo[item.activeId].class}}'>{{activesInfo[item.activeId].text}}</view>
+        <view class='modal-text'>{{item.acticeText}}</view>
+      </view>
+      <view class="info">
+        <view class="title">配送</view>
+        <view class="del-info">
+          <text>起送￥{{minDelPrice}}</text>
+          <text>{{restaurant[place1][place2]}}</text>
+        </view>
+        <view class="time-info">配送时间:5:00-6:00</view>
+      </view>
+      <view class="public info">
+        <view class="title info">公告</view>
+        <view class="publicMsg">{{publicMsg}}</view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+
+
+  <!-- 横向导航栏 -->
+  <view class="tab" bindtap="selectTabItem">
+    <view bindtap="tabSwitch" class="tab-item" data-index="0">菜单</view>
+    <view bindtap="tabSwitch" class="tab-item" data-index="1">评价</view>
+    <view bindtap="tabSwitch" class="tab-item" data-index="2">商家</view>
+    <view class="border" style="left:{{30+tabIndex*160}}rpx"></view>
+  </view>
+
+
+  <!-- 菜单页面 -->
+  <view wx:if="{{tabState==0}}" class='food'>
+    <view class='food-class' style='height:{{listHeight}}px'>
+      <scroll-view scroll-y scroll-with-animation scroll-into-view="{{viewToLeft}}" style='height:{{listHeight}}px'>
+        <view class="food-class-item {{activeIndex==index?'active':''}}" wx:for="{{goodsList}}" wx:key="index" bindtap='selectFood' data-index="{{index}}" data-titleId="{{item.titleId}}" id="{{item.titleId+'left'}}">
+          <view class='text' data-index="{{index}}" data-titleId="{{item.id}}">{{item.classifyName}}</view>
+          <!-- <view class="dot" wx:if="{{item.foodCount>0}}">{{item.foodCount}}</view> -->
+        </view>
+      </scroll-view>
+    </view>
+
+    
+    <view class='food-detail'>
+      <scroll-view scroll-y scroll-with-animation style='height:{{listHeight}}px' scroll-into-view="{{viewTo}}" bindscroll="scroll">
+        <view wx:for="{{goodsList}}" wx:for-item="classify" wx:key="title" class="title-group" wx:for-index="groupindex">
+          <view class='title' id='{{item.titleId}}'>{{classify.classifyName}}</view>
+          <view wx:for="{{classify.goods}}" wx:for-item="id" wx:key="*this" class='food-info'>
+            <view class='img'>
+              <image src="{{goods[id].src}}"></image>
+            </view>
+            <view class='info'>
+              <view class='name'>{{goods[id].name}}</view>
+              <view class='note'>{{goods[id].introduce}}</view>
+              <view class='price-count'>
+                <view class='price'>￥{{goods[id].price}}</view>
+                <view class='count'>
+                  <view class='add btn' bindtap="add" data-id="{{id}}">+</view>
+                  <view class='num'>{{goods[id].number}}</view>
+                  <view class='ruduce btn' bindtap="reduce" data-item="{{goods}}" wx:if="{{goods[id].number>0?true:false}}" data-id="{{id}}">-</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+
+
+
+
+
+
+
+  <!-- 评价页面 -->
+  <view wx:if="{{tabState==1}}" class='eva'>
+    <view class="eva-detail">
+      <view class="item">
+        <view>商家评分</view>
+        <view>5.0</view>
+      </view>
+      <view class="item2">
+        <view>味道</view>
+        <view>4.8</view>
+      </view>
+      <view class="item2">
+        <view>包装</view>
+        <view>4.5</view>
+      </view>
+      <view class="item2">
+        <view>配送</view>
+        <view>4.9</view>
+      </view>
+    </view>
+
+    <view class="eva-detail2" wx:for="{{evaluate}}" wx:key="index">
+      <view class='image'>
+        <image src="../image/user.png" style=""></image>
+      </view>
+      <view class='item1'>
+        <view>用户名称：{{item.user_name}}</view>
+        <view>用户评分：{{item.evaluate}}分</view>
+      </view>
+      <view class="item2">
+        <view style="font-size:20px">评价</view>
+        <view>{{item.evaluatedetail}}</view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+
+  <!-- 商家页面 -->
+  <view wx:if="{{tabState==2}}" class='mes'>
+    <view class="top">
+      <view style="margin:5px"> 地址：{{restaurant[place1][place2]}}</view>
+      <view style="margin:5px"> 配送时间：8:00-21:00</view>
+    </view>
+    <view>
+      <view class="bottom">
+        <view style="height:80px;width:360px">
+          <view style="margin:5px">餐厅简介:</view>
+          <view style="margin:5px;font-size:15px">{{publicMsg}}</view>
+        </view>      
+      </view>
+    </view>
+  </view>
+
+
+
+
+
+
+
+
+  <!-- 底部购物车 -->
+  <view class="cart">
+    <view class="cart-container">
+      <view class="cart-img {{totalMoney>0?'has-food':''}}" bindtap="listCart">
+        <image src="{{totalMoney>0?'../image/gouwuche-black.png':'../image/gouwuche.png'}}"></image>
+      </view>
+      <view class="del-price-money">
+        <view class="money">￥{{totalMoney}}</view>
+        <view class="del-price">{{delPrice>0?'另需配送费'+delPrice+'元':'免配送费'}}</view>
+      </view>
+      <view class="start-del {{(totalMoney>=minDelPrice)?'has-food':''}}" bindtap="getIntoStore" >{{(totalMoney>=minDelPrice)?'去结算':minDelPrice+'元起送'}}</view>
+    </view>
+  </view>
+</view>

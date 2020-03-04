@@ -1,0 +1,69 @@
+<view class="container">
+  <view class="top">
+    <view class="center">
+      <view class="center_top">
+        <view class="center_img" bindtap="toBaseInfo">
+          <open-data type="userAvatarUrl" class="user_head"></open-data>
+        </view>
+        <view class="center_info" bindtap="toBaseInfo">
+          <view class="center_name">{{userInfo.nickName}}</view>
+        </view>
+      </view>
+      <view class="center_down">
+        <view class="center_rank" bindtap="myrank">
+          <image class="rank_icon" src="../../images/paihang.png"></image>
+          <text class="rank_text">我的排名</text>
+        </view>
+        <view class="center_score" bindtap="mycredit">
+          <image class="rank_icon" src="../../images/jifen.png"></image>
+          <text class="rank_text">我的信用分</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="middle">
+     <scroll-view  class="navbar-box">
+    <block wx:for="{{kind}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+      <view class="nav-item  " data-current="{{idx}}" bindtap="switchNav">
+        <text class="{{currentTab == idx ? 'active' : ''}}">{{navItem.title}}</text>
+      </view>
+    </block>
+  </scroll-view>
+  </view>
+  <view class="bottom">
+    <swiper style="margin-top:80rpx;" class="tab-box" 
+        current="{{currentTab}}" duration="300" data-current="{{idx}}" bindchange="switchTab"
+        style="height: {{clientHeight?clientHeight+'px':'auto'}}">
+        <!-- 好评 -->       
+        <swiper-item  wx:for="{{[0]}}" wx:for-item="tabItem" wx:for-index="idx" 
+          wx:key="idx" class="content" >
+          <block wx:for="{{good}}" wx:key="key">
+            <view class="evaluate-container">
+                <view class="sub-top">
+                    <text>评价用户：{{item.user_name}}</text> 
+                </view>
+                <view class="sub-bottom">
+                    <text >评价内容：\n{{item.evaluatedetail}}</text>  
+                </view>
+            </view>
+            <view style="height:10rpx;background-color:#fff;"></view>
+          </block>
+        </swiper-item>
+        <!-- 中差评 -->
+        <swiper-item  wx:for="{{[1]}}" wx:for-item="tabItem" wx:for-index="idx" 
+          wx:key="idx" class="content" >
+          <block wx:for="{{bad}}" wx:key="key">
+            <view class="evaluate-container">
+                <view class="sub-top">
+                    <text>评价用户：{{item.user_name}}</text> 
+                </view>
+                <view class="sub-bottom">
+                    <text >评价内容：\n{{item.evaluatedetail}}</text>  
+                </view>
+            </view>
+            <view style="height:10rpx;background-color:#fff;"></view>
+          </block>
+        </swiper-item>
+    </swiper>
+  </view>
+</view>

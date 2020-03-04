@@ -1,0 +1,9 @@
+page {
+  background-color: #f2f2f2;
+}
+
+.button1 {
+  background-color: #69f;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}

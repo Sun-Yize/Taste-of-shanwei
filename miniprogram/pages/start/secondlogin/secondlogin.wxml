@@ -1,0 +1,30 @@
+<view class="header">
+  <view>
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <!--{{userInfo.avatarUrl}}-->
+  </view>
+  <view class="literal">
+    <view style="font-size: 35rpx;color:#5c3a22;">{{userInfo.nickName}}，请选择您的身份</view>
+
+  </view>
+</view>
+<!-- 左 -->
+<view class='identity'>
+
+  <view class='left'>
+    <navigator url="../../business/mine/mine" open-type="reLaunch" hover-class="none">
+      <view style="font-size:45rpx;font-weight:bold;margin-top:50rpx">我是商家</view>
+      <image src='../../home/image/商家入驻.png' class='photo'></image>
+    </navigator>
+  </view>
+
+  <!-- 右 -->
+
+  <view class='right'>
+    <navigator url="../taste/taste" hover-class="none">
+      <view style="font-size:45rpx;font-weight:bold;margin-top:50rpx">我是客户</view>
+      <image src='../../home/image/个人.png' class='photo'></image>
+    </navigator>
+  </view>
+
+</view>

@@ -1,0 +1,26 @@
+<view class="header">
+  <view>
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+  </view>
+  <view class="literal">
+    <view style="font-size: 35rpx;color:#5c3a22;">地址管理</view>
+  </view>
+</view>
+
+<view class="main">
+  <view class="form-box">
+    <form bindsubmit="formSubmit">
+      <text>姓名</text>
+      <input value="{{tname}}" name="tname" placeholder="姓名" />
+      <text>电话</text>
+      <input type="number" name="phone" value="{{phone}}" placeholder="电话号码" />
+
+      <!-- 收货地址部分 -->
+      <text>外卖配送地址</text>
+      <picker name="addreValue" class="addre" value="{{addreValue}}" range="{{addreRange}}" bindchange="addrePickerBindchange">
+        <text>{{current}}</text>
+      </picker>
+      <button form-type="submit" class="btn">保存地址信息</button>
+    </form>
+  </view>
+</view>

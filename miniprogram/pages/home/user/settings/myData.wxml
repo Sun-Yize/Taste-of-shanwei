@@ -1,0 +1,37 @@
+ <view class="header" >
+  <view >
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image><!--{{userInfo.avatarUrl}}-->
+  </view>
+  <view class="literal">
+    <view style="font-size: 35rpx;color:#5c3a22;">{{userInfo.nickName}}，信息仅需提交一次，请勿重复提交噢！</view><!--{{{{userInfo.nickName}}}}-->
+    
+  </view>
+</view>
+
+
+
+<view class="main">
+    <view class="form-box">
+        <form bindsubmit="formSubmit">
+            <text class="words">姓名</text>
+            <input value="{{user.tname}}" name="tname" placeholder="请输入姓名"/>
+            <text class="words">学号</text>
+            <input value="{{user.number}}"  name="number" type="number" placeholder="请输入学工号"/>
+            <text class="words">学院</text>
+            <input value="{{user.college}}" name="college" placeholder="请输入学院"/>
+            <text class="words">号码</text>
+            <input value="{{user.phone}}"  name="phone" type="number" placeholder="请输入电话号码"/>
+            
+           <view class="section">
+  
+        <picker mode="date" value="{{user.date}}" name="date" start="01-01" end="12-31" bindchange="bindDateChange" class="pick">
+        <view class="picker">
+          <text class="words"> 请选择生日: {{user.date}}</text>
+        </view>
+        </picker>
+        </view>
+
+            <button form-type="submit" class="btn" >保存</button>
+        </form>
+    </view>
+</view>

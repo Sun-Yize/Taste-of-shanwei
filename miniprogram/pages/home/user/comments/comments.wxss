@@ -1,0 +1,70 @@
+/* page/users/comments.wxss */
+.header {
+  padding: 15px 0;
+  text-align: center;
+  height: 250rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(156, 147, 120, 0.747)
+}
+
+
+
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  margin-top: 80rpx;
+  margin-bottom: 18rpx;
+  border-radius: 50%;
+  border: 5rpx solid rgba(170, 165, 165, 0.699);
+  border-style: solid;
+  border-width: 0rpx;
+  overflow:hidden;  
+  display: block;    
+} 
+
+
+
+
+.literal{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.div-line{
+  height: 10rpx;
+  background-color: rgba(22, 9, 9, 0.733);
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
+}
+
+
+/* 评价 */
+.address-box .address-manage{
+    position: relative;
+    height: 90rpx;
+    font-size: 35rpx;
+    display: flex;
+   flex-direction: row;
+    align-items: center; 
+   /* justify-content: center; */
+   margin-top: 10rpx;
+   margin-bottom: 20rpx;
+   margin-left: 20rpx;
+   margin-right: 20rpx;
+   background: rgb(231, 225, 212);
+}
+
+page{
+  display: flex;
+  flex-direction: column;
+  
+}

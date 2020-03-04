@@ -1,0 +1,69 @@
+<view class="bgview">
+ <image src="../../image/d3.jpg" ></image>
+</view>
+<!--左边楼层显示-->
+<view class="container">
+ <view class='left'>
+   <view wx:for="{{leftMenuList}}" wx:key="index" class="{{item.id===activeId?'active':''}}" bindtap="selectFloor" data-id="{{item.id}}">{{item.floor}}</view>
+</view>
+
+<!--店铺列表 restaurantlist == ''?tasks:restaurantlist-->
+
+<scroll-view class="right" scroll-y="true">
+
+     <view class="content">
+       <view class="item" wx:for="{{tasks}}" wx:key="{{index}}">
+         <view class="item-left">
+          <image src="{{item.image}}"></image>
+         </view>
+         <view class="item-right">
+           <view style="font-size:45rpx;font-weight:bold;margin:30rpx 0 0 0">{{item.restaurant}}</view>
+           <view style="font-size:22rpx;color:#ccc;margin:30rpx 0 30rpx 0;">{{condition[index]}}</view>
+           <button size="mini" bindtap="getIntoStore" data-item="{{item}}">进入店铺</button>
+           <view style="font-size:28rpx;color:red;font-weight:bold;margin:30rpx 0 30rpx 0;">{{item.notice}}</view>
+          
+         </view> 
+         
+        
+      </view>
+      <view style="height:1px;background:gray" wx:for="{{tasks}}" wx:key="index"></view>
+     </view>
+    
+
+
+
+</scroll-view>
+
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+ 
+ 
+ 
+
+
+
+
+

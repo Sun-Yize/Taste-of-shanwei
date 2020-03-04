@@ -1,0 +1,233 @@
+.tabbar{
+  background-color: rgb(251, 249, 254);
+  position: fixed;
+  bottom: 0;
+  border-top: 1rpx solid gainsboro;
+  /* background-color: red; */
+  height: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.swtnav{
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rpx;
+}
+.switch{
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 10rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabbarText{
+  font-size: 25rpx;
+}
+
+
+
+.header {
+  padding: 15px 0;
+  text-align: center;
+  height: 500rpx;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.class0 {
+  background: linear-gradient(to bottom, rgba(255, 239, 160, 60), rgba(255, 201, 50, 70));
+}
+
+.class1 {
+  background: linear-gradient(to bottom, rgba(230, 230, 230, 40), rgba(190, 190, 190, 80));
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  margin-top: 80rpx;
+  margin-bottom: 18rpx;
+  border-radius: 50%;
+  border: 5rpx solid rgba(255, 255, 255, 0.699);
+  border-style: solid;
+  border-width: 0rpx;
+  overflow: hidden;
+  display: block;
+}
+
+.btn0 {
+  background-color: rgb(245, 119, 38);
+  color: white;
+  font-size: 37rpx;
+}
+
+.btn1 {
+  background-color: rgb(165, 161, 158);
+  color: white;
+  font-size: 37rpx;
+}
+
+.overflow0 {
+  box-shadow: 0px 2px 5px 5px rgb(235, 121, 27);
+}
+
+.overflow1 {
+  box-shadow: 0px 2px 5px 5px rgb(184, 172, 162);
+}
+
+.literal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.sl {
+  margin-top: 10rpx;
+  margin-bottom: -60rpx;
+  color: #5c3a22;
+  font-size: 100rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.content__right {
+  color: #523f32;
+}
+
+.user-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-status {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-weight: 700;
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+}
+
+.user-status .iconfont {
+  margin-left: 12rpx;
+}
+
+.mine-tool {
+  display: flex;
+  background: #fff;
+  height: 90px;
+  align-items: center;
+}
+
+.mine-tool-item {
+  flex: 1;
+  text-align: center;
+}
+
+.mine-tool-item .value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  color: #000;
+}
+
+.value-icon {
+  margin-left: 10rpx;
+}
+
+.mine-tool-item .title {
+  font-size: 24rpx;
+}
+
+.div-line {
+  height: 20rpx;
+  background-color: rgba(175, 172, 172, 0.185);
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
+}
+
+.order_header {
+  height: 74rpx;
+  line-height: 74rpx;
+  padding: 0 60rpx;
+  text-align: center;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: #fed9c2;
+}
+
+.sub-left {
+  flex: 1;
+  margin-right: 10rpx;
+}
+
+.sub-center {
+  flex: 2;
+}
+
+.sub-right {
+  flex: 1;
+  margin-left: 10rpx;
+}
+
+.order_content {
+  padding: 20rpx 60rpx;
+  height: 150rpx;
+  display: flex;
+  position: relative;
+}
+
+.order_img image {
+  width: 230rpx;
+  height: 150rpx;
+}
+
+.order_img_detail {
+  margin-left: 24rpx;
+  font-size: 26rpx;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.order_img_name {
+  margin: 10rpx 0;
+  font-size: 32rpx;
+}
+
+.price {
+  margin: 20rpx 0;
+  font-weight: normal;
+}
+
+.btn2 {
+  display: inline-block;
+  background-color: #de3120;
+  border-radius: 40rpx;
+  line-height: 30rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: bold;
+  vertical-align: middle;
+  position: absolute;
+  right: 30rpx;
+  bottom: 26rpx;
+}

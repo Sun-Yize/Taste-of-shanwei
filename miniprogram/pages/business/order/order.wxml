@@ -1,0 +1,243 @@
+<!-- 顶部状态选择 -->
+<view class='button_container'>
+  <block wx:for="{{buttons}}" wx:key="buttons">
+    <button class='{{item.checked?"checked_button":"normal_button"}}' data-id='{{item.id}}' bindtap='radioButtonTap'>{{item.name}}</button>
+  </block>
+</view>
+
+
+
+<!-- 订单页面 -->
+<view class="order-contain">
+  <block wx:for="{{orderList1}}" wx:key="orderListId" wx:if="{{show1}}">
+    <view class="weui-form-preview" style="border:1px solid gray;margin:30rpx;border-radius:2%">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__label" style="color:#39f;text-align:center;height:60rpx;line-height:60rpx">{{item.date}}下单</view>
+        <view class="weui-form-preview__value_in-hd">{{item.cook==false?"待接单":(item.condition==3?"配送中":(item.condition==4?"已送达":"已接单"))}}</view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">用户</view>
+          <view class="weui-form-preview__value">{{item.user_name}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">电话</view>
+          <view class="weui-form-preview__value">{{item.phone}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">配送地址</view>
+          <view class="weui-form-preview__value">{{item.destination}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">下单时间</view>
+          <view class="weui-form-preview__value">{{item.date}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label" style="color:#990033;font-weight:bold">订单详情</view>
+          <view class="foodList">
+            <block wx:for="{{item.order}}" wx:for-item="orderInfoList" wx:key="index">
+              <view class="food-item">
+                <view class="food-lable">{{orderInfoList.name}}</view>
+                <view class="food-value">x{{orderInfoList.number}}</view>
+              </view>
+            </block>
+
+          </view>
+
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">订单金额</view>
+          <view class="weui-form-preview__value" style="color:#000;">共{{item.billmoney}}元</view>
+        </view>
+      </view>
+
+
+      <view class="weui-form-preview__ft">
+        <navigator url="../orderDetail/orderDetail" id="{{item._id}}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="receiveOrder" style="font-weight:bolder;color:#333366">接单</navigator>
+        <navigator id="{{item._id}}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="makeCall" style="font-weight:bolder;color:#669999">打电话</navigator>
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" style="font-weight:bolder;color:#996600">打印订单</navigator>
+      </view>
+    </view>
+    <!-- <view>1</view> -->
+  </block>
+  <block wx:for="{{orderList2}}" wx:key="orderListId" wx:if="{{show2}}">
+    <view class="weui-form-preview" style="border:1px solid gray;margin:30rpx;border-radius:2%">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__label" style="color:#39f;text-align:center;height:60rpx;line-height:60rpx">{{item.date}}下单</view>
+        <view class="weui-form-preview__value_in-hd">{{item.cook==false?"待接单":(item.condition==3?"配送中":(item.condition==4?"已送达":"已接单"))}}</view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">用户</view>
+          <view class="weui-form-preview__value">{{item.user_name}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">电话</view>
+          <view class="weui-form-preview__value">{{item.phone}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">配送地址</view>
+          <view class="weui-form-preview__value">{{item.destination}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">下单时间</view>
+          <view class="weui-form-preview__value">{{item.date}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label" style="color:#990033;font-weight:bold">订单详情</view>
+          <view class="foodList">
+            <block wx:for="{{item.order}}" wx:for-item="orderInfoList" wx:key="index">
+              <view class="food-item">
+                <view class="food-lable">{{orderInfoList.name}}</view>
+                <view class="food-value">x{{orderInfoList.number}} </view>
+              </view>
+            </block>
+
+          </view>
+
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">订单金额</view>
+          <view class="weui-form-preview__value" style="color:#000;">共{{item.billmoney}}元</view>
+        </view>
+      </view>
+
+
+      <view class="weui-form-preview__ft">
+
+        <navigator id="{{item._id}}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="makeCall" style="font-weight:bolder;color:#669999">打电话</navigator>
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" style="font-weight:bolder;color:#996600">打印订单</navigator>
+      </view>
+    </view>
+    <!-- <view>1</view> -->
+  </block>
+  <block wx:for="{{orderList3}}" wx:key="orderListId" wx:if="{{show3}}">
+    <view class="weui-form-preview" style="border:1px solid gray;margin:30rpx;border-radius:2%">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__label" style="color:#39f;text-align:center;height:60rpx;line-height:60rpx">{{item.date}}下单</view>
+        <view class="weui-form-preview__value_in-hd">{{item.cook==false?"待接单":(item.condition==3?"配送中":(item.condition==4?"已送达":"已接单"))}}</view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">用户</view>
+          <view class="weui-form-preview__value">{{item.user_name}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">电话</view>
+          <view class="weui-form-preview__value">{{item.phone}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">配送地址</view>
+          <view class="weui-form-preview__value">{{item.destination}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">下单时间</view>
+          <view class="weui-form-preview__value">{{item.date}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label" style="color:#990033;font-weight:bold">订单详情</view>
+          <view class="foodList">
+            <block wx:for="{{item.order}}" wx:for-item="orderInfoList" wx:key="index">
+              <view class="food-item">
+                <view class="food-lable">{{orderInfoList.name}}</view>
+                <view class="food-value">x{{orderInfoList.number}}</view>
+              </view>
+            </block>
+
+          </view>
+
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">订单金额</view>
+          <view class="weui-form-preview__value" style="color:#000;">共{{item.billmoney}}元</view>
+        </view>
+      </view>
+
+
+      <view class="weui-form-preview__ft">
+
+        <navigator id="{{item._id}}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="makeCall" style="font-weight:bolder;color:#669999">打电话</navigator>
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" style="font-weight:bolder;color:#996600">打印订单</navigator>
+      </view>
+    </view>
+    <!-- <view>1</view> -->
+  </block>
+  <block wx:for="{{orderList4}}" wx:key="orderListId" wx:if="{{show4}}">
+    <view class="weui-form-preview" style="border:1px solid gray;margin:30rpx;border-radius:2%">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__label" style="color:#39f;text-align:center;height:60rpx;line-height:60rpx">{{item.date}}下单</view>
+        <view class="weui-form-preview__value_in-hd">{{item.cook==false?"待接单":(item.condition==3?"配送中":(item.condition==4?"已送达":"已接单"))}}</view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">用户</view>
+          <view class="weui-form-preview__value">{{item.user_name}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">电话</view>
+          <view class="weui-form-preview__value">{{item.phone}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">配送地址</view>
+          <view class="weui-form-preview__value">{{item.destination}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">下单时间</view>
+          <view class="weui-form-preview__value">{{item.date}}</view>
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label" style="color:#990033;font-weight:bold">订单详情</view>
+          <view class="foodList">
+            <block wx:for="{{item.order}}" wx:for-item="orderInfoList" wx:key="index">
+              <view class="food-item">
+                <view class="food-lable">{{orderInfoList.name}}</view>
+                <view class="food-value">x{{orderInfoList.number}}</view>
+              </view>
+            </block>
+
+          </view>
+
+        </view>
+        <view class="weui-form-preview__item">
+          <view class="weui-form-preview__label">订单金额</view>
+          <view class="weui-form-preview__value" style="color:#000;">共{{item.billmoney}}元</view>
+        </view>
+      </view>
+
+
+      <view class="weui-form-preview__ft">
+
+        <navigator id="{{item._id}}" class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="makeCall" style="font-weight:bolder;color:#669999">打电话</navigator>
+        <navigator class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" style="font-weight:bolder;color:#996600">打印订单</navigator>
+      </view>
+    </view>
+    <!-- <view>1</view> -->
+  </block>
+</view>
+
+<view style="height:10%;margin-top:20rpx;"></view>
+
+<view class="tabbar">
+  <navigator url="../index/index" class="swtnav" open-type="redirect" hover-class="none">
+  <view class="switch">
+    <image src="../../../image/canting_icon.png" style="width:50rpx;height:50rpx"></image>
+    <text class="tabbarText">菜品管理</text> 
+  </view>
+  </navigator>
+    <view class="switch">
+      <image src="../../../image/2.png" style="width:50rpx;height:50rpx;padding-top:12rpx"></image>
+      <text class="tabbarText">订单</text> 
+    </view>
+  <navigator url="../evaluate/evaluate" class="swtnav" open-type="redirect" hover-class="none">
+    <view class="switch">
+      <image src="../../../image/huodong_icon.png" style="width:50rpx;height:50rpx"></image>
+      <text class="tabbarText">评价</text> 
+    </view>
+  </navigator>
+  <navigator url="../mine/mine" class="swtnav" open-type="redirect" hover-class="none">
+    <view class="switch">
+      <image src="../../../image/mine_icon.png" style="width:50rpx;height:50rpx;padding-top:12rpx"></image>
+      <text class="tabbarText">我的</text> 
+    </view>
+  </navigator>
+</view>

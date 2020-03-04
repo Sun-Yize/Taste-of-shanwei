@@ -1,0 +1,25 @@
+<view class="container">
+  <image class="bg" src='../images/windex_bg.png'></image>
+  <view class="viewStyle" style="flex: 5">
+    <view style="font-size: 25px; padding-bottom: 20px;">
+      快来成为校园骑手吧！</view>
+
+    <view style="margin-left: 65px;">
+      <view style="display: flex; margin-bottom: 10px;" bindtap="updateStatu" data-value='yes'>
+        <view>
+          <image src='../images/check.png' wx:if="{{!info[0].checked}}" class="icon"></image>
+        </view>
+        <view style="margin-left:8px;">OK!生活费不够，副业来凑！</view>
+      </view>
+
+      <view style="display: flex;" bindtap="updateStatu" data-value='no'>
+        <view>
+          <image src='../images/check.png' wx:if="{{!info[1].checked}}" class="icon"></image>
+        </view>
+        <view style="margin-left:8px;">不了，我只想做个安静的吃货</view>
+      </view>
+
+    </view>
+  </view>
+  <view style="flex: 6; width: 444rpx; height: 330rpx;"></view>
+</view>

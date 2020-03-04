@@ -1,0 +1,44 @@
+<view class="header" >
+<view class="literal">
+    <image style="height:60rpx;width:60rpx" src="../../image/航空航天.png"></image>
+    <view style="font-size: 40rpx;font-weight:bold;color:black;">我的历史评价查看</view><!--{{{{userInfo.nickName}}}}-->
+    
+  </view>
+</view>
+
+
+<!-- 分界线 显示公告栏 -->
+<view class="div-line" ></view>
+
+ 
+  <view class="address-box">
+       
+        <view class="address-manage" >
+             <image style="height:60rpx;width:60rpx" src="../../image/航空航天.png"></image>
+             <text style="color: rgba(22, 9, 9, 0.733)">欢迎多多评价！可以帮助改进食堂口味噢~</text>             
+        </view>
+  </view>
+  <!-- 分界线  -->
+<view class="div-line" ></view>
+
+<!--显示历史评价-->
+<scroll-view class="right" scroll-y="true">
+<view class="item" wx:for="{{items}}" wx:key="index"><!--这里的wx:for设置为数据库订单集合名称-->
+ <van-card
+  num="1"
+  tag="评价之星"
+  price="{{item.billmoney}}"
+  desc="评论内容：{{item.evaluatedetail}}"
+  title="菜名：{{item.dish}}"
+  thumb="{{userInfo.avatarUrl}}"
+>
+  <view slot="footer">
+    
+    <van-button size="mini">按钮 跳转至订单详情页</van-button>
+  </view>
+</van-card>
+</view>   
+
+
+
+</scroll-view>

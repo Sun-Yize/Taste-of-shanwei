@@ -1,0 +1,92 @@
+{
+  "pages": [
+    "pages/start/firstlogin/firstlogin",   
+    "pages/start/secondlogin/secondlogin",
+    "pages/start/taste/taste",
+    
+    "pages/home/store/store",
+    "pages/home/allorder/allorder",
+    "pages/home/eva/eva",
+    "pages/home/search/search",
+    "pages/home/index/index",
+    "pages/home/pay/pay",
+    "pages/home/deliver/deliver",  
+    "pages/home/dininghall/huiyuan/dininghall-floor",
+    "pages/home/dininghall/xinyuan/dininghall-floor",
+    "pages/home/dininghall/taiyuan/dininghall-floor",
+    "pages/home/dininghall/queyuan/dininghall-floor",
+    "pages/home/user/address/address",
+    "pages/home/user/shoucang/shoucang",
+    "pages/home/user/main/user",
+    "pages/home/user/comments/comments",
+    "pages/home/user/paihang/paihang",
+    "pages/home/user/tickets/tickets",
+    "pages/home/user/settings/myData",
+    "pages/home/user/going-order/going-order",
+    "pages/home/user/aboutus/aboutus",
+    "pages/home/user/news/news",
+   
+    "pages/rider/windex/windex",
+    "pages/rider/w-01/w-01",
+    "pages/rider/myData/myData",
+    "pages/rider/setting/setting",
+    "pages/rider/ticketRule/ticketRule",
+    "pages/rider/mineChildren/exchange/exchange",
+    "pages/rider/mineChildren/billDetail/billDetail",
+    "pages/rider/mineChildren/myWallet/myWallet",
+    "pages/rider/mineChildren/credit/credit",
+    "pages/rider/mineChildren/drawMoney/drawMoney",
+    "pages/rider/mineChildren/orders/orders",
+    "pages/rider/mineChildren/myEvaluate/myEvaluate",
+    "pages/rider/mineChildren/myrank/myrank",
+    
+    "pages/business/mine/mine",
+    "pages/business/evaluate/evaluate",
+    "pages/business/order/order",
+    "pages/business/adddish/adddish",
+    "pages/business/changedish/changedish",
+    "pages/business/index/index",
+    "pages/business/setname/setname",
+    "pages/business/setnotice/setnotice"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3399FF",
+    "navigationBarTitleText": "吃遍山威",
+    "navigationBarTextStyle": "white"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#3399FF",
+    "list": [
+      {
+        "pagePath": "pages/home/index/index",
+        "iconPath": "pages/home/image/12.png",
+        "selectedIconPath": "pages/home/image/11.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/rider/windex/windex",
+        "iconPath": "pages/home/image/22.png",
+        "selectedIconPath": "pages/home/image/21.png",
+        "text": "变身"
+      },
+      {
+        "pagePath": "pages/home/allorder/allorder",
+        "iconPath": "pages/home/image/32.png",
+        "selectedIconPath": "pages/home/image/31.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/home/user/main/user",
+        "iconPath": "pages/home/image/42.png",
+        "selectedIconPath": "pages/home/image/41.png",
+        "text": "我的"
+      }
+    ]
+
+    
+  }
+}

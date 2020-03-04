@@ -1,0 +1,21 @@
+<view class="container">
+<image src="../../images/01.jpg" class="head-image"/>
+  <view class="header">   
+      <view class="header-left">
+        <text class="">总收入(元)</text>
+        <view class="header-left__num">{{cash}}</view>  
+      </view>
+  </view>
+  <view class="middle van-hairline--bottom">
+    <text>我的余额(元)</text>     
+    <view class="middle-content">
+      <view class="middle-content__left">
+        <text class="middle-left__num dis">39.40</text>
+
+    <!-- 余额=总收入-骑手作为用户的消费 {{cash.cashBalance}}  -->
+        <van-icon custom-class="value-icon" name="arrow" size="24rpx"></van-icon>
+      </view>
+      <van-button type="default" bindtap="ondrawMoney">去提现</van-button>
+    </view>
+  </view>
+</view>

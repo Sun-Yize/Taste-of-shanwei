@@ -1,0 +1,11 @@
+<view class="top">
+  <image src="{{order.image}}" mode="aspectFit"></image>
+  <view class="mes">
+    <text style="height:40px;font-size:20px;">商家名称:\t {{order.resname}}\n</text>
+    <view class="divLine" style="margin-top:10px"></view>
+    <text style="font-size:15px;color:#757575;">下单时间：{{order.date}}\n</text>
+    <text style="font-size:15px;color:#757575;">总价：￥{{order.billmoney}}</text>
+  </view>
+</view>
+
+<van-steps steps="{{ steps }}" active="{{ active }}" direction="vertical" active-color="#ee0a24" />

@@ -1,0 +1,34 @@
+<!--pages/multiple/multiple.wxml-->
+<view class="taste">
+
+<view class='the-label'>
+
+  <view class="th">
+    <view class="ti">HI!{{nickname}} </view>
+    <view class="welcome">欢迎来到吃遍山威！</view> 
+    <view class="tt">（请根据您的口味，选择下方标签，最多选择5个哦） </view> 
+  </view>
+
+  <view class="divLine" style="margin-top:30rpx"></view>
+
+  <view class='list'>
+    <block wx:for="{{items}}" wx:for-item="v" wx:key="k" wx:for-index="index">
+      <view class="li {{v.checked?'cur':''}}" data-index="{{index}}" data-value="{{v.value}}" bindtap="checkLabs">
+        <label class='ti'>{{v.value}}</label>
+      </view>
+    </block>
+  </view>
+</view>  
+
+<view class="divLine"></view>
+<!-- 这里用来存储选中的标签的值 {{arr}}-->
+<view class='seled'>
+  <view class='tt'>你当前选中的是：</view>
+  <label class='sel-v'>{{arr}}</label>
+</view>
+
+<view class="divLine" style="margin-top:30rpx"></view>
+
+
+<button bindtap="goindex" class="btn">我选好了</button>
+</view>

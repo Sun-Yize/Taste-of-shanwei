@@ -1,0 +1,37 @@
+
+.all {
+  /* background-color: blue; */
+  border: 2rpx;
+  height: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.all image {
+  margin: 10rpx;
+  height: 250rpx;
+  width: 250rpx;
+  border: 1px solid rgba(0, 0, 0, 0.281);
+}
+
+.text {
+  /* background-color: grey; */
+  height: 5%;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload {
+  background-color: #39f;
+  color: white;
+  margin-top: 20rpx;
+}
+
+.title {
+  padding-top: 20rpx;
+  font-weight: bold;
+  padding-bottom: 15rpx;
+}

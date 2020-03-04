@@ -1,0 +1,19 @@
+<view class="all">
+  <image bindtap="gotoShow" src="{{src}}" mode="aspectFit">上传照片</image>
+</view>
+
+<view class="text" wx:if="{{!getimage}}">
+  点击上传图片
+</view>
+
+<view>
+  <view class="title">商品名称:</view>
+  <input id="up_input" name="price" placeholder="请输入商品名称" bindinput="name" />
+  <view class="title">商品价格:</view>
+  <input id="up_input" name="tag" placeholder="请输入商品价格" type="number" bindinput="price" />
+  <view class="title">商品标签:</view>
+  <input id="up_input" name="num" placeholder="请输入商品标签" bindinput="tag" />
+  <view class="title">商品介绍:</view>
+  <input id="up_input" name="title" placeholder="请输入商品介绍" bindinput="introduce" />
+  <button class="upload" bindtap="upData">添加菜品</button>
+</view>

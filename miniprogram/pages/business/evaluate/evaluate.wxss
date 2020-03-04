@@ -1,0 +1,101 @@
+/* pages/evaluate/evaluate.wxss */
+.tabbar{
+  background-color: rgb(251, 249, 254);
+  position: fixed;
+  bottom: 0;
+  border-top: 1rpx solid gainsboro;
+  /* background-color: red; */
+  height: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.swtnav{
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rpx;
+}
+.switch{
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 10rpx;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabbarText{
+  font-size: 27rpx;
+}
+
+.one{
+  display: flex;
+  flex-direction: column;
+  height: 375rpx;
+  /* background-color: blue; */
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  border-radius: 5%;
+  margin-top:30rpx;
+  overflow: hidden;
+  border-color: #cccccc;
+  border-style:solid;
+  border-width:1rpx;
+}
+.top{
+  display: flex;
+  flex:1;
+  /* background-color:red; */
+  color: #FF9966;
+  font-size: 36rpx;
+  font-weight: bolder;
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+  
+}
+.middle{
+  display: flex;
+  flex:1;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.bottom{
+  display: flex;
+  flex:3;
+  margin-left: 30rpx;
+  /* background-color:yellow; */
+}
+
+image{
+  height: 60rpx;
+  width: 60rpx;
+  display: inline-block
+}
+.line{
+padding-top:3rpx;
+display: flex;
+margin-right: 10rpx;
+margin-left: 10rpx;
+/* align-items: center;
+text-align: center; */
+height: 2rpx;
+/* width: 90%; */
+background: #cccccc3b;
+}
+.line_two{
+margin-bottom: 60rpx;
+padding-top:3rpx;
+display: flex;
+margin-right: 10rpx;
+margin-left: 10rpx;
+/* align-items: center;
+text-align: center; */
+height: 2rpx;
+/* width: 90%; */
+background: #cccccc3b;
+}
+.text{
+  margin-left: 20rpx;
+}

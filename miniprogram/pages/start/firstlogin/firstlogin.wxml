@@ -1,0 +1,11 @@
+
+ <view class="container">
+ <image src="../../home/image/login0.png" class="bg"></image>
+ 
+ <button  open-type="getUserInfo" 
+          bindgetuserinfo="getUserInfo" 
+          bindtap="gotaste"
+          type="primary"
+          class="log">微信一键登录</button>
+
+  </view>

@@ -1,0 +1,63 @@
+<view class="main">
+  <view class="search-box">
+    <input class="search-input" placeholder="搜索" value="{{value}}" bindinput="searchInput" />
+    <icon class="weui-icon-search_in-box search-icon" type="search" size="14"></icon>
+    <!-- <text class="search-btn" wx:if="{{showResult}}" bindtap="cancelSearch">取消</text> -->
+  </view>
+  <view class="result" wx:if="{{showResult}}">
+    <view class="result-box" wx:if="{{result.length > 0}}">
+      <view class="result-list" wx:for="{{result}}" wx:key="index">
+        <image src="{{item.image}}" class="image"></image>
+
+        <view class="item-right">
+          <view style="font-size:45rpx;font-weight:bold;margin:10rpx 0 0 0">{{item.restaurant}}-{{restaurant[result[index].place1][result[index].place2]}}</view>
+          <view style="font-size:22rpx;color:#ccc;margin:30rpx 0 30rpx 0;">{{condition[index]}}</view>
+          <button size="mini" bindtap="getIntoStore" data-item="{{item}}" class="btn">进入店铺</button>
+          <view style="font-size:28rpx;color:red;font-weight:bold;margin:30rpx 0 30rpx 0;">{{item.notice}}</view>
+        </view>
+
+
+      </view>
+    </view>
+    <view class="result-null" wx:else>
+      <view class="recommend-title">
+        <text>相关推荐</text>
+      </view>
+      <view class="recommend-box">
+        <view class="result-list" wx:for="{{result}}" wx:key="index">
+          <navigator url="{{item.url}}">
+            <image src="{{item.thumb}}"></image>
+            <view class="result-text">
+              <text>{{item.title}}</text>
+            </view>
+            <view class="result-text">
+              <text>￥ {{item.price}}</text>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="init-page" wx:else>
+    <view wx:if="{{history.length > 0}}">
+      <view class="title">
+        <text>搜索记录</text>
+      </view>
+      <view class="tags">
+        <text wx:for="{{history}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle">{{item}}</text>
+      </view>
+    </view>
+    <view class="title">
+      <text>美食推荐</text>
+    </view>
+    <view class="tags">
+      <text wx:for="{{hot}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle">{{item}}</text>
+    </view>
+  </view>
+
+  <view class="keywords" wx:if="{{showKeywords}}">
+    <view class="keywords-item" wx:for="{{keywords}}" wx:key="index" data-text="{{item}}" bindtap="keywordHandle">{{item}}</view>
+  </view>
+
+
+</view>
