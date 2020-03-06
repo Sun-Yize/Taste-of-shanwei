@@ -1,16 +1,15 @@
 {
   "pages": [
-    "pages/start/firstlogin/firstlogin",   
+    "pages/start/firstlogin/firstlogin",
     "pages/start/secondlogin/secondlogin",
     "pages/start/taste/taste",
-    
     "pages/home/store/store",
     "pages/home/allorder/allorder",
     "pages/home/eva/eva",
     "pages/home/search/search",
     "pages/home/index/index",
     "pages/home/pay/pay",
-    "pages/home/deliver/deliver",  
+    "pages/home/deliver/deliver",
     "pages/home/dininghall/huiyuan/dininghall-floor",
     "pages/home/dininghall/xinyuan/dininghall-floor",
     "pages/home/dininghall/taiyuan/dininghall-floor",
@@ -25,7 +24,6 @@
     "pages/home/user/going-order/going-order",
     "pages/home/user/aboutus/aboutus",
     "pages/home/user/news/news",
-   
     "pages/rider/windex/windex",
     "pages/rider/w-01/w-01",
     "pages/rider/myData/myData",
@@ -39,7 +37,6 @@
     "pages/rider/mineChildren/orders/orders",
     "pages/rider/mineChildren/myEvaluate/myEvaluate",
     "pages/rider/mineChildren/myrank/myrank",
-    
     "pages/business/mine/mine",
     "pages/business/evaluate/evaluate",
     "pages/business/order/order",
@@ -47,7 +44,10 @@
     "pages/business/changedish/changedish",
     "pages/business/index/index",
     "pages/business/setname/setname",
-    "pages/business/setnotice/setnotice"
+    "pages/business/setdelivery/setdelivery",
+    "pages/business/setnotice/setnotice",
+    "pages/business/setphone/setphone",
+    "pages/business/settag/settag"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -86,7 +86,5 @@
         "text": "我的"
       }
     ]
-
-    
   }
 }

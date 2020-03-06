@@ -4,6 +4,7 @@
       <view class="one">
         <view class="top">
           <text class="text">{{item.user_name}}</text>
+          <text style="margin-left:300rpx;color:black;font-size:26rpx">{{item.etime}}</text>
         </view>
         <view class="line"></view>
         <view class="middle">
