@@ -1,24 +1,22 @@
 <scroll-view>
   <block wx:for="{{items}}" wx:key="index">
-    
-      <view class="one">
-        <view class="top">
-          <text class="text">{{item.user_name}}</text>
-          <text style="margin-left:300rpx;color:black;font-size:26rpx">{{item.etime}}</text>
-        </view>
-        <view class="line"></view>
-        <view class="middle">
-          <block wx:for="{{item.evaluate}}" wx:key="index">
-            <image src='../../../image/star.png'></image>
-          </block>
-          <block wx:for="{{item.neva}}" wx:key="index">
-            <image src='../../../image/starg.png'></image>
-          </block>
-        </view>
-        <view class="line_two"></view>
-        <view class="bottom"> {{item.evaluatedetail}}</view>
+    <view class="one">
+      <view class="top">
+        <text class="text">{{item.user_name}}</text>
+        <text style="margin-left:200rpx;color:black;font-size:26rpx">评价时间：{{item.etime}}</text>
       </view>
-    
+      <view class="line"></view>
+      <view class="middle">
+        <block wx:for="{{item.evaluate}}" wx:key="index">
+          <image src='../../../image/star.png'></image>
+        </block>
+        <block wx:for="{{item.neva}}" wx:key="index">
+          <image src='../../../image/starg.png'></image>
+        </block>
+      </view>
+      <view class="line_two"></view>
+      <view class="bottom"> {{item.evaluatedetail}}</view>
+    </view>
   </block>
 </scroll-view>
 
@@ -26,25 +24,25 @@
 
 <view class="tabbar">
   <navigator url="../index/index" class="swtnav" open-type="redirect" hover-class="none">
-  <view class="switch">
-    <image src="../../../image/canting_icon.png" style="width:50rpx;height:50rpx"></image>
-    <text class="tabbarText">菜品管理</text> 
-  </view>
+    <view class="switch">
+      <image src="../../../image/canting_icon.png" style="width:50rpx;height:50rpx"></image>
+      <text class="tabbarText">菜品管理</text>
+    </view>
   </navigator>
   <navigator url="../order/order" class="swtnav" open-type="redirect" hover-class="none">
     <view class="switch">
       <image src="../../../image/dingdan_icon.png" style="width:50rpx;height:50rpx"></image>
-      <text class="tabbarText">订单</text> 
+      <text class="tabbarText">订单</text>
     </view>
   </navigator>
-    <view class="switch">
-      <image src="../../../image/1.png" style="width:50rpx;height:50rpx;padding-top:12rpx"></image>
-      <text class="tabbarText">评价</text> 
-    </view>
+  <view class="switch">
+    <image src="../../../image/1.png" style="width:50rpx;height:50rpx;padding-top:12rpx"></image>
+    <text class="tabbarText">评价</text>
+  </view>
   <navigator url="../mine/mine" class="swtnav" open-type="redirect" hover-class="none">
     <view class="switch">
       <image src="../../../image/mine_icon.png" style="width:50rpx;height:50rpx"></image>
-      <text class="tabbarText">我的</text> 
+      <text class="tabbarText">我的</text>
     </view>
   </navigator>
 </view>
