@@ -1,0 +1,33 @@
+<!--pages/business/settag/settag.wxml-->
+<!--pages/multiple/multiple.wxml-->
+<view class="taste">
+
+<view class='the-label'>
+<view class="weui-cells__title" style="font-weight:bolder;font-size:50rpx;color:black">
+  设置/修改店铺标签
+</view>
+
+  <view class="divLine" style="margin-top:30rpx"></view>
+
+  <view class='list'>
+    <block wx:for="{{items}}" wx:for-item="v" wx:key="k" wx:for-index="index">
+      <view class="li {{v.checked?'cur':''}}" data-index="{{index}}" data-value="{{v.value}}" bindtap="checkLabs">
+        <label class='ti'>{{v.value}}</label>
+      </view>
+    </block>
+  </view>
+</view>  
+
+<view class="divLine"></view>
+<!-- 这里用来存储选中的标签的值 {{arr}}-->
+<view class='seled'>
+  <view class='tt'>你当前选中的是：</view>
+  <label class='sel-v'>{{arr}}</label>
+</view>
+
+<view class="divLine" style="margin-top:30rpx"></view>
+
+
+<button bindtap="goindex" class="btn">我选好了</button>
+</view>
+

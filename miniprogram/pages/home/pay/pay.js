@@ -37,8 +37,7 @@ Page({
               })
               // console.log(obj)
             }
-          }
-           
+          }   
           console.log(this.data.showlist)
         }
       })

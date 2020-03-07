@@ -3,8 +3,8 @@
     <view class="classify {{classifySeleted==classify.id?'active':''}}" wx:for="{{goodsList}}" wx:for-item="classify" wx:key="id" data-id="{{classify.id}}" bindtap="tapClassify">
       <view class="name">{{classify.classifyName}}</view>
     </view>
-    <button class="icon" size="mini" bindtap="onbindtap">
-      <text>+</text>
+    <button class="icon" size="mini" style="top:60rpx;left:25rpx;width: 100rpx;height: 100rpx;background: #39f;border-radius: 50%;" bindtap="onbindtap">
+      <view style="diplay:flex; justify-content: center;align-items: center;font-size:50rpx;color: white;">+</view>
     </button>
   </scroll-view>
   

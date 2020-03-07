@@ -13,6 +13,7 @@ exports.main = async (event, context) => {
       data: {
         evaluatedetail: event.evaluatedetail,
         evaluate: event.evaluate,
+        etime: event.etime,
       }
     })
 }
