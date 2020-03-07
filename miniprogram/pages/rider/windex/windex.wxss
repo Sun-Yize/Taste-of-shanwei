@@ -30,6 +30,12 @@ page{
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 2
+  z-index: -999
+}
+
+.isRider{
+  position: relative;
+  margin-top: 320rpx;
+  margin-left: 150rpx;
 }
 

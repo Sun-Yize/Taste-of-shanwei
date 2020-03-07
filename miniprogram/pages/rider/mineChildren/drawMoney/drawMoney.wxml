@@ -1,4 +1,4 @@
-<view class="container">
+<view >
   <view class="">
     <van-cell title="提款金额" value="" />
     <van-field
@@ -7,7 +7,7 @@
     label="¥"
     bind:change="onDrawBalanceChange"
   />
-    <van-cell title="账户可提现余额{{cashBalance}}" >
+    <van-cell title="账户可提现余额¥{{cash_left}}" >
       <view class="slot-content">
         <text bindtap="onallDrawBalance">全部提现</text>
       </view>
@@ -16,6 +16,14 @@
   <view class="header">
     <van-cell title="提款到" value="" />
     <van-cell title="微信" bindtap="">
+      <view slot="icon">
+        <text class="iconfont icon-card icon-dis"></text>
+      </view>
+      <view>
+        <van-icon name="passed" color="red"/>
+      </view>
+    </van-cell>
+     <van-cell title="校园卡" bindtap="">
       <view slot="icon">
         <text class="iconfont icon-card icon-dis"></text>
       </view>

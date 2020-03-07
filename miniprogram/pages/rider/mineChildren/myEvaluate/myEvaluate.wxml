@@ -2,10 +2,10 @@
   <view class="top">
     <view class="center">
       <view class="center_top">
-        <view class="center_img" bindtap="toBaseInfo">
+        <view class="center_img">
           <open-data type="userAvatarUrl" class="user_head"></open-data>
         </view>
-        <view class="center_info" bindtap="toBaseInfo">
+        <view class="center_info">
           <view class="center_name">{{userInfo.nickName}}</view>
         </view>
       </view>
@@ -22,13 +22,13 @@
     </view>
   </view>
   <view class="middle">
-     <scroll-view  class="navbar-box">
-    <block wx:for="{{kind}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
-      <view class="nav-item  " data-current="{{idx}}" bindtap="switchNav">
-        <text class="{{currentTab == idx ? 'active' : ''}}">{{navItem.title}}</text>
-      </view>
-    </block>
-  </scroll-view>
+    <scroll-view  class="navbar-box">
+      <block wx:for="{{kind}}" wx:for-index="idx" wx:for-item="navItem" wx:key="idx">
+        <view class="nav-item  " data-current="{{idx}}" bindtap="switchNav">
+          <text class="{{currentTab == idx ? 'active' : ''}}">{{navItem.title}}</text>
+        </view>
+      </block>
+    </scroll-view>
   </view>
   <view class="bottom">
     <swiper style="margin-top:80rpx;" class="tab-box" 

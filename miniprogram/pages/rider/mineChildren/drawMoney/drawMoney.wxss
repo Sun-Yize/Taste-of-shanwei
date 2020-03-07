@@ -19,7 +19,7 @@
 .btn{
   position: absolute;
   width: 710rpx;
-  bottom: 50px
+  bottom: 120px
 }
 
 .container .van-button--large{

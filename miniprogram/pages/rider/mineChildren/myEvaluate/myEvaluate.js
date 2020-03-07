@@ -44,7 +44,7 @@ Page({
       })
       .get({
         success: (res) => {
-          console.log("待送达订单：", res.data)
+          console.log("中差评订单：", res.data)
           this.setData({
             bad: res.data,
           })
@@ -58,7 +58,7 @@ Page({
     wx.getSystemInfo({
       success: res => {
         console.log(res)
-        clientHeight = res.windowHeight
+        clientHeight = res.windowHeight-180
       }
     })
     this.setData({

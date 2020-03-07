@@ -48,6 +48,7 @@ Page({
     db.collection('order')
       .where({
         rid_id: wx.getStorageSync('user_id'),
+        condition:4,
         date: db.RegExp({
           regexp: this.data.todaydate
         })
@@ -70,7 +71,8 @@ Page({
     var ordersContent2 = []
     db.collection('order')
     .where({
-      rid_id: wx.getStorageSync('user_id')                 //全部已完成订单
+      rid_id: wx.getStorageSync('user_id'),                 //全部已完成订单
+      condition: 4
     })            
       .get({
         success: (res) => {
@@ -106,41 +108,7 @@ Page({
     var that = this;
     that.setData({
       currentTab: e.detail.current
-    });
-  },
-
-  btnTap1: function (e) {
-    const item = e.currentTarget.dataset.item._id
-    // console.log(app.globalData.myorders)
-    wx.showModal({
-      title: '提示',
-      content: '亲，你确定取货吗？',
-      success: res => {
-        if (res.confirm) {
-          wx.showToast({
-            title: '取货成功！',
-            icon: 'success',
-            duration: 1500
-          })
-        }
-      }
-    })
-  },
-  btnTap2: function (e) {
-    const item = e.currentTarget.dataset.item._id
-    // console.log(app.globalData.myorders)
-    wx.showModal({
-      title: '提示',
-      content: '亲，你确定已送达吗？',
-      success: res => {
-        if (res.confirm) {
-          wx.showToast({
-            title: '订单已送达！',
-            icon: 'success',
-            duration: 1500
-          })
-        }
-      }
     })
   }
+
 })

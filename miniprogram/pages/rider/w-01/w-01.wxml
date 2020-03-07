@@ -3,14 +3,12 @@
     <image class="avatar overflow{{tapIndex}}" src="{{userInfo.avatarUrl}}"></image>
   </view>
   <view class="literal">
-    <view style="font-size: 35rpx;color:#5c3a22;">{{userInfo.nickName}}</view>
+    <view style="font-size: 35rpx;font-weight:480;color:#5c3a22;">{{userInfo.nickName}}</view>
   </view>
     <view class="sl">
-      <text wx:if="true">{{getting}}</text>    
-      <!-- 后端导入本月接单量 -->
+      <view class="sl1"><text wx:if="true">{{getting}}</text></view>    
+      <view class="sl2"><text style="color:#5c3a22;font-size: 30rpx;font-weight:550;">本月接单量</text></view>
     </view>
-    <text style="color:#5c3a22;font-size: 30rpx;font-weight:550;">
-    本月接单量</text> 
 </view>
 
 <!-- 右上角 -->
@@ -100,23 +98,23 @@
 <view class="tabbar">
   <view class="swtnav" bindtap="homeNav"> 
     <view class="switch">
-      <image src="../../home/image/12.png" style="width:60rpx;height:60rpx"></image>
+      <image src="../../home/image/12.png" style="width:50rpx;height:50rpx"></image>
       <text class="tabbarText">主页</text> 
     </view>
   </view>
     <view class="switch">
-      <image src="../../home/image/21.png" style="width:60rpx;height:60rpx"></image>
+      <image src="../../home/image/21.png" style="width:50rpx;height:50rpx"></image>
       <text class="tabbarText" style="color:#33AFFF">变身</text> 
     </view>
   <view class="swtnav" bindtap="orderNav"> 
     <view class="switch">
-      <image src="../../home/image/32.png" style="width:60rpx;height:60rpx"></image>
+      <image src="../../home/image/32.png" style="width:50rpx;height:50rpx"></image>
       <text class="tabbarText">订单</text> 
     </view>
   </view>
   <view class="swtnav" bindtap="mineNav"> 
     <view class="switch">
-      <image src="../../home/image/42.png" style="width:60rpx;height:60rpx;"></image>
+      <image src="../../home/image/42.png" style="width:50rpx;height:50rpx;"></image>
       <text class="tabbarText">我的</text> 
     </view>
   </view>

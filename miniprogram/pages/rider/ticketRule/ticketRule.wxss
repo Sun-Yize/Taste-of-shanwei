@@ -1,12 +1,7 @@
-.container{
-  background-color: #ffffff
-}
-
 .header{
   display: flex;
   flex-wrap: wrap;
   padding: 20px 20rpx;
-  background-color: #ffffff
 }
 
 .header-item{

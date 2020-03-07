@@ -3,6 +3,9 @@ const db = wx.cloud.database();
 const _ = db.command
 Page({
   data: {
+    checked: false,
+    isRider:false,
+    info: [{ value: 'yes', checked: false }, { value: 'no', checked: false }]
   },
 
   onShow: function(){
@@ -14,12 +17,20 @@ Page({
         //未有记录，则增加初始空白记录
         if (res.data == 0) {
           console.log("未有该骑手openid记录")
+          this.setData({
+            isRider:false
+          })
         }
         //已有此openid记录，则查询记录
         else {
-          wx.redirectTo({
-            url: '../w-01/w-01',
+          this.setData({
+            isRider: true
           })
+          setTimeout(function () {
+            wx.redirectTo({
+              url: '../w-01/w-01',
+            })
+          }, 3000);
         }
       })
   },
@@ -27,7 +38,10 @@ Page({
   updateStatu: function (e) {
     console.log(e.currentTarget.dataset.value);
     const value = e.currentTarget.dataset.value;
+    let info = this.data.info
     if (value === 'yes') {
+      info[0].checked = true
+      this.setData({ info: info })
       db.collection('user_self').where({
         _id: wx.getStorageSync('user_id')
       }).get({
@@ -39,6 +53,7 @@ Page({
               mycredit: 100,
               bill: 0,
               getting: 0,
+              drawmoney:[],   //提款过的金额
               mytickets: {
                 ticket1:0,
                 ticket2:0,
@@ -60,15 +75,14 @@ Page({
       
       
     } else if (value === 'no') {
+      info[1].checked = true
+      this.setData({ info: info })
       wx.showModal({
         // title: '提示',
         content: '不，你不想',
-        success: function (res) {
-          if (res.confirm) {
-            wx.navigateTo({
-              url: 'pages/rider/windex/windex',     //返回首页
-            })
-          } 
+        success: res => {
+          info[1].checked = false
+          this.setData({ info: info })
         }
       })
     }

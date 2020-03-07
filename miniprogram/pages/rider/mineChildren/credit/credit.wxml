@@ -1,29 +1,33 @@
-<view class="container">
-  <view class="header">
-    <view class="header-left">
-      <view class="header-left__num">{{mycredit}}</view>
-      <text class="">当前信用分</text>
+<view class="header">
+  <view class="header-center">
+    <view style="margin-bottom:-10rpx;">
+      <text style="font-size:100rpx;">{{mycredit}}</text>
+    </view>
+    <view>
+      <text>当前信用分</text>
     </view>
   </view>
-  <view class="footer">
-    <van-cell title="信用分兑换" center is-link bindtap="exchange"></van-cell>
-    <view class="sub_order_header no_pay">
-       <view>
-          <text>最新记录</text>
-       </view>
-    </view>   
-    <block wx:for="{{finishorders}}" wx:key="key" >
-      <view class="footer-item van-hairline--top-bottom" >
-        <view>
-          <view class="item-top font-32-c">
-            <view class="item-top-left van-ellipsis">{{item.detail}}</view>
-            <view class="item-top-right">{{item.score}}</view>
-          </view>
-          <view class="item-top font-24-9">
-            <view class="item-bottom-left van-ellipsis">用户:{{item.customer}}</view>
-          </view>
+</view>
+<view class="footer">
+  <van-cell title="信用分兑换" center is-link bindtap="exchange"></van-cell>
+  <view class="record">
+      <view>
+        <text style="font-size:36rpx">最新记录</text>
+      </view>
+  </view>   
+  <block wx:for="{{historyorders}}" wx:key="key" >
+    <view class="footer-item van-hairline--top-bottom" >
+      <view>
+        <view class="item-top font-32-c">
+          <view wx:if="{{item.detail}}" class="item-top-left van-ellipsis">按时送达</view>
+          <view wx:else class="item-top-left van-ellipsis">超时送达</view>
+          <view wx:if="{{item.detail}}" class="item-top-right">+5</view>
+          <view wx:else class="item-top-right">-5</view>
+        </view>
+        <view class="item-top font-24-9">
+          <view class="item-bottom-left van-ellipsis">下单用户:{{item.user_name}}</view>
         </view>
       </view>
-    </block>
-  </view>
+    </view>
+  </block>
 </view>

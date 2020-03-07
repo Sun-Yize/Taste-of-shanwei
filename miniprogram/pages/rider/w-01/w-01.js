@@ -62,7 +62,7 @@ Page({
   },
 
   onReachBottom:function(){        //触底加载
-    // this.page += 1
+    this.page += 1
     this.getList(true)
   },
 
@@ -82,7 +82,7 @@ Page({
       .skip(this.page * PAGE).limit(PAGE).get({
         success: res => {
           this.setData({
-            orderlists: res.data
+            orderlists: this.data.orderlists.concat(res.data)
           })
           console.log(this.data)
           wx.hideLoading()
@@ -266,7 +266,7 @@ Page({
               console.log(res)
               _this.onShow(true)
               wx.showToast({
-                title: '您已接单！请在“正在进行”中查看',
+                title: '接单成功！请在“正在进行”中查看',
                 icon: 'none',
                 duration: 1500
               })

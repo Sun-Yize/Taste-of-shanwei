@@ -4,54 +4,23 @@ Page {
 
 .header{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 70rpx;
+  padding-bottom: 40rpx;
   width: 100%;
-  padding: 20px 20rpx;
   background-color:#23EBB9;
   color: #ffffff;
-  height: 190rpx;
 }
 
-.header-left{
-  width: 710rpx;
-  text-align: center;
-}
-
-.header-left__num{
-  font-size: 90rpx;
-  margin-top: 15px
-}
-
-.middle-left__num{
-  font-size: 50rpx;
-}
-
-.middle{
-  width: 710rpx;
-  padding: 20px 20rpx;
-  background-color: #ffffff;
-}
-
-.middle-content , .middle-content__left{
+.header-center{
   display: flex;
-  align-items: center
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.middle-content{
-  justify-content: space-between
-}
-
-.middle-content .van-button{
-  height: 40px;
-  line-height: 38px
-}
-
-.dis{
-  margin-right: 10rpx
-}
-
-
-
-.sub_order_header {
+.record{
   height: 74rpx;
   line-height: 74rpx;
   padding: 0 60rpx;
@@ -60,14 +29,7 @@ Page {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.no_pay {
   background-color: #fed9c2;
-}
-
-.footer{
-  background-color: #ffffff;
 }
 
 .footer-item{

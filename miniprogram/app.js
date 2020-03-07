@@ -13,6 +13,7 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {
+    }
   }
 })
