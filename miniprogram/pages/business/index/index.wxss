@@ -321,18 +321,16 @@ page {
   background-color: #e4dede;
 }
 
-/* .icon text {
-  /* justify-content: center;
-  align-items: center; */
-  /* font-size: 50rpx;
+.icon text {
+  font-size: 40rpx;
   color: white;
-} */ 
+}
 
-/* .icon {
+.icon {
   left: 30rpx;
   top: 40rpx;
   width: 100rpx;
   height: 85rpx;
   background: #39f;
   border-radius: 50%;
-} */
+}

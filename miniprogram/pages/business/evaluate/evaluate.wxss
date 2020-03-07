@@ -99,6 +99,3 @@ background: #cccccc3b;
 .text{
   margin-left: 20rpx;
 }
-.text2{
-  align-content:flex-end;
-}

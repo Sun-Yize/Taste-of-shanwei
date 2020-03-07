@@ -11,7 +11,6 @@ Page({
   data: {
     name: '',
     phone: '',
-    taste:[],
     restaurant: '',
     place1: 0,
     place2: 0,
@@ -54,13 +53,11 @@ Page({
                   name: '',
                   phone: '',
                   restaurant: '',
-                  delivery:'',
                   place1: 1,
                   place2: 1,
                   image: '',
                   notice: '',
                   on: false,
-                  taste:[],
                 },
                 success: function (res) {
                   console.log("添加空白记录成功", res)
@@ -87,12 +84,10 @@ Page({
                 restaurant: res.data[0].restaurant,
                 place1: res.data[0].place1,
                 place2: res.data[0].place2,
-                delivery:res.data[0].delivery,
                 multiIndex: [res.data[0].place1, res.data[0].place2],
                 image: res.data[0].image,
                 notice: res.data[0].notice,
-                on: res.data[0].on,
-                taste:res.data[0].taste
+                on: res.data[0].on
               })
               wx.setStorageSync('current', res.data[0]._id)
             }

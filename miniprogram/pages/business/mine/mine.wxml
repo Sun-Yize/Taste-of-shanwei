@@ -1,5 +1,5 @@
 <!-- <block wx:if="{{hasUserInfo}}"> -->
-
+<scroll-view>
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell">
       <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
@@ -11,16 +11,10 @@
     </view>
 
   </view>
-  <scroll-view scroll-y="true" style="height: 900rpx;" >
   <view class="weui-cells weui-cells_after-title">
     <navigator url="../setname/setname?id={{id}}&&name={{restaurant}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
       <view class="weui-cell__bd" style="font-size:36rpx">店铺名称</view>
       <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size:36rpx;font-weight:bold">{{restaurant}}</view>
-    </navigator>
- 
-    <navigator url="../setphone/setphone?id={{id}}&&phone={{phone}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd" style="font-size:36rpx">用户手机号</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size:36rpx;font-weight:bold">{{phone}}</view>
     </navigator>
 
     
@@ -39,10 +33,6 @@
       <view class="weui-cell__bd" style="font-size:36rpx">店铺头像</view>
       <image src="{{images}}" style="width: 50px; height: 50px; display: block" bindtap="gotoShow">上传图片</image>
     </view>
-        <navigator url="../settag/settag?id={{id}}&&tag={{tag}}" class="weui-cell weui-cell_access" hover-class="none">
-      <view class="weui-cell__bd" style="font-size:36rpx">店铺标签</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size:32rpx">{{taste[0]}}/{{taste[1]}}/{{taste[2]}}</view>
-    </navigator>
   </view>
   <view class="weui-cells weui-cells_after-title">
     <view class="weui-cell weui-cell_switch">
@@ -57,12 +47,7 @@
         <switch checked="{{book}}" color="#6699ff" bindchange="onbindbook" />
       </view>
     </view>
-  
-      <navigator url="../setdelivery/setdelivery?id={{id}}&&delivery={{delivery}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd" style="font-size:36rpx">最低配送费</view>
-      <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size:36rpx;color:hsl(352, 100%, 34%);font-weight:bold">{{delivery}}</view>
-    </navigator>
-    </view>
+  </view>
 </scroll-view>
 
 <view class="tabbar">
