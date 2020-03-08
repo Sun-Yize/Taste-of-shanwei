@@ -220,23 +220,26 @@
 <view class="tabbar">
   <navigator url="../index/index" class="swtnav" open-type="redirect" hover-class="none">
   <view class="switch">
-    <image src="../../../image/canting_icon.png" style="width:50rpx;height:50rpx"></image>
+    <image src="../../../image/canting_icon.png" style="width:60rpx;height:60rpx"></image>
     <text class="tabbarText">菜品管理</text> 
   </view>
   </navigator>
-    <view class="switch">
-      <image src="../../../image/2.png" style="width:50rpx;height:50rpx;padding-top:12rpx"></image>
-      <text class="tabbarText">订单</text> 
+  <view class="swtnav">
+      <view class="switch">
+      <image src="../../../image/2.png" style="width:60rpx;height:60rpx"></image>
+      <text class="tabbarText" style="color:#3399ff">订单</text> 
     </view>
+  </view>
+
   <navigator url="../evaluate/evaluate" class="swtnav" open-type="redirect" hover-class="none">
     <view class="switch">
-      <image src="../../../image/huodong_icon.png" style="width:50rpx;height:50rpx"></image>
+      <image src="../../../image/huodong_icon.png" style="width:60rpx;height:60rpx"></image>
       <text class="tabbarText">评价</text> 
     </view>
   </navigator>
   <navigator url="../mine/mine" class="swtnav" open-type="redirect" hover-class="none">
     <view class="switch">
-      <image src="../../../image/mine_icon.png" style="width:50rpx;height:50rpx;padding-top:12rpx"></image>
+      <image src="../../../image/mine_icon.png" style="width:60rpx;height:60rpx"></image>
       <text class="tabbarText">我的</text> 
     </view>
   </navigator>

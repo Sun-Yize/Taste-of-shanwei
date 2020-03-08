@@ -25,23 +25,25 @@
 <view class="tabbar">
   <navigator url="../index/index" class="swtnav" open-type="redirect" hover-class="none">
     <view class="switch">
-      <image src="../../../image/canting_icon.png" style="width:50rpx;height:50rpx"></image>
+      <image src="../../../image/canting_icon.png" style="width:60rpx;height:60rpx"></image>
       <text class="tabbarText">菜品管理</text>
     </view>
   </navigator>
   <navigator url="../order/order" class="swtnav" open-type="redirect" hover-class="none">
     <view class="switch">
-      <image src="../../../image/dingdan_icon.png" style="width:50rpx;height:50rpx"></image>
+      <image src="../../../image/dingdan_icon.png" style="width:60rpx;height:60rpx"></image>
       <text class="tabbarText">订单</text>
     </view>
   </navigator>
+  <view class="swtnav">
   <view class="switch">
-    <image src="../../../image/1.png" style="width:50rpx;height:50rpx;padding-top:12rpx"></image>
-    <text class="tabbarText">评价</text>
+    <image src="../../../image/1.png" style="width:60rpx;height:60rpx"></image>
+    <text class="tabbarText" style="color:#3399ff">评价</text>
+  </view>
   </view>
   <navigator url="../mine/mine" class="swtnav" open-type="redirect" hover-class="none">
     <view class="switch">
-      <image src="../../../image/mine_icon.png" style="width:50rpx;height:50rpx"></image>
+      <image src="../../../image/mine_icon.png" style="width:60rpx;height:60rpx"></image>
       <text class="tabbarText">我的</text>
     </view>
   </navigator>
