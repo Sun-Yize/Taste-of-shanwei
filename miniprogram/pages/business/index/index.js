@@ -150,16 +150,16 @@ Page({
 
   tapClassify: function(e) {
     console.log(e)
-    // var id = e.target.dataset.id;
-    // this.setData({
-    //   classifyViewed: id
-    // });
-    // var self = this;
-    // setTimeout(function() {
-    //   self.setData({
-    //     classifySeleted: id
-    //   });
-    // }, 100);
+    var id = e.target.dataset.id;
+    this.setData({
+      classifyViewed: id
+    });
+    var self = this;
+    setTimeout(function() {
+      self.setData({
+        classifySeleted: id
+      });
+    }, 100);
   },
   
   onbindtap: function(e) {

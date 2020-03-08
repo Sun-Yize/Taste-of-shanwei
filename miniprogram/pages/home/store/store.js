@@ -1,13 +1,14 @@
-// pages/store/store.js
 const app = getApp();
 const db = wx.cloud.database();
 const _ = db.command
-let timer;
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    classifyViewed:'s0',
+    classifySeleted: 's0',
     editTrue: true,
     showModalStatus: false,
     changeText: '收藏',
@@ -65,10 +66,7 @@ Page({
     storeName: "",
     storeImgUrl: "",
     score: 4.4,
-    saleMonth: 835,
-    minDelPrice: 8,
-    delPrice: 5,
-    averagePrice: 15,
+    delPrice: 2,
 
     service: ["支持自取"],
     actives: [{
@@ -85,7 +83,7 @@ Page({
     }
     ],
     publicMsg: "",
-    food: [],
+    // food: [],
     place1: 0,
     place2: 0,
     restaurant:[
@@ -95,47 +93,36 @@ Page({
       ['雀园一楼','0','0']
     ]
   },
-
-  showChange: function () {
-    var that = this;
-    if (that.data.editTrue == true) {
-      that.setData({
-        editTrue: false,
-        changeText: '已收藏'
-      })
-
-    } else {
-      that.setData({
-        editTrue: true,
-        changeText: '收藏',
-      })
-    }
-  },
+  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var _this = this
+    var tag = 0 //遍历时自变量
+    var show1 = [] //临时存储数组
+
+    //将商家id从上一界面读取
     this.setData({
       res_id: options.id
     })
-
+    //读取餐馆详细信息
     db.collection('restaurant').where({
       _id: this.data.res_id
     }).get({
       success: res => {
-        console.log(res.data[0].restaurant)
         _this.setData({
           storeName: res.data[0].restaurant,
           storeImgUrl: res.data[0].image,
           publicMsg: res.data[0].notice,
+          delivery: Number(res.data[0].delivery),
           place1: res.data[0].place1,
-          place2: res.data[0].place2
+          place2: res.data[0].place2,
         })
       }
     })
-
+    //读取餐馆对应菜品
     db.collection('dish').where({
       res_id: this.data.res_id
     }).get({
@@ -200,38 +187,25 @@ Page({
         console.log("error")
       }
     })
-
-    var tag = 0
-    var show1 = []
+    //读取餐馆评价
     db.collection('order').where({
       res_id: this.data.res_id,
     }).get({
       success: res => {
         while (tag < res.data.length) {
           if (res.data[tag].evaluate != undefined) {
-            // var obj = Object.assign({ neva: 5 - res.data[y].evaluate }, res.data[y]);
-            show1.push(res.data[tag])
+            var obj = Object.assign({ neva: 5 - res.data[tag].evaluate }, res.data[tag]);
+            show1.push(obj)
             this.setData({
               evaluate: show1,
             })
+            console.log(this.data.evaluate)
           }
           tag++;
         }
       }
     })
-
-
-    db.collection('order').where({
-      res_id: this.data.res_id
-    }).get({
-      success: res => {
-        console.log(res)
-        this.setData({
-          evaluate: res.data
-        })
-      }
-    })
-    
+    //读取用户是否曾收藏商家
     db.collection('user').doc(wx.getStorageSync('user_id')).get({
       success: res => {
         console.log(res.data.star)
@@ -245,7 +219,6 @@ Page({
         }
       }
     })
-
   },
 
   /**
@@ -275,15 +248,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
-    
+    //页面顶部显示商家名称
     var _this = this
     setTimeout(function () {
       wx.setNavigationBarTitle({
         title: _this.data.storeName
       });
     }, 800)
-    
   },
 
   /**
@@ -306,27 +277,21 @@ Page({
    */
   onReachBottom: function () {},
 
-  //点击导航
-  tabSwitch: function (e) {
-    // console.log(e.currentTarget.dataset.index)
-    let index = e.currentTarget.dataset.index;
+  //侧边栏点击绑定函数
+  selectFood(e) {
+    console.log(e)
+    var id = e.target.dataset.id;
     this.setData({
-      tabState: index
-    })
+      classifyViewed: id
+    });
+    var self = this;
+    setTimeout(function () {
+      self.setData({
+        classifySeleted: id
+      });
+    }, 100);
   },
 
- 
- 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {},
-  selectFood(e) {
-    this.setData({
-      activeIndex: e.target.dataset.index,
-      viewTo: e.target.dataset.titleid
-    });
-  },
   calculateHeight() {
     let heigthArr = [];
     let height = 0;
@@ -344,34 +309,36 @@ Page({
       });
     });
   },
-  // 手机端有延迟 节流函数效果不好 用防抖函数凑合
+
   scroll(e) {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      let srollTop = e.detail.scrollTop;
-      for (let i = 0; i < this.data.heigthArr.length; i++) {
-        if (
-          srollTop >= this.data.heigthArr[i] &&
-          srollTop < this.data.heigthArr[i + 1] &&
-          this.data.activeIndex != i
-        ) {
-          this.setData({
-            activeIndex: i
-          });
-          if (i < 3) {
-            this.setData({
-              viewToLeft: 'title1left'
-            })
-          } else {
-            this.setData({
-              viewToLeft: 'title' + (i - 2) + 'left'
-            })
-          }
-          return;
-        }
+    if (e.detail.scrollTop > 10 && !this.data.scrollDown) {
+      this.setData({
+        scrollDown: true
+      });
+    } else if (e.detail.scrollTop < 10 && this.data.scrollDown) {
+      this.setData({
+        scrollDown: false
+      });
+    }
+
+    var scale = e.detail.scrollWidth / 570,
+      scrollTop = e.detail.scrollTop / scale,
+      h = 0,
+      classifySeleted,
+      len = this.data.goodsList.length;
+    this.data.goodsList.forEach(function (classify, i) {
+      var _h = 70 + classify.goods.length * (46 * 3 + 20 * 2);
+      if (scrollTop >= h - 100 / scale) {
+        classifySeleted = classify.id;
       }
-    }, 100)
+      h += _h;
+    });
+    this.setData({
+      classifySeleted: classifySeleted
+    });
   },
+
+  //添加菜品函数
   add(e) {
     var flag = 0
     var arr = Object.keys(this.data.order);
@@ -382,8 +349,7 @@ Page({
     if (len != 0){
       for(var i=0;i < len;i++){   
         if(this.data.order[i].id == this.data.goods[m].id){
-          var n = this.data.order[i].number+1;
-          
+          var n = this.data.order[i].number+1; 
           var temp1 = 'order['+ i +'].number'
           var temp3 = 'goods['+ m +'].number'
           this.setData({
@@ -418,6 +384,8 @@ Page({
       console.log(this.data.order)
     }
   },
+
+  //减少菜品数量函数
   reduce(e) {
     var arr = Object.keys(this.data.order);
     var len = arr.length;
@@ -442,6 +410,7 @@ Page({
     }
   },
   
+  //切换菜单、评价、商家栏
   selectTabItem(e) {
     if (e.target.dataset.index) {
       this.setData({
@@ -449,6 +418,15 @@ Page({
       });
     }
   },
+
+  //点击导航
+  tabSwitch: function (e) {
+    let index = e.currentTarget.dataset.index;
+    this.setData({
+      tabState: index
+    })
+  },
+
   preventScrollSwiper() {
     return false;
   },
@@ -463,6 +441,7 @@ Page({
     });
   },
 
+  //收藏商家函数
   getStar:function(e){
     var flag = 0
     var _this = this
@@ -505,8 +484,26 @@ Page({
     })
   },
 
+  //收藏按钮变化控制函数
+  showChange: function () {
+    var that = this;
+    if (that.data.editTrue == true) {
+      that.setData({
+        editTrue: false,
+        changeText: '已收藏'
+      })
+
+    } else {
+      that.setData({
+        editTrue: true,
+        changeText: '收藏',
+      })
+    }
+  },
+
+  //前往去结算界面
   getIntoStore: function (e) {
-    if(this.data.totalMoney > 0){
+    if(this.data.totalMoney >= this.data.delivery){
       wx.navigateTo({
         url: '../pay/pay?id=' + this.data.res_id + '&order=' + JSON.stringify(this.data.order) + '&totalMoney=' + this.data.totalMoney + '&resname=' + this.data.storeName + '&image=' + this.data.storeImgUrl,
       })

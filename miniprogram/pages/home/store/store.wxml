@@ -1,4 +1,4 @@
-<view class="store-container">
+<view class="store-container" style="position:fixed;">
 
   <!-- 上方显示商家信息 -->
   <view class='head'>
@@ -9,7 +9,7 @@
 
     <view class="head-detail" bindtap='showStoreDetail'>
       <view class="info">
-        <text>起送￥{{minDelPrice}}</text>
+        <text>起送￥{{delivery}}</text>
         <text>{{restaurant[place1][place2]}}</text>
       </view>
       <view class="publicMsg">{{publicMsg}}</view>
@@ -23,8 +23,8 @@
 
     <view class='head-btn'>
       <view style="width:100%;flex-grow:1" bindtap='showStoreDetail'></view>
-      <view class="head-btn2" bindtap="showChange" >
-        <button bindtap="getStar" data-item="{{res_id}}" class="{{editTrue?'btnT':'btnF'}}">{{changeText}}</button>
+      <view class="head-btn2" bindtap="showChange">
+        <button bindtap="getStar" data-item="{{res_id}}" class="{{editTrue?'btnT':'btnF'}}" size="mini">{{changeText}}</button>
       </view>
     </view>
   </view>
@@ -62,28 +62,25 @@
 
   <!-- 横向导航栏 -->
   <view class="tab" bindtap="selectTabItem">
-    <view bindtap="tabSwitch" class="tab-item" data-index="0">菜单</view>
-    <view bindtap="tabSwitch" class="tab-item" data-index="1">评价</view>
-    <view bindtap="tabSwitch" class="tab-item" data-index="2">商家</view>
-    <view class="border" style="left:{{30+tabIndex*160}}rpx"></view>
+    <view bindtap="tabSwitch" class="tab-item {{tabIndex==0?'active':''}}" data-index="0">菜单</view>
+    <view bindtap="tabSwitch" class="tab-item {{tabIndex==1?'active':''}}" data-index="1">评价</view>
+    <view bindtap="tabSwitch" class="tab-item {{tabIndex==2?'active':''}}" data-index="2">商家</view>
   </view>
 
 
   <!-- 菜单页面 -->
   <view wx:if="{{tabState==0}}" class='food'>
     <view class='food-class' style='height:{{listHeight}}px'>
-      <scroll-view scroll-y scroll-with-animation scroll-into-view="{{viewToLeft}}" style='height:{{listHeight}}px'>
-        <view class="food-class-item {{activeIndex==index?'active':''}}" wx:for="{{goodsList}}" wx:key="index" bindtap='selectFood' data-index="{{index}}" data-titleId="{{item.titleId}}" id="{{item.titleId+'left'}}">
-          <view class='text' data-index="{{index}}" data-titleId="{{item.id}}">{{item.classifyName}}</view>
-          <!-- <view class="dot" wx:if="{{item.foodCount>0}}">{{item.foodCount}}</view> -->
+      <scroll-view scroll-y scroll-with-animation style='height:{{listHeight}}px'>
+        <view class="food-class-item {{classifySeleted==classify.id?'active':''}}" wx:for="{{goodsList}}" wx:for-item="classify" wx:key="id" data-id="{{classify.id}}" bindtap="selectFood">
+          <view class='text'>{{classify.classifyName}}</view>
         </view>
       </scroll-view>
     </view>
 
-    
     <view class='food-detail'>
-      <scroll-view scroll-y scroll-with-animation style='height:{{listHeight}}px' scroll-into-view="{{viewTo}}" bindscroll="scroll">
-        <view wx:for="{{goodsList}}" wx:for-item="classify" wx:key="title" class="title-group" wx:for-index="groupindex">
+      <scroll-view scroll-y scroll-with-animation style='height:{{listHeight}}px' scroll-into-view="{{classifyViewed}}" bindscroll="scroll">
+        <view wx:for="{{goodsList}}" class="title-group" wx:for-item="classify" wx:key="id" id="{{classify.id}}">
           <view class='title' id='{{item.titleId}}'>{{classify.classifyName}}</view>
           <view wx:for="{{classify.goods}}" wx:for-item="id" wx:key="*this" class='food-info'>
             <view class='img'>
@@ -103,6 +100,7 @@
             </view>
           </view>
         </view>
+        <view style="height:110rpx"></view>
       </scroll-view>
     </view>
   </view>
@@ -115,39 +113,50 @@
 
 
   <!-- 评价页面 -->
-  <view wx:if="{{tabState==1}}" class='eva'>
-    <view class="eva-detail">
-      <view class="item">
-        <view>商家评分</view>
-        <view>5.0</view>
-      </view>
-      <view class="item2">
-        <view>味道</view>
-        <view>4.8</view>
-      </view>
-      <view class="item2">
-        <view>包装</view>
-        <view>4.5</view>
-      </view>
-      <view class="item2">
-        <view>配送</view>
-        <view>4.9</view>
-      </view>
-    </view>
 
-    <view class="eva-detail2" wx:for="{{evaluate}}" wx:key="index">
-      <view class='image'>
-        <image src="../image/user.png" style=""></image>
+  <view wx:if="{{tabState==1}}" class='eva'>
+    <scroll-view scroll-y scroll-with-animation style='height:{{listHeight}}px'>
+      <view class="eva-detail">
+        <view class="item">
+          <view>商家评分</view>
+          <view>5.0</view>
+        </view>
+        <view class="item2">
+          <view>味道</view>
+          <view>4.8</view>
+        </view>
+        <view class="item2">
+          <view>包装</view>
+          <view>4.5</view>
+        </view>
+        <view class="item2">
+          <view>配送</view>
+          <view>4.9</view>
+        </view>
       </view>
-      <view class='item1'>
-        <view>用户名称：{{item.user_name}}</view>
-        <view>用户评分：{{item.evaluate}}分</view>
+
+      <view class="eva-detail2" wx:for="{{evaluate}}" wx:key="index">
+        <view class='item1'>
+          <image src="../image/user.png"></image>
+        </view>
+
+        <view class="item2">
+          <view>{{item.user_name}}</view>
+          <view style="color: #757575">评分:
+            <block wx:for="{{item.evaluate}}" wx:key="index">
+              <image src='../../../image/star.png' style="height:30rpx;width:30rpx;margin:0 5rpx -4rpx 0;">
+              </image>
+            </block>
+            <block wx:for="{{item.neva}}" wx:key="index">
+              <image src='../../../image/starg.png' style="height:30rpx;width:30rpx;margin:0 5rpx -4rpx 0;">
+              </image>
+            </block>
+          </view>
+          <text style="margin-top:15rpx;width:550rpx;text-overflow:ellipsis;word-wrap:break-word;">{{item.evaluatedetail}}</text>
+        </view>
       </view>
-      <view class="item2">
-        <view style="font-size:20px">评价</view>
-        <view>{{item.evaluatedetail}}</view>
-      </view>
-    </view>
+      <view style="height:110rpx"></view>
+    </scroll-view>
   </view>
 
 
@@ -157,7 +166,7 @@
 
 
   <!-- 商家页面 -->
-  <view wx:if="{{tabState==2}}" class='mes'>
+  <view wx:if="{{tabState==2}}" class='mes' style='height:{{listHeight}}px'>
     <view class="top">
       <view style="margin:5px"> 地址：{{restaurant[place1][place2]}}</view>
       <view style="margin:5px"> 配送时间：8:00-21:00</view>
@@ -167,7 +176,7 @@
         <view style="height:80px;width:360px">
           <view style="margin:5px">餐厅简介:</view>
           <view style="margin:5px;font-size:15px">{{publicMsg}}</view>
-        </view>      
+        </view>
       </view>
     </view>
   </view>
@@ -189,7 +198,7 @@
         <view class="money">￥{{totalMoney}}</view>
         <view class="del-price">{{delPrice>0?'另需配送费'+delPrice+'元':'免配送费'}}</view>
       </view>
-      <view class="start-del {{(totalMoney>=minDelPrice)?'has-food':''}}" bindtap="getIntoStore" >{{(totalMoney>=minDelPrice)?'去结算':minDelPrice+'元起送'}}</view>
+      <view class="start-del {{(totalMoney>=delivery)?'has-food':''}}" bindtap="getIntoStore">{{(totalMoney>=delivery)?'去结算':delivery+'元起送'}}</view>
     </view>
   </view>
 </view>
