@@ -1,0 +1,9 @@
+<!--miniprogram/pages/start/loading/loading.wxml-->
+
+<view class='mid'>
+
+
+<van-loading type="spinner" color="#1989fa" />
+
+
+</view>

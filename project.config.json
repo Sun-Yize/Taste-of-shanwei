@@ -116,6 +116,18 @@
 					"name": "firstlogin",
 					"pathName": "pages/start/firstlogin/firstlogin",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "loading",
+					"pathName": "pages/start/loading",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "loading/loading",
+					"pathName": "pages/start/loading/loading",
+					"scene": null
 				}
 			]
 		}

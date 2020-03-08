@@ -1,0 +1,8 @@
+/* miniprogram/pages/start/loading/loading.wxss */
+.mid{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin-top:50%;
+
+}
