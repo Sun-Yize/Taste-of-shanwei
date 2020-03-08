@@ -110,6 +110,12 @@
 					"name": "search",
 					"pathName": "pages/home/search/search",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "firstlogin",
+					"pathName": "pages/start/firstlogin/firstlogin",
+					"scene": null
 				}
 			]
 		}

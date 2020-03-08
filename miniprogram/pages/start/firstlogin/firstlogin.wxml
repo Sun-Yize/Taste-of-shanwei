@@ -1,11 +1,34 @@
 
  <view class="container">
- <image src="../../home/image/login0.png" class="bg"></image>
+ <!-- <image src="../../home/image/login.png" class="bg"></image>  -->
+
+ <view class='head'>
+ <view class='headleft'>
+ <image src="https://pic3.zhimg.com/50/83404ed0d_qhd.jpg" class='avatar'></image>
+ </view>
+
+ <view class='headright'>
+  <view style="font-weight:bold;font-family:'宋体'">欢迎来到吃遍山威！希望吃遍山威可以给你带来美好的体验^ ^</view>
+ </view>
+ </view>
+
+ <!--用户对话框-->
+ <view class='my'>
+ 
  
  <button  open-type="getUserInfo" 
           bindgetuserinfo="getUserInfo" 
           bindtap="gotaste"
           type="primary"
           class="log">微信一键登录</button>
+
+ <view class='myright'>
+ <image src="https://pic4.zhimg.com/80/v2-e9baee84b470b6ecef935162d71cdb31_720w.jpg" class='avatar'></image>
+ </view>         
+ 
+ </view>
+
+ 
+
 
   </view>
