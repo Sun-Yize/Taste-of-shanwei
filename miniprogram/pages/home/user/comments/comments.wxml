@@ -28,13 +28,14 @@
   num="1"
   tag="评价之星"
   price="{{item.billmoney}}"
-  desc="评论内容：{{item.evaluatedetail}}"
-  title="菜名：{{item.dish}}"
+  desc="评论内容：{{item.evaluatedetail}},评价时间：{{item.etime}}"
+  
+  title="店家：{{item.resname}}"
   thumb="{{userInfo.avatarUrl}}"
 >
   <view slot="footer">
     
-    <van-button size="mini">按钮 跳转至订单详情页</van-button>
+    <!-- <van-button size="mini">按钮 跳转至订单详情页</van-button> -->
   </view>
 </van-card>
 </view>   

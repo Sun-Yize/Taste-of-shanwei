@@ -1,10 +1,8 @@
 <view class="goods-tab-box">
-  <view class="goods-tab-nav {{curIndex === 0 ?'on':''}}" bindtap="bindTap" data-index="0">收藏店铺</view>
-  <view class="goods-tab-nav {{curIndex === 1 ?'on':''}}" bindtap="bindTap" data-index="1">收藏菜品</view>
 
   <view class="goods-content">
     <!--收藏店铺 -->
-    <view wx:if="{{curIndex === 0}}">
+    
       <scroll-view class="right" scroll-y="true">
         <view class="content">
           <view class="item" wx:for="{{restaurantlist}}" wx:key="index">
@@ -22,5 +20,5 @@
         </view>
       </scroll-view>
     </view>
-  </view>
+  
 </view>

@@ -30,7 +30,7 @@ Page({
       _id: wx.getStorageSync('user_id')
     }).get({
       success: res => {
-        // console.log(res.data[0].star.length)
+         //console.log(res.data[0].star.length)
         for(var i=-1;i < res.data[0].star.length-1;i++){
           db.collection('restaurant').where({
             _id: res.data[0].star[i]

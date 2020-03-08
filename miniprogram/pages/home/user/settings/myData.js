@@ -4,14 +4,14 @@ const _ = db.command
 
 Page({
   data: {
-    user: {
+    
       tname: '',
       number:'',
       college:'',
       phone:'',
-      data:[]
+      date:[]
       
-    }
+    
   },
   bindDateChange: function (e) {
     console.log('picker为', e.detail.value)
@@ -24,6 +24,8 @@ Page({
 
 
   onLoad() {
+
+   
     var userInfo = wx.getStorageSync('userInfo')
     this.setData({
       userInfo: userInfo
@@ -31,16 +33,16 @@ Page({
 
     var self = this;
     
-    wx.getStorage({
-      key: 'user',
-      success: function (res) {
-        //console.log(res)
-        self.setData({
-          user: res.data
+    // wx.getStorage({
+    //   key: 'user',
+    //   success: function (res) {
+    //     //console.log(res)
+    //     self.setData({
+    //       user: res.data
          
-        })
-      }
-    })
+    //     })
+    //   }
+    // })
   },
 
   formSubmit(e) {
@@ -91,6 +93,32 @@ Page({
     
 
 
+  },
+  onShow(options) {
+
+    db.collection('user_self').doc(wx.getStorageSync('user_id')).get({
+      success: res => {
+        if (res.data.tname != undefined) {
+          console.log(res.data.tname)
+          this.setData({
+            tname: res.data.tname,
+            phone: res.data.phone,
+            number:res.data.number,
+            college:res.data.college,
+            date:res.data.birth,
+          })
+        } else {
+          // this.setData({
+          //   tname: res.data.tname,
+          //   phone: res.data.phone,
+          //   number: res.data.number,
+          //   college: res.data.college,
+          //   date: res.data.birth,
+          // })
+        }
+
+      }
+    })
   },
 
 

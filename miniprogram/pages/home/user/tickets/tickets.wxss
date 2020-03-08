@@ -29,10 +29,39 @@
 }
 
 .div-line{
-  height: 20rpx;
+  height: 10rpx;
   background-color: rgba(175, 172, 172, 0.185);
   margin-top: 5rpx;
   margin-bottom: 5rpx;
 }
 
 
+.sub_order_content {
+  padding: 20rpx 60rpx;
+  height: 150rpx;
+  display: flex;
+  position:relative;
+}
+
+.order_img_name {
+  margin: 15rpx 60rpx;
+  font-size: 32rpx;
+  font-weight:bold;
+}
+
+.pay_btn {
+  display: inline-block;
+  width: 180rpx;
+  height: 50rpx;
+  background-color: #AB956D;
+  border-radius: 40rpx;
+  line-height: 50rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 30rpx;
+  font-weight: bold;
+  vertical-align: middle;
+  position:absolute;
+  right: 30rpx;
+  bottom:26rpx;
+}

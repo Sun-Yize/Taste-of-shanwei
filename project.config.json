@@ -44,13 +44,72 @@
 		"game": {
 			"list": []
 		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
 		"miniprogram": {
 			"current": 0,
 			"list": [
 				{
 					"id": -1,
 					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide"
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "settings/myData",
+					"pathName": "pages/home/user/settings/myData",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "comments",
+					"pathName": "pages/home/user/comments/comments",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "shoucang",
+					"pathName": "pages/home/user/shoucang/shoucang",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "tickets",
+					"pathName": "pages/home/user/tickets/tickets",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "/index",
+					"pathName": "pages/home/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "main/user",
+					"pathName": "pages/home/user/main/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "address",
+					"pathName": "pages/home/user/address/address",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/home/search/search",
+					"scene": null
 				}
 			]
 		}

@@ -24,40 +24,51 @@
 
 
   <view class="mine-tool-item">
+   <navigator url="../comments/comments">
     <view class="value">
-      <navigator url="../comments/comments">
+      
         <image src="../../image/评论.png" style="height:80rpx;width:80rpx"></image>
-      </navigator>
+      
     </view>
     <view class="title">评价</view>
+   </navigator>
   </view>
 
+
   <view class="mine-tool-item">
+  <navigator url="../tickets/tickets">
     <view class="value">
-      <navigator url="../tickets/tickets">
+     
         <image src="../../image/买一赠一.png" style="height:80rpx;width:80rpx"></image>
-      </navigator>
+    
     </view>
     <view class="title">我的优惠券</view>
+     </navigator>
   </view>
 
   <view class="mine-tool-item">
+  <navigator url="../paihang/paihang">
     <view class="value">
-      <navigator url="../paihang/paihang">
+     
         <image src="../../image/排行榜.png" style="height:80rpx;width:80rpx"></image>
-      </navigator>
+     
     </view>
     <view class="title">积分排行榜</view>
+    </navigator>
   </view>
 
   <view class="mine-tool-item">
+  <navigator url="../shoucang/shoucang">
     <view class="value">
-      <navigator url="../shoucang/shoucang">
+      
         <image src="../../image/like.png" style="height:85rpx;width:85rpx"></image>
-      </navigator>
-    </view>
+     
+   </view>
     <view class="title">我的收藏</view>
+     </navigator>
   </view>
+ 
+
 </view>
 
 <!-- 分界线 -->

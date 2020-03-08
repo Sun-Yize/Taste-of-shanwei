@@ -18,7 +18,9 @@
       <!-- 收货地址部分 -->
       <text>外卖配送地址</text>
       <picker name="addreValue" class="addre" value="{{addreValue}}" range="{{addreRange}}" bindchange="addrePickerBindchange">
+      <view class='addr'>
         <text>{{current}}</text>
+        </view>
       </picker>
       <button form-type="submit" class="btn">保存地址信息</button>
     </form>

@@ -14,20 +14,22 @@
     <view class="form-box">
         <form bindsubmit="formSubmit">
             <text class="words">姓名</text>
-            <input value="{{user.tname}}" name="tname" placeholder="请输入姓名"/>
+            <input value="{{tname}}" name="tname" placeholder="请输入姓名"/>
             <text class="words">学号</text>
-            <input value="{{user.number}}"  name="number" type="number" placeholder="请输入学工号"/>
+            <input value="{{number}}"  name="number" type="number" placeholder="请输入学工号"/>
             <text class="words">学院</text>
-            <input value="{{user.college}}" name="college" placeholder="请输入学院"/>
+            <input value="{{college}}" name="college" placeholder="请输入学院"/>
             <text class="words">号码</text>
-            <input value="{{user.phone}}"  name="phone" type="number" placeholder="请输入电话号码"/>
+            <input value="{{phone}}"  name="phone" type="number" placeholder="请输入电话号码"/>
             
            <view class="section">
   
-        <picker mode="date" value="{{user.date}}" name="date" start="01-01" end="12-31" bindchange="bindDateChange" class="pick">
+        <picker mode="date" value="{{date}}" name="date" start="01-01" end="12-31" bindchange="bindDateChange" class="pick">
         <view class="picker">
-          <text class="words"> 请选择生日: {{user.date}}</text>
-        </view>
+        
+        <text class="words" > 请选择生日: {{date}}</text>
+        
+         </view>
         </picker>
         </view>
 

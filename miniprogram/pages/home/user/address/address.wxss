@@ -16,10 +16,12 @@
 }
 .addre{
    height: 90rpx;
-    border-bottom: 1rpx solid #ededed;
-    color: #999;
+   border-bottom: 1rpx solid #ededed;
+   color: #999;
 }
-
+.addr{
+  margin-top: 20rpx;
+}
 .btn{
   margin-top: 20px;
   margin-bottom: 20rpx;

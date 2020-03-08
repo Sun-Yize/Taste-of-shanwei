@@ -4,6 +4,12 @@ const _ = db.command
 
 Page({
 
+  goorder(){
+    wx.switchTab({
+      url: '../../index/index',
+    })
+  },
+
   /**
    * 页面的初始数据
    */
