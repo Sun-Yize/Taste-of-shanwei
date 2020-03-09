@@ -4,13 +4,13 @@
     <image src="../image/优惠券.png" class="img"></image>
     <view class="middle">
       <view style="padding:0rpx 0rpx 20rpx 0rpx">3元代金券</view>
-      <view style="color: rgba(0,0,0,.5);font-size: 14px">剩余数量:2张</view>
+      <view style="color: rgba(0,0,0,.5);font-size: 14px">剩余数量:{{mytickets.ticket1}}张</view>
     </view>
 
     <view class="right">
       <view style="color: #e64340;">￥3</view>
       <view>
-        <button size="mini">使用</button>
+        <button size="mini" bindtap="useticket1">使用</button>
       </view>
 
     </view>
@@ -20,13 +20,13 @@
     <image src="../image/优惠券.png" class="img"></image>
     <view class="middle">
       <view style="padding:0rpx 0rpx 20rpx 0rpx">5元代金券</view>
-      <view style="color: rgba(0,0,0,.5);font-size: 14px">剩余数量:2张</view>
+      <view style="color: rgba(0,0,0,.5);font-size: 14px">剩余数量:{{mytickets.ticket2}}张</view>
     </view>
 
     <view class="right">
       <view style="color: #e64340;">￥5</view>
       <view>
-        <button size="mini">使用</button>
+        <button size="mini" bindtap="useticket2">使用</button>
       </view>
     </view>
   </view>
@@ -37,12 +37,12 @@
     <image src="../image/优惠券2.png" class="img"></image>
     <view class="middle">
       <view style="padding:0rpx 0rpx 20rpx 0rpx">15元内免单</view>
-      <view style="color: rgba(0,0,0,.5);font-size: 14px">剩余数量:2张</view>
+      <view style="color: rgba(0,0,0,.5);font-size: 14px">剩余数量:{{mytickets.ticket3}}张</view>
     </view>
 
     <view class="right">
       <view class="use">
-        <button size="mini">使用</button>
+        <button size="mini" bindtap="useticket3">使用</button>
       </view>
     </view>
   </view>

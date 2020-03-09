@@ -8,7 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showlist:[]
+    showlist:[],
+    tag:0,
+    discount:0,
   },
 
   /**
@@ -20,7 +22,7 @@ Page({
     this.setData({
       order: tmp,
       res_id: options.id,
-      totalMoney: parseInt(options.totalMoney),
+      totalMoney: parseInt(options.totalMoney)+2,
       resname: options.resname,
       image: options.image,
     })
@@ -57,6 +59,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var _this = this
     db.collection('user').doc(wx.getStorageSync('user_id')).get({
       success: res => {
         console.log(res)
@@ -74,6 +77,24 @@ Page({
         }
       }
     })
+    setTimeout(function(){
+      if (_this.data.tag == 1) {
+        _this.setData({
+          totalMoney: _this.data.totalMoney - 3,
+          discount: 3
+        })
+      } else if (_this.data.tag == 2) {
+        _this.setData({
+          totalMoney: _this.data.totalMoney - 5,
+          discount: 5,
+        })
+      } else if (_this.data.tag == 3) {
+        _this.setData({
+          discount: _this.data.totalMoney,
+          totalMoney: 0,
+        })
+      } else { }
+    },500)
   },
 
   /**
@@ -110,11 +131,19 @@ Page({
   onShareAppMessage: function () {
 
   },
+
   changeAddress: function(){
     wx.navigateTo({
       url: '../user/address/address',
     })
   },
+
+  gototicket: function(){
+    wx.navigateTo({
+      url: '../discount/discount?totalMoney=' + this.data.totalMoney + '&tag=' + this.data.tag,
+    })
+  },
+
   submitOrder: function(){
     var timestamp = Date.parse(new Date());
     var date = new Date(timestamp);

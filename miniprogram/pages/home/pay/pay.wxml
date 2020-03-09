@@ -36,7 +36,7 @@
 
     <view class="divLine"></view> 
 
-    <view class="discount">
+    <view class="discount" bindtap="gototicket">
       <view class="image">
         <image src="../image/discount.png"></image>
       </view>
@@ -50,7 +50,7 @@
 
     <view class="sum">
       <view style="padding:10rpx 0rpx 0rpx 0rpx">已优惠</view>
-      <view style="color:#FF4500;margin-right:20rpx;padding:10rpx 0rpx 0rpx 0rpx">￥10</view>
+      <view style="color:#FF4500;margin-right:20rpx;padding:10rpx 0rpx 0rpx 0rpx">￥{{discount}}</view>
       <view style="padding:10rpx 0rpx 0rpx 0rpx">总计￥</view>
       <view style="font-weight:700;font-size:50rpx">{{totalMoney}}</view>
     </view>
@@ -61,7 +61,7 @@
  <view class="fixed">
   <view class="left">
     <view style="height:55rpx;font-size:45rpx">￥{{totalMoney}}</view>
-    <view style="height:35rpx;font-size:25rpx;padding:0rpx 10rpx 10rpx 10rpx;color:#AFEEEE">已优惠￥10</view>
+    <view style="height:35rpx;font-size:25rpx;padding:0rpx 10rpx 10rpx 10rpx;color:#AFEEEE">已优惠￥{{discount}}</view>
   </view>
 
   <view>
