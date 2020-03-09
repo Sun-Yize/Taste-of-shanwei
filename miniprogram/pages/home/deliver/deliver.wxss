@@ -1,3 +1,7 @@
+page{
+  height: 100%;
+  width: 100%;
+}
 .divLine{
  background: #E0E3DA;
  width: 100%;
@@ -7,7 +11,6 @@
 }
 
 .deliver{
-  height: 100%;
   display: flex;
   flex-direction: column;
   background: rgba(0, 255, 213, 0.863);
@@ -46,8 +49,7 @@
 
 }
 
-.deliver .bottom{
-  height: 1300rpx;
+.deliver .orderbottom{
   border-radius: 30rpx;
   background: #fff;
   margin: 10px;
@@ -57,7 +59,7 @@
 
 }
 
-.deliver .bottom .image{
+.deliver .orderbottom .image{
   height: 350px;
   width: 350px;
   margin-left: 10px
@@ -65,14 +67,14 @@
 
 }
 
-.deliver .bottom .image image{
+.deliver .orderbottom .image image{
   height: 90%;
   width: 90%;
   margin: 10px;
 
 }
 
-.bottom .btn{
+.orderbottom .btn{
   display: flex;
   width: 700rpx;
   height: 90rpx;
@@ -81,15 +83,15 @@
 
 }
 
-.bottom .btn .part {
+.orderbottom .btn .part {
   width:350rpx
 }
 
-.bottom .btn .part button{
+.orderbottom .btn .part button{
   width: 70%
 }
 
-.bottom .detail{
+.orderbottom .detail{
   border-radius: 30rpx;
   border-style: solid;
   border-width: thin;
@@ -100,23 +102,49 @@
 
 }
 
-.bottom .detail .first{
+.orderbottom .detail .first{
   margin: 10px;
   font-size: 50rpx;
   font-weight: 700
 }
 
-.bottom .detail .second{
+.orderbottom .detail .second{
   display: flex;
   flex-direction: column;
  
 }
 
-.bottom .detail .second .part{
+.orderbottom .detail .second .part{
   display: flex;
   width: 340px;
   margin-top:10px;
-  margin-bottom: 10px
-  
-  
+  margin-bottom: 10px; 
+}
+
+.orderDetail{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10rpx 20rpx 10rpx 20rpx;
+}
+
+.storename{
+  margin-left: 20rpx;
+}
+
+.billmoney{
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 30rpx;
+}
+
+.orderdate{
+  margin-left: 20rpx;
+}
+
+.orderdivLine{
+  background: #E0E3DA;
+  width: 100%;
+  height: 1rpx;
+  margin-bottom: 20rpx;
 }

@@ -18,8 +18,8 @@ Page({
   onLoad: function(options) {
     this.setData({
       order_id: options.id,
+      height: wx.getSystemInfoSync().windowHeight,
     })
-    console.log(this.data)
   },
 
   /**
@@ -63,6 +63,7 @@ Page({
         }
       }
     })
+    
   },
 
   /**

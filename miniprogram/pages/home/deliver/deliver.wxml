@@ -1,5 +1,5 @@
-<view class="deliver">
-  <scroll-view>
+<view class="deliver" style="height:{{height}}">
+  <scroll-view scroll-y style="height:{{height}}">
     <view class="top">
       <view class="image">
         <image src="../image/car.png"></image>
@@ -10,15 +10,15 @@
       </view>
     </view>
 
-    <view class="bottom">
+    <view class="orderbottom">
       <view class="image">
         <image src="../image/map.png"> </image>
       </view>
-      
+
       <view class="divLine"></view>
 
       <view class="btn">
-        <view class="part" >
+        <view class="part">
           <button style="background-color:#FFFFFF;border-style:solid;border-width:thin">联系商家</button>
         </view>
 
@@ -37,28 +37,30 @@
         <view class="divLine"></view>
 
         <view class="second">
-          <view class="part">
-            <view style="width:40%;margin-left:10px;color:#778899">订单号</view>
-            <view style="width:50%;text-align:right;margin-right:10px">12345</view>
+          
+          <view class="storename">
+            {{order[0].resname}}({{order[0].start}})
           </view>
+          <view class="orderdivLine"></view>
+          <view wx:for="{{order[0].order}}" wx:key="index" class="orderDetail">
+            <view>{{item.name}}</view>
+            <view>x{{item.number}}</view>
+          </view>
+          <view class="orderdivLine"></view>
+          <view >
+            <text class="billmoney">配送费：{{order[0].money}}元</text>
+            <text class="billmoney">合计： <text style="font-size:50rpx;">{{order[0].billmoney}}元</text></text>
+          </view>
+          
+          <view class="orderdivLine"></view>
 
-          <view class="part">
-            <view style="width:40%;margin-left:10px;color:#778899">下单时间</view>
-            <view style="width:50%;text-align:right;margin-right:10px">12：00</view>
+          <view class="orderdate">
+            <text>下单时间：</text>
+            <text>{{order[0].date}}</text>
           </view>
 
         </view>
       </view>
     </view>
-
-
-  
-  
-  
-  
-  
-  
   </scroll-view>
-
-
-</view>
+  </view>
