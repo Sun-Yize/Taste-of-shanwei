@@ -283,6 +283,9 @@ Page({
     this.setData({
       hasUserInfo: false
     })
+    wx.navigateTo({
+      url: '../../start/firstlogin/firstlogin',
+    })
   },
   gotoShow: function() {
     var _this = this
