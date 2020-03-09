@@ -18,6 +18,7 @@ page {
   color: #ab956d;
   background: white;
   border-left: 10rpx solid #ab956d;
+  border-bottom: 2rpx solid #ab956d;
 }
 
 .right {

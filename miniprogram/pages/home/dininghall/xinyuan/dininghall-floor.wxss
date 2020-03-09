@@ -20,6 +20,7 @@ page{
   color:#AB956D;
   background: white;
   border-left: 10rpx solid #AB956D;
+  border-bottom: 2rpx solid #ab956d;
 }
 
 .right {
