@@ -82,7 +82,9 @@ Page({
         //跳转至商家界面
         console.log(res.data)
         if (res.data.length !== 0) {
-           console.log("已有商家")
+          var obj = Object.assign({ nickName: res.data[0].nickName }, { avatarUrl: res.data[0].avatarUrl }, { openid: res.data[0].openid });
+          wx.setStorageSync('userInfo', obj)
+          console.log("已有商家")
           setTimeout(function () {
                  //已有商家界面
                  wx.navigateTo({
@@ -99,6 +101,9 @@ Page({
             .get().then(res => {
               //不是商家
               if (res.data.length !== 0) {
+                var obj = Object.assign({ nickName: res.data[0].nickName }, { avatarUrl: res.data[0].avatarUrl }, { openid: res.data[0].openid });
+                wx.setStorageSync('userInfo', obj)
+                wx.setStorageSync('user_id', res.data[0]._id)
                 console.log("已有用户")
                 setTimeout(function () {
                   //已有个人界面

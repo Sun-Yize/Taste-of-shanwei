@@ -126,7 +126,7 @@ Page({
       data: {
         user_id: wx.getStorageSync('user_id'),
         res_id: _this.data.res_id,
-        user_name: _this.data.address.nickname,
+        user_name: _this.data.address.nickName,
         phone: _this.data.address.phone,
         order: _this.data.order,
         billmoney: _this.data.totalMoney,

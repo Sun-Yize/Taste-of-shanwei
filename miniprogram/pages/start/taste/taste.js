@@ -86,6 +86,7 @@ Page({
 
   goindex: function (options) {
     var _this = this
+    var temp = wx.getStorageSync('userInfo')
     wx.navigateTo({
       url: '../../home/user/settings/myData',
     }),
@@ -102,14 +103,18 @@ Page({
           console.log("未有该用户openid记录,正在添加空白记录中", res.data)
           db.collection("user_self").add({
             data: {
-              _openid: _.eq('userInfo.openid')
+              _openid: _.eq('userInfo.openid'),
+              nickName: temp.nickName,
+              avatarUrl: temp.avatarUrl,
+              openid: temp.openid,
             },
             success: function (res) {
               db.collection("user").add({
                 data: {
                   _id: res._id,
                   taste: _this.data.arr,
-                  star: []
+                  star: [],
+                  nickName: temp.nickName,
                 },
                 success: function (res) {
                   console.log("添加用户空白记录成功", res)

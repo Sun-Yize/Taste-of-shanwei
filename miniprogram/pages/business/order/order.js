@@ -78,9 +78,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
     var order = []
-    var openid = wx.getStorageSync('userInfo').openid
     console.log(openid)
     this.data.buttons[0].checked = true;
     this.setData({

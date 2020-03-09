@@ -12,11 +12,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var userInfo = wx.getStorageSync('userInfo')
-    this.setData({
-      userInfo: userInfo
-    }) //获取用户头像昵称
-
+    var _this = this
+    setTimeout(function(){
+      _this.setData({
+        userInfo: wx.getStorageSync('userInfo')
+      }) //获取用户头像昵称
+    },2000)
+    
   },
 
   /**

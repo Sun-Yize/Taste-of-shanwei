@@ -33,6 +33,7 @@ Page({
    */
 
   onLoad: function() {
+    var temp = wx.getStorageSync('userInfo')
     var _this=this
     //查询商家个人信息
     db.collection('restaurant_self')
@@ -45,9 +46,14 @@ Page({
           console.log("未有该商家openid记录,正在添加空白记录中", res.data)
           db.collection("restaurant_self").add({
             data: {
-              _openid: _.eq('userInfo.openid')
+              _openid: _.eq('userInfo.openid'),
+              nickName: temp.nickName,
+              avatarUrl: temp.avatarUrl,
+              openid: temp.openid,
             },
             success:function(res){
+              wx.setStorageSync('current', res._id)
+              console.log(temp.avatarUrl)
               db.collection("restaurant").add({
                 data: {
                   _id: res._id,
