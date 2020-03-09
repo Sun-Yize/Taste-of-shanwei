@@ -103,30 +103,54 @@
 					"id": -1,
 					"name": "address",
 					"pathName": "pages/home/user/address/address",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "search",
 					"pathName": "pages/home/search/search",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "firstlogin",
 					"pathName": "pages/start/firstlogin/firstlogin",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "loading",
 					"pathName": "pages/start/loading",
+					"query": "",
 					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "loading/loading",
 					"pathName": "pages/start/loading/loading",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "search",
+					"pathName": "pages/home/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "food0",
+					"pathName": "pages/home/food/food0",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/home/index/index",
+					"pathName": "pages/home/index/index",
 					"scene": null
 				}
 			]

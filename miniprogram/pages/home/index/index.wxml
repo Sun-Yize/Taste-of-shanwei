@@ -53,16 +53,16 @@
     </view>
     <view class="newest-box">
       <view class="newest-list">
-        <navigator url="details/details">
+        <navigator url="../food/food0?activeId=pancan">
           <image src="../image/f1.jpg" class="separate" style="height:160rpx;width:160rpx"></image>
           <view class="newest-text">
-            <text>麻辣香锅</text>
+            <text>盘餐</text>
           </view>
 
         </navigator>
       </view>
       <view class="newest-list">
-        <navigator url="details/details">
+        <navigator url="../food/food0?activeId=drink">
           <image src="../image/f2.jpg" class="separate" style="height:160rpx;width:160rpx"></image>
           <view class="newest-text">
             <text>甜品饮品</text>
@@ -71,7 +71,7 @@
         </navigator>
       </view>
       <view class="newest-list">
-        <navigator url="details/details">
+        <navigator url="../food/food0?activeId=breakfast">
           <image src="../image/f3.jpg" class="separate" style="height:160rpx;width:160rpx"></image>
           <view class="newest-text">
             <text>健康早餐</text>
@@ -80,7 +80,7 @@
         </navigator>
       </view>
       <view class="newest-list">
-        <navigator url="details/details">
+        <navigator url="../food/food0?activeId=fastfood">
           <image src="../image/f4.jpg" class="separate" style="height:160rpx;width:160rpx"></image>
           <view class="newest-text">
             <text>快餐</text>
@@ -89,7 +89,7 @@
         </navigator>
       </view>
       <view class="newest-list">
-        <navigator url="details/details">
+        <navigator url="../food/food0?activeId=noodles">
           <image src="../image/f5.jpg" class="separate" style="height:160rpx;width:160rpx"></image>
           <view class="newest-text">
             <text>面食</text>
@@ -99,10 +99,10 @@
       </view>
 
       <view class="newest-list">
-        <navigator url="details/details">
+        <navigator url="../food/food0?activeId=fruit">
           <image src="../image/f6.jpg" class="separate" style="height:160rpx;width:160rpx"></image>
           <view class="newest-text">
-            <text>盘餐</text>
+            <text>水果</text>
           </view>
 
         </navigator>
