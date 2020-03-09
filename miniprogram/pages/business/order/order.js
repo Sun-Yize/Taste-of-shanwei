@@ -79,7 +79,6 @@ Page({
    */
   onShow: function() {
     var order = []
-    console.log(openid)
     this.data.buttons[0].checked = true;
     this.setData({
       buttons: this.data.buttons,
@@ -87,7 +86,8 @@ Page({
     //查询待接单信息
     db.collection('order')
       .where({
-        cook: false
+        cook: false,
+        res_id: wx.getStorageSync('current')
       })
       .get({
         //如果查询成功的话
@@ -110,8 +110,8 @@ Page({
       db.collection('order')
       .where({
         cook: true,
-      }).where({
         condition: 1,
+        res_id: wx.getStorageSync('current')
       })
       .get({
         //如果查询成功的话
@@ -134,7 +134,8 @@ Page({
       //查询配送中信息
       db.collection('order')
       .where({
-        condition:3
+        condition:3,
+        res_id: wx.getStorageSync('current'),
       })
       .get({
         //如果查询成功的话
@@ -156,7 +157,8 @@ Page({
       //查询已送达信息
       db.collection('order')
       .where({
-        condition: 4
+        condition: 4,
+        res_id: wx.getStorageSync('current'),
       })
       .get({
         //如果查询成功的话
@@ -175,10 +177,6 @@ Page({
             order = []
         }
       })
-
-
-
-
   },
 
   /**
