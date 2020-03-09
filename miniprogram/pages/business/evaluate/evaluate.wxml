@@ -15,7 +15,11 @@
         </block>
       </view>
       <view class="line_two"></view>
-      <view class="bottom"> {{item.evaluatedetail}}</view>
+      <view class="bottom" >
+        <text style="width:95%;text-overflow:ellipsis;word-wrap:break-word;margin-top:-50rpx;">
+          {{item.evaluatedetail}}
+        </text> 
+      </view>
     </view>
   </block>
 </scroll-view>
