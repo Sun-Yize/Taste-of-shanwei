@@ -11,7 +11,7 @@
     </view>
 
   </view>
-  <scroll-view scroll-y="true" style="height: 900rpx;" >
+  <scroll-view scroll-y="true" style="height: 1300rpx;" >
   <view class="weui-cells weui-cells_after-title">
     <navigator url="../setname/setname?id={{id}}&&name={{restaurant}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
       <view class="weui-cell__bd" style="font-size:36rpx">店铺名称</view>
@@ -63,9 +63,9 @@
       <view class="weui-cell__ft weui-cell__ft_in-access" style="font-size:36rpx;color:hsl(352, 100%, 34%);font-weight:bold">{{delivery}}</view>
     </navigator>
     </view>
-    
+    <button bindtap="getout" class="btn" hover-class="hover-class-style">退出登录</button>
 </scroll-view>
-<button bindtap="getout" class="btn" hover-class="hover-class-style">退出登录</button>
+
 
 <view class="tabbar">
   <navigator url="../index/index" class="swtnav" open-type="redirect" hover-class="none">
