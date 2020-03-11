@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    mytickets:{},
+    mytickets:{"ticket1":0,"ticket2":0,"ticket3":0},
   },
 
   /**
