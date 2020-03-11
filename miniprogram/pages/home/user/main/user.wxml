@@ -24,7 +24,7 @@
 
 
   <view class="mine-tool-item">
-   <navigator url="../comments/comments">
+   <navigator url="../comments/comments" hover-class="none">
     <view class="value">
       
         <image src="../../image/评论.png" style="height:80rpx;width:80rpx"></image>
@@ -36,7 +36,7 @@
 
 
   <view class="mine-tool-item">
-  <navigator url="../tickets/tickets">
+  <navigator url="../tickets/tickets" hover-class="none">
     <view class="value">
      
         <image src="../../image/买一赠一.png" style="height:80rpx;width:80rpx"></image>
@@ -47,7 +47,7 @@
   </view>
 
   <view class="mine-tool-item">
-  <navigator url="../paihang/paihang">
+  <navigator url="../paihang/paihang" hover-class="none">
     <view class="value">
      
         <image src="../../image/排行榜.png" style="height:80rpx;width:80rpx"></image>
@@ -58,7 +58,7 @@
   </view>
 
   <view class="mine-tool-item">
-  <navigator url="../shoucang/shoucang">
+  <navigator url="../shoucang/shoucang" hover-class="none">
     <view class="value">
       
         <image src="../../image/like.png" style="height:85rpx;width:85rpx"></image>
@@ -118,5 +118,5 @@
 <view class='btns'>
   <button open-type="contact" class="goodbutton">客服会话</button>
   <button open-type="feedback" class="goodbutton">意见与反馈</button>
-  <button open-type="openSetting" class="goodbutton">打开授权设置页</button>
+  <button bindtap="userexit" class="goodbutton">退出登录</button>
 </view>

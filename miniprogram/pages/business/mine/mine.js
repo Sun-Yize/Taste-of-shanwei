@@ -66,6 +66,7 @@ Page({
                   image: '',
                   notice: '',
                   on: false,
+                  book: false,
                   taste:[],
                 },
                 success: function (res) {
@@ -98,6 +99,7 @@ Page({
                 image: res.data[0].image,
                 notice: res.data[0].notice,
                 on: res.data[0].on,
+                book: res.data[0].book,
                 taste:res.data[0].taste
               })
               wx.setStorageSync('current', res.data[0]._id)
@@ -182,54 +184,30 @@ Page({
 
   //编写营业状态函数
   onbindchange: function(e) {
-    db.collection('restaurant').where({
-        _openid: 'userInfo.openid',
-      })
-      .get({
-        success(res) {
-          console.log("yes", res.data[0]._id)
-          db.collection('restaurant').doc(res.data[0]._id).update({
-            data: {
-              on: db.command.set(e.detail.value)
-            },
-            success: function(res) {
-              this.setData({
-                on: e.detail.value
-              })
-            }
-          })
-        },
-        fail(res) {
-          console.log("no", res)
-        }
-      })
+    db.collection('restaurant').doc(wx.getStorageSync('current')).update({
+      data: {
+        on: db.command.set(e.detail.value)
+      },
+      success: function(res) {
+        this.setData({
+          on: e.detail.value
+        })
+      }
+    })
   },
 
   //接受预定函数
   onbindbook: function(e) {
-    db.collection('restaurant')
-      .where({
-        _openid: 'userInfo.openid',
-        //done: false
-      })
-      .get({
-        success(res) {
-          console.log("yes", res.data[0]._id)
-          db.collection('restaurant').doc(res.data[0]._id).update({
-            data: {
-              book: db.command.set(e.detail.value)
-            },
-            success: function(res) {
-              this.setData({
-                book: e.detail.value
-              })
-            }
-          })
-        },
-        fail(res) {
-          console.log("no", res.data[0]._id)
-        }
-      })
+    db.collection('restaurant').doc(wx.getStorageSync('current')).update({
+      data: {
+        book: db.command.set(e.detail.value)
+      },
+      success: function(res) {
+        this.setData({
+          book: e.detail.value
+        })
+      }
+    })
   },
   //更改店铺位置
   bindMultiPickerChange: function(e) {

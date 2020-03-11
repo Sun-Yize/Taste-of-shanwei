@@ -41,5 +41,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  userexit: function() {
+    wx.navigateTo({
+      url: '../../../start/firstlogin/firstlogin',
+    })
   }
 })
