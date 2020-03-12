@@ -32,7 +32,7 @@ Page({
           console.log(res.data._id)
           for (var m = 0; m < this.data.order.length; m++) {
             if (res.data._id == this.data.order[m].id){
-              var obj = Object.assign({ number: this.data.order[m].number }, { per: this.data.order[m].number * res.data.price },res.data);
+              var obj = Object.assign({ number: this.data.order[m].number }, {per: this.data.order[m].number * res.data.price },res.data);
               show.push(obj)
               this.setData({
                 showlist: show,
