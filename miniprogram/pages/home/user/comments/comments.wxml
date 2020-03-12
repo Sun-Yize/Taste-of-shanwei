@@ -1,6 +1,6 @@
 <view class="header" >
 <view class="literal">
-    <image style="height:60rpx;width:60rpx" src="../../image/航空航天.png"></image>
+    <image style="height:60rpx;width:60rpx" src="../../image/history.png"></image>
     <view style="font-size: 40rpx;font-weight:bold;color:black;">我的历史评价查看</view><!--{{{{userInfo.nickName}}}}-->
     
   </view>
@@ -14,7 +14,7 @@
   <view class="address-box">
        
         <view class="address-manage" >
-             <image style="height:60rpx;width:60rpx" src="../../image/航空航天.png"></image>
+             <image style="height:60rpx;width:60rpx" src="../../image/history.png"></image>
              <text style="color: rgba(22, 9, 9, 0.733)">欢迎多多评价！可以帮助改进食堂口味噢~</text>             
         </view>
   </view>
