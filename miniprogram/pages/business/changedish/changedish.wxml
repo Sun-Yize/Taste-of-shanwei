@@ -10,6 +10,13 @@
   <view class="title">商品标签:</view>
   <input id="up_input" name="num" placeholder="{{tag}}" bindinput="tag" />
   <view class="title">商品介绍:</view>
-  <input id="up_input" name="title" placeholder="{{introduce}}" bindinput="introduce" />
+    <input id="up_input" name="title" placeholder="{{introduce}}" bindinput ="introduce"/>
+  <view class="weui-cell weui-cell_switch">
+  <view class="weui-cell__bd" style="font-size:36rpx">停售</view>
+  <view class="weui-cell__ft">
+  <switch checked="{{notsell}}" color="#6699ff" bindchange="onbindchange"/>
+  </view>
+  </view>
   <button class="upload" bindtap="changeData">确定修改</button>
-</view>
+   <button class="upload" bindtap="delete" style="color:white;background-color:red">删除菜品</button>
+   </view>

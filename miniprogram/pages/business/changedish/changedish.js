@@ -163,5 +163,23 @@ Page({
       delta: 1
     })
 
+  },
+  onbindchange: function (e) {
+    console.log(e)
+    this.setData({
+      notsell: e.detail.value
+    })
+
+  },
+  delete: function (e) {
+    var id = this.data.id
+    db.collection('dish').doc(id).remove({
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
+    wx.navigateBack({
+      delta: 1
+    })
   }
 })
