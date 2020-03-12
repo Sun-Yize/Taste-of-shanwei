@@ -1,3 +1,7 @@
 {
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#3399FF",
+  "navigationBarTitleText": "吃遍山威",
+  "navigationBarTextStyle": "white",
   "usingComponents": {}
 }

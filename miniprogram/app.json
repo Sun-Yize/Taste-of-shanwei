@@ -56,10 +56,11 @@
     "pages/business/settag/settag"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#3399FF",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "吃遍山威",
-    "navigationBarTextStyle": "white"
+    "navigationBarBackgroundColor": "#AB956D",
+    "backgroundColor": "#eeeeee",
+    "enablePullDownRefresh": true
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",

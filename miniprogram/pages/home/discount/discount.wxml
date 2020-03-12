@@ -1,7 +1,7 @@
 <view class="discount">
   <view class="text">优惠券</view>
   <view class="top">
-    <image src="../image/优惠券.png" class="img"></image>
+    <image src="../image/ticket1.png" class="img"></image>
     <view class="middle">
       <view style="padding:0rpx 0rpx 20rpx 0rpx">3元代金券</view>
       <view style="color: rgba(0,0,0,.5);font-size: 14px">剩余数量:{{mytickets.ticket1}}张</view>
@@ -17,7 +17,7 @@
   </view>
 
   <view class="top2">
-    <image src="../image/优惠券.png" class="img"></image>
+    <image src="../image/ticket1.png" class="img"></image>
     <view class="middle">
       <view style="padding:0rpx 0rpx 20rpx 0rpx">5元代金券</view>
       <view style="color: rgba(0,0,0,.5);font-size: 14px">剩余数量:{{mytickets.ticket2}}张</view>
@@ -34,7 +34,7 @@
 
   <view class="text">免单券</view>
   <view class="top">
-    <image src="../image/优惠券2.png" class="img"></image>
+    <image src="../image/ticket2.png" class="img"></image>
     <view class="middle">
       <view style="padding:0rpx 0rpx 20rpx 0rpx">15元内免单</view>
       <view style="color: rgba(0,0,0,.5);font-size: 14px">剩余数量:{{mytickets.ticket3}}张</view>

@@ -6,7 +6,7 @@
   <view  class="nav">
   <view class="mine-tool-item">
    
-    <image src="../../image/彩蛋.png" style="height:80rpx;width:80rpx"></image>
+    <image src="../../image/egg.png" style="height:80rpx;width:80rpx"></image>
     <view class="title">我现有的</view>
    
  </view>
@@ -14,7 +14,7 @@
 
 <navigator url="../../../rider/mineChildren/exchange/exchange" class="nav">
   <view class="mine-tool-item">
-    <image src="../../image/买一赠一.png" style="height:80rpx;width:80rpx"></image>
+    <image src="../../image/plus.png" style="height:80rpx;width:80rpx"></image>
     <view class="title">积分兑换</view>
   </view>
 </navigator>
@@ -26,20 +26,20 @@
 
 <view class="div-line" ></view>
 <view class="sub_order_content">
-<image src="../../image/买一赠一.png" style="height:80rpx;width:80rpx"></image>
+<image src="../../image/plus.png" style="height:80rpx;width:80rpx"></image>
 <view class="order_img_name" >三元优惠券：{{mytickets.ticket1}}张</view>
 <view class="pay_btn" bindtap="goorder">立即消费</view>
 </view>
 <view class="div-line" ></view>
 
 <view class="sub_order_content">
-<image src="../../image/买一赠一.png" style="height:80rpx;width:80rpx"></image>
+<image src="../../image/plus.png" style="height:80rpx;width:80rpx"></image>
 <view class="order_img_name">五元优惠券：{{mytickets.ticket2}}张</view>
 <view class="pay_btn" bindtap="goorder">立即消费</view>
 </view>
 <view class="div-line" ></view>
 <view class="sub_order_content">
-<image src="../../image/买一赠一.png" style="height:80rpx;width:80rpx"></image>
+<image src="../../image/plus.png" style="height:80rpx;width:80rpx"></image>
 <view class="order_img_name">任意商家15元以内免单：{{mytickets.ticket3}}张</view>
 <view class="pay_btn" bindtap="goorder">立即消费</view>
 </view>

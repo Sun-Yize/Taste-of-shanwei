@@ -14,7 +14,7 @@
   <view class='left'>
     <navigator url="../../business/mine/mine" open-type="reLaunch" hover-class="none">
       <view style="font-size:45rpx;font-weight:bold;margin-top:50rpx">我是商家</view>
-      <image src='../../home/image/商家入驻.png' class='photo'></image>
+      <image src='../../home/image/login_business.png' class='photo'></image>
     </navigator>
   </view>
 
@@ -23,7 +23,7 @@
   <view class='right'>
     <navigator url="../taste/taste" hover-class="none">
       <view style="font-size:45rpx;font-weight:bold;margin-top:50rpx">我是客户</view>
-      <image src='../../home/image/个人.png' class='photo'></image>
+      <image src='../../home/image/login_user.png' class='photo'></image>
     </navigator>
   </view>
 

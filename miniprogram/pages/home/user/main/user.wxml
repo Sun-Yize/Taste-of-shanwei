@@ -27,7 +27,7 @@
    <navigator url="../comments/comments" hover-class="none">
     <view class="value">
       
-        <image src="../../image/评论.png" style="height:80rpx;width:80rpx"></image>
+        <image src="../../image/comment.png" style="height:80rpx;width:80rpx"></image>
       
     </view>
     <view class="title">评价</view>
@@ -39,7 +39,7 @@
   <navigator url="../tickets/tickets" hover-class="none">
     <view class="value">
      
-        <image src="../../image/买一赠一.png" style="height:80rpx;width:80rpx"></image>
+        <image src="../../image/plus.png" style="height:80rpx;width:80rpx"></image>
     
     </view>
     <view class="title">我的优惠券</view>
@@ -50,7 +50,7 @@
   <navigator url="../paihang/paihang" hover-class="none">
     <view class="value">
      
-        <image src="../../image/排行榜.png" style="height:80rpx;width:80rpx"></image>
+        <image src="../../image/rank.png" style="height:80rpx;width:80rpx"></image>
      
     </view>
     <view class="title">积分排行榜</view>
@@ -89,7 +89,7 @@
 <navigator url="../news/news" hover-class="none">
   <view class="address-box">
     <view class="address-manage">
-      <image style="height:60rpx;width:60rpx" src="../../image/关注.png"></image>
+      <image style="height:60rpx;width:60rpx" src="../../image/attention.png"></image>
       <text style="margin-left:10rpx;">美食推送</text>
     </view>
   </view>
@@ -98,7 +98,7 @@
 <navigator url="../aboutus/aboutus" hover-class="none">
   <view class="address-box">
     <view class="address-manage">
-      <image style="height:60rpx;width:60rpx" src="../../image/彩蛋.png"></image>
+      <image style="height:60rpx;width:60rpx" src="../../image/egg.png"></image>
       <text style="margin-left:10rpx;">关于我们</text>
     </view>
   </view>
