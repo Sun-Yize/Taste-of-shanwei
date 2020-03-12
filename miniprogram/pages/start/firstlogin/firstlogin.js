@@ -8,18 +8,14 @@ Page({
   },
 
   onLoad: function (options) {
- 
 
   },
-
 
   gotaste: function(options) {
     wx.navigateTo({
       url: '../secondlogin/secondlogin',
     })
   },
-
-
 
   getUserInfo: function(e) {
     wx.cloud.callFunction({

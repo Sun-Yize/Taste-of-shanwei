@@ -17,8 +17,7 @@ Page({
       _this.setData({
         userInfo: wx.getStorageSync('userInfo')
       }) //获取用户头像昵称
-    },2000)
-    
+    },500)
   },
 
   /**

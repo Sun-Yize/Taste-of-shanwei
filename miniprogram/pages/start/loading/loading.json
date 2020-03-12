@@ -1,4 +1,8 @@
 {
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#3399FF",
+  "navigationBarTitleText": "吃遍山威",
+  "navigationBarTextStyle": "white",
   "usingComponents": {
     "van-loading": "../../../miniprogram_npm/vant-weapp/loading/index"
   }
