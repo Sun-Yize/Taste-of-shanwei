@@ -95,13 +95,24 @@ Page({
           src: res.tempFilePaths,
           getimage: true
         })
-        wx.cloud.uploadFile({
-          cloudPath,
-          filePath,
-          success: res => {
-            console.log(res.fileID)
-          }
 
+        wx.getFileSystemManager().readFile({
+          filePath: filePath, //选择图片返回的相对路径
+          encoding: 'base64', //编码格式
+          success: res => { //成功的回调
+            wx.cloud.callFunction({
+              name: 'res_resimg',
+              data: {
+                path: wx.getStorageSync('current') + '/' + Date.parse(new Date()) + '.png',
+                file: res.data
+              }, success: _res => {
+                console.log(_res.result.fileID)
+                _this.setData({
+                  src_temp: _res.result.fileID
+                })
+              }
+            })
+          }
         })
       }
     })
@@ -142,7 +153,7 @@ Page({
     db.collection('dish').doc(id).update({
       data: {
         res_id: wx.getStorageSync('current'),
-        image: this.data.src,
+        src: this.data.src_temp,
         price: this.data.price,
         name: this.data.name,
         tag: this.data.tag,

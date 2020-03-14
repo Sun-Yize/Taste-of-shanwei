@@ -288,22 +288,30 @@ Page({
             image: res.tempFilePaths,
             getimage: true
           }),
-          wx.cloud.uploadFile({
-            cloudPath,
-            filePath,
-            success: res => {
-              console.log(res.fileID)
-
+          
+          wx.getFileSystemManager().readFile({
+            filePath: filePath, //选择图片返回的相对路径
+            encoding: 'base64', //编码格式
+            success: res => { //成功的回调
+              wx.cloud.callFunction({
+                name: 'res_resimg',
+                data: {
+                  path: wx.getStorageSync('current')+'/res_image.png',
+                  file: res.data
+                },success: _res => {
+                  console.log(_res.result.fileID)
+                  _this.setData({
+                    image: _res.result.fileID
+                  })
+                  db.collection('restaurant').doc(wx.getStorageSync('current')).update({
+                    data: {
+                      image: _res.result.fileID
+                    }
+                  })
+                }
+              })
             }
-          }),
-          db.collection('restaurant').where({
-            _id: wx.getStorageSync('current')
-            //done: false
-          }).update({
-            data: {
-              image: res.tempFilePaths[0]
-            }
-          })
+          })         
       }
     })
   }

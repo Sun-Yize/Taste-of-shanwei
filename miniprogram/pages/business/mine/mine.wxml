@@ -37,7 +37,7 @@
     </navigator>
     <view class="weui-cell weui-cell_access" hover-class="none">
       <view class="weui-cell__bd" style="font-size:36rpx">店铺头像</view>
-      <image src="{{images}}" style="width: 50px; height: 50px; display: block" bindtap="gotoShow">上传图片</image>
+      <image src="{{image}}" style="width: 50px; height: 50px; display: block" bindtap="gotoShow">上传图片</image>
     </view>
         <navigator url="../settag/settag?id={{id}}&&tag={{tag}}" class="weui-cell weui-cell_access" hover-class="none">
       <view class="weui-cell__bd" style="font-size:36rpx">店铺标签</view>
