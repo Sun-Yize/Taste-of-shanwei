@@ -88,7 +88,7 @@ Page({
       .where({
         cook: false,
         res_id: wx.getStorageSync('current')
-      })
+      }).orderBy('date', 'desc')
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -117,7 +117,7 @@ Page({
         {
           condition: 2,
         }
-      ]))
+      ])).orderBy('date', 'desc')
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -141,7 +141,7 @@ Page({
       .where({
         condition:3,
         res_id: wx.getStorageSync('current'),
-      })
+      }).orderBy('date', 'desc')
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -164,7 +164,7 @@ Page({
       .where({
         condition: 4,
         res_id: wx.getStorageSync('current'),
-      })
+      }).orderBy('date', 'desc')
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -219,7 +219,7 @@ Page({
       .where({
         cook: false,
         res_id: wx.getStorageSync('current')
-      })
+      }).orderBy('date', 'desc')
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -248,7 +248,7 @@ Page({
         {
           condition: 2,
         }
-      ]))
+      ])).orderBy('date', 'desc')
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -271,7 +271,7 @@ Page({
       .where({
         condition: 3,
         res_id: wx.getStorageSync('current'),
-      })
+      }).orderBy('date', 'desc')
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -294,7 +294,7 @@ Page({
       .where({
         condition: 4,
         res_id: wx.getStorageSync('current'),
-      })
+      }).orderBy('date', 'desc')
       .get({
         //如果查询成功的话
         success: (res) => {
