@@ -19,7 +19,7 @@ Page({
     db.collection('order').where({
       user_id: wx.getStorageSync('user_id'),
       condition: _.neq(4)
-    }).orderBy('date', 'desc').get({
+    }).get({
       success: res => {
         this.setData({
           ongoing: res.data
@@ -31,7 +31,7 @@ Page({
     db.collection('order').where({
       user_id: wx.getStorageSync('user_id'),
       condition: 4
-    }).orderBy('date', 'desc').get({
+    }).get({
       success: tmp => {
         this.setData({
           allorder: tmp.data

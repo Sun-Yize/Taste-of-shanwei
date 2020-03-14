@@ -88,7 +88,7 @@ Page({
       .where({
         cook: false,
         res_id: wx.getStorageSync('current')
-      }).orderBy('date', 'desc')
+      })
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -108,16 +108,11 @@ Page({
       }),
       //查询已接单信息
       db.collection('order')
-      .where(_.or([
-        {
-          cook:true,
-          condition:1,
-          res_id: wx.getStorageSync('current')
-        },
-        {
-          condition: 2,
-        }
-      ])).orderBy('date', 'desc')
+      .where({
+        cook: true,
+        condition: 1,
+        res_id: wx.getStorageSync('current')
+      })
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -141,7 +136,7 @@ Page({
       .where({
         condition:3,
         res_id: wx.getStorageSync('current'),
-      }).orderBy('date', 'desc')
+      })
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -164,7 +159,7 @@ Page({
       .where({
         condition: 4,
         res_id: wx.getStorageSync('current'),
-      }).orderBy('date', 'desc')
+      })
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -217,9 +212,8 @@ Page({
     //查询待接单信息
     db.collection('order')
       .where({
-        cook: false,
-        res_id: wx.getStorageSync('current')
-      }).orderBy('date', 'desc')
+        state: 1
+      })
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -239,16 +233,9 @@ Page({
       }),
       //查询已接单信息
       db.collection('order')
-      .where(_.or([
-        {
-          cook: true,
-          condition: 1,
-          res_id: wx.getStorageSync('current')
-        },
-        {
-          condition: 2,
-        }
-      ])).orderBy('date', 'desc')
+      .where({
+        state: 2
+      })
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -269,9 +256,8 @@ Page({
       //查询配送中信息
       db.collection('order')
       .where({
-        condition: 3,
-        res_id: wx.getStorageSync('current'),
-      }).orderBy('date', 'desc')
+        state: 3
+      })
       .get({
         //如果查询成功的话
         success: (res) => {
@@ -292,9 +278,8 @@ Page({
       //查询已送达信息
       db.collection('order')
       .where({
-        condition: 4,
-        res_id: wx.getStorageSync('current'),
-      }).orderBy('date', 'desc')
+        state: 4
+      })
       .get({
         //如果查询成功的话
         success: (res) => {

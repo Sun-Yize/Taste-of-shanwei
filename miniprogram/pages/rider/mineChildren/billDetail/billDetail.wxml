@@ -14,7 +14,7 @@
       <!-- 今日 -->       
       <swiper-item  wx:for="{{[0]}}" wx:for-item="tabItem" wx:for-index="idx" 
         wx:key="idx" class="content" >
-        <block wx:for="{{ordersContent1}}" wx:key="key">
+        <block wx:if="{{ordersContent1}}" wx:for="{{ordersContent1}}" wx:key="key">
           <view class="order_header">
               <view class="sub-left">
                   <text>{{item.destination}}</text> 
@@ -40,11 +40,15 @@
             </view>
           </view>
          </block>
+        <view wx:if="{{!ordersContent1.length}}" class="no_order">
+          <image src="../../images/no_order.png" style=" height:120rpx;width:120rpx;padding-top:400rpx;" ></image>
+          <text style="border-top:10rpx">暂无订单</text>
+        </view>
       </swiper-item>
       <!-- 全部-->
       <swiper-item  wx:for="{{[1]}}" wx:for-item="tabItem" wx:for-index="idx" 
         wx:key="idx">
-         <block wx:for="{{ordersContent2}}" wx:key="key">
+         <block wx:if="{{ordersContent2}}" wx:for="{{ordersContent2}}" wx:key="key">
           <view class="order_header">
               <view class="sub-left">
                   <text>{{item.destination}}</text> 
@@ -70,6 +74,10 @@
               </view>
           </view>
          </block>
+          <view wx:if="{{!ordersContent2.length}}" class="no_order">
+            <image src="../../images/no_order.png" style=" height:120rpx;width:120rpx;padding-top:400rpx;" ></image>
+            <text style="border-top:10rpx">暂无订单</text>
+          </view>
       </swiper-item>
    </swiper>
 </view>

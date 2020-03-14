@@ -18,7 +18,7 @@
       <view class="weui-form-preview__bd">
         <view class="weui-form-preview__item">
           <view class="weui-form-preview__label">用户</view>
-          <view class="weui-form-preview__value">{{item.tname}}</view>
+          <view class="weui-form-preview__value">{{item.user_name}}</view>
         </view>
         <view class="weui-form-preview__item">
           <view class="weui-form-preview__label">电话</view>
@@ -69,7 +69,7 @@
       <view class="weui-form-preview__bd">
         <view class="weui-form-preview__item">
           <view class="weui-form-preview__label">用户</view>
-          <view class="weui-form-preview__value">{{item.tname}}</view>
+          <view class="weui-form-preview__value">{{item.user_name}}</view>
         </view>
         <view class="weui-form-preview__item">
           <view class="weui-form-preview__label">电话</view>
@@ -120,7 +120,7 @@
       <view class="weui-form-preview__bd">
         <view class="weui-form-preview__item">
           <view class="weui-form-preview__label">用户</view>
-          <view class="weui-form-preview__value">{{item.tname}}</view>
+          <view class="weui-form-preview__value">{{item.user_name}}</view>
         </view>
         <view class="weui-form-preview__item">
           <view class="weui-form-preview__label">电话</view>
@@ -171,7 +171,7 @@
       <view class="weui-form-preview__bd">
         <view class="weui-form-preview__item">
           <view class="weui-form-preview__label">用户</view>
-          <view class="weui-form-preview__value">{{item.tname}}</view>
+          <view class="weui-form-preview__value">{{item.user_name}}</view>
         </view>
         <view class="weui-form-preview__item">
           <view class="weui-form-preview__label">电话</view>

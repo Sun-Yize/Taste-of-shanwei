@@ -13,7 +13,7 @@
 
     <view class="dish" wx:for="{{showlist}}" wx:key="index">
       <view class="image">
-        <image src="{{item.src}}"></image>
+        <image src="{{item.src[0]}}"></image>
       </view>
       <view class="detail">
         <view style="height:120rpx">{{item.name}}</view>

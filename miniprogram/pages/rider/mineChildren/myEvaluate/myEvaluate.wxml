@@ -42,8 +42,8 @@
                 <view class="sub-top">
                     <text>评价用户：{{item.user_name}}</text> 
                 </view>
-                <view class="sub-bottom" style="width:700rpx;">
-                    <text style="text-overflow:ellipsis;word-wrap:break-word;">评价内容：\n{{item.evaluatedetail}}</text>  
+                <view class="sub-bottom">
+                    <text >评价内容：\n{{item.evaluatedetail}}</text>  
                 </view>
             </view>
             <view style="height:10rpx;background-color:#fff;"></view>
@@ -57,8 +57,8 @@
                 <view class="sub-top">
                     <text>评价用户：{{item.user_name}}</text> 
                 </view>
-                <view class="sub-bottom" style="width:700rpx;">
-                    <text style="text-overflow:ellipsis;word-wrap:break-word;">评价内容：\n{{item.evaluatedetail}}</text>  
+                <view class="sub-bottom">
+                    <text >评价内容：\n{{item.evaluatedetail}}</text>  
                 </view>
             </view>
             <view style="height:10rpx;background-color:#fff;"></view>

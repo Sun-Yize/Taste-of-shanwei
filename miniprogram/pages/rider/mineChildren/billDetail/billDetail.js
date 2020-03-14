@@ -52,7 +52,7 @@ Page({
         date: db.RegExp({
           regexp: this.data.todaydate
         })
-      }).orderBy('date', 'desc')
+      })
       .get({
         success: (res) => {
           console.log("今日订单：", res)
@@ -73,7 +73,7 @@ Page({
     .where({
       rid_id: wx.getStorageSync('user_id'),                 //全部已完成订单
       condition: 4
-      }).orderBy('date', 'desc')            
+    })            
       .get({
         success: (res) => {
           console.log("全部订单：", res)

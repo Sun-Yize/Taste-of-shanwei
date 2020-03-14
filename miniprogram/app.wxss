@@ -1,6 +1,18 @@
 @import 'pages/rider/images/styles/iconfont.wxss';
 @import 'miniprogram_npm/vant-weapp/common/index.wxss';
 
+
+.no_order{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.no_order image{
+padding-top: 40rpx;
+}
+
 page {
   background-color: #fbf9fe;
   height: 100%;

@@ -94,6 +94,15 @@ Page({
     });
   },
 
+  deleteItem(item, fileList) {
+    // 先遍历list里面的每一个元素，对比item与每个元素的id是否相等，再利用splice的方法删除
+    for (var key in fileList) {
+      if (fileList[key]._id === item) {
+        fileList.splice(key, 1)
+      }
+    }
+    return fileList
+  },
   
   btnTap1:function(e){
     var _this=this
@@ -104,6 +113,13 @@ Page({
       content: '亲，你确定取货吗？',
       success:res=>{
         if (res.confirm){
+          console.log(_this.data.ordersContent1)
+          var ordersContent1 = _this.data.ordersContent1
+          ordersContent1 = _this.deleteItem(item, _this.data.ordersContent1)
+          console.log(ordersContent1)
+          _this.setData({
+            ordersContent1: ordersContent1
+          })
           wx.cloud.callFunction({
             name: 'rider_send',
             data: {
@@ -117,6 +133,7 @@ Page({
                 icon: 'none',
                 duration: 1500
               })
+
             }
           })
         }
@@ -133,6 +150,13 @@ Page({
       content: '亲，你确定已送达吗？',
       success: res => {
         if (res.confirm) {
+          console.log(_this.data.ordersContent2)
+          var ordersContent2 = _this.data.ordersContent2
+          ordersContent2 = _this.deleteItem(item, _this.data.ordersContent2)
+          console.log(ordersContent2)
+          _this.setData({
+            ordersContent2: ordersContent2
+          })
           wx.cloud.callFunction({
             name: 'rider_complete',
             data: {

@@ -15,7 +15,6 @@ Page({
       1: '休假中'
     },
     orderlists: [],
-    myorders: app.globalData.myorders,
     ordername:[]
   },
 
@@ -121,132 +120,15 @@ Page({
     })
   },
 
-  // btnTap(e){
-  //   wx.showModal({
-  //     title: '提示',
-  //     content: '亲，你确定要接单吗？',
-  //     success(res) {
-  //       console.log(e)
-  //       const item = e.currentTarget.dataset.item._id
-  //       const i = app.globalData.myorders.findIndex(v => v == item)
-  //       if (res.confirm) {
-  //         if (i > -1) {
-  //           wx.showToast({
-  //             title: '您已接单！请在“正在进行”中查看',
-  //             icon: 'none',
-  //             duration: 1500
-  //           })
-  //         } else {
-  //           app.globalData.myorders.push(item)
-  //           console.log(app.globalData.myorders)
-  //           // 改变订单状态函数
-  //           db.collection('users').where({
-  //             _openid: app.globalData.userInfo.openid,
-  //           })
-  //             .get({
-  //               success:res=> {
-  //                 console.log("yes", res)
-  //                 db.collection('users').doc(res.data[0]._id).update({
-  //                   data: {
-  //                     state1: db.command.set(app.globalData.myorders)
-  //                   },
-  //                   success: function (res) {
-  //                     console.log("待取货订单上传成功")           //添加到骑手订单列表
-  //                   }
-  //                 })
-  //               }
-  //             })
-  //           db.collection('orders').doc(item)
-  //           .update({
-  //             data:{
-  //               state:1                           //设置订单状态为待取货
-  //             },
-  //             success:res=>{
-  //               console.log(res)
-  //             }
-  //           })
-  //           wx.showToast({
-  //             title: '接单成功',
-  //             icon: 'success',
-  //             duration: 2000
-  //           })
-  //         }
-  //       }
-  //       else if (res.cancel) {
-  //         if (i > -1){
-  //           wx.showModal({
-  //             title: '提示',
-  //             content: '亲，取消接单要扣除信用分哦！你确定要取消接单吗？',
-  //             success:res=>{
-  //               if (res.confirm) {
-  //                 //改变订单状态函数
-  //                 db.collection('users')
-  //                   .where({
-  //                     _openid: app.globalData.userInfo.openid,
-  //                   })
-  //                   .get({
-  //                     success: res => {
-  //                       db.collection('users').doc(res.data[0]._id).update({
-  //                         data: {
-  //                           mycredit: db.command.inc(-5)
-  //                         },
-  //                         success: function (res) {
-  //                           console.log("骑手信用分-5")
-  //                         }
-  //                       })
-  //                     }
-  //                   }),
-  //                 db.collection('users').where({
-  //                   _openid: app.globalData.userInfo.openid,
-  //                 })
-  //                   .get({
-  //                     success: res => {
-  //                       db.collection('orders').doc(item)
-  //                         .update({
-  //                           data: {
-  //                             state: 0                           //设置订单状态为待接单
-  //                           },
-  //                           success: res => {
-  //                             console.log(res)
-  //                           }
-  //                   }),
-  //                 db.collection('users').doc(res.data[0]._id).update({
-  //                   data: {
-  //                     state1: db.command.pull(item)
-  //                   },
-  //                   success: function (res) {
-  //                     console.log("待取货订单取消成功")     //从骑手的订单列表里删除
-  //                   }
-  //                 })
-  //               },
-  //             }),
-  //                 wx.showToast({
-  //                   title: '您已取消接单，信用分-5',
-  //                   icon: 'none',
-  //                   duration: 1500
-  //                 })
-  //               }
-  //               else if (res.cancel){
-  //                 wx.showToast({
-  //                   title: '请继续完成派单任务哦！',
-  //                   icon: 'none',
-  //                   duration: 1500
-  //                 })
-  //               }
-  //             }
-  //          })
-  //         }
-  //         else{
-  //           wx.showToast({
-  //             title: '您已取消接单',
-  //             icon: 'none',
-  //             duration: 1500
-  //           })
-  //         }
-  //       }
-  //     }
-  //   })
-  // },
+  deleteItem(item, fileList) {
+    // 先遍历list里面的每一个元素，对比item与每个元素的id是否相等，再利用splice的方法删除
+    for (var key in fileList) {
+      if (fileList[key]._id === item) {
+        fileList.splice(key, 1)
+      }
+    }
+    return fileList
+  },
 
   btnTap(e) {
     var _this=this
@@ -256,6 +138,13 @@ Page({
       success(res) {
         if(res.confirm){
           const item = e.currentTarget.dataset.item._id
+          console.log(_this.data.orderlists)
+          var orderlists = _this.data.orderlists
+          orderlists = _this.deleteItem(item, _this.data.orderlists)
+          console.log(orderlists)
+          _this.setData({
+            orderlists: orderlists
+          })
           wx.cloud.callFunction({
             name: 'rider_getting',
             data: {

@@ -63,7 +63,7 @@
   <van-cell title="实时订单池" ></van-cell>    
   </van-cell-group> 
 
-    <block wx:for="{{orderlists}}"  wx:key="index">
+    <block wx:if="{{orderlists}}" wx:for="{{orderlists}}"  wx:key="index">
       <view class="order_header">
       <view class="sub-left">
           <text>{{item.destination}}</text> 
@@ -91,6 +91,11 @@
         </view>
       </view>
     </block>
+
+    <view wx:if="{{!orderlists.length}}" class="no_order">
+      <image src="../images/no_order.png" style=" height:120rpx;width:120rpx;" ></image>
+      <text style="border-top:10rpx">暂无订单</text>
+    </view>
 
 <view style="height:10%;margin-top:20rpx;"></view>
 
