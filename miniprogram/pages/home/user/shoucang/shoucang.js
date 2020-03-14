@@ -25,22 +25,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var show = []
     var _this = this
     db.collection('user').where({
       _id: wx.getStorageSync('user_id')
     }).get({
       success: res => {
-         //console.log(res.data[0].star.length)
-        for(var i=-1;i < res.data[0].star.length-1;i++){
+        for(var i=0;i< res.data[0].star.length;i++){
           db.collection('restaurant').where({
             _id: res.data[0].star[i]
           }).get({
             success:tmp => {
-              var m = 'restaurantlist[' + i + ']'
+              show.push(tmp.data)
               _this.setData({
-                [m]:  tmp.data[0]
+                restaurantlist:show,
               })
-              console.log(_this.data)
             }
           })
         }
