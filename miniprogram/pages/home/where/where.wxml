@@ -1,0 +1,28 @@
+<!--where.wxml-->
+<view class="container">
+  <view class="container-result" wx:if="{{selectedRefectory}}">皇上，请前往<text class="text-result">{{selectedRefectory.name}}</text>用餐</view>
+  <view class="container-button">
+    <view size="primary" class="btn" bindtap="onStartSelect"><text>朕今天翻哪家餐厅的牌子呢</text></view>
+    <view size="primary"  class="btn" bindtap="onDeleteandSelect" wx:if="{{selectedRefectory}}"><text>这不是朕的纯元皇后，给爷换一个</text></view>
+    <view size="primary" class="btn" bindtap="onReset"><text>把牌子都拿过来，朕重新翻</text></view>
+  </view>
+  <!-- <picker class="picker-school" bindchange="onSchoolChange" bindtap="onSchoolSelect" value="index" range="{{schoolList}}">
+    <view class="picker-selected">
+      当前学校：{{schoolSelected}} <text>(点击更改)</text>
+    </view>
+  </picker> -->
+  <view class="header-refectory">
+    <text class="item-refectory">朕的爱妃们</text>
+    <text class="picker-ratio">受宠程度</text>
+    <checkbox-group bindchange="checkboxChangeRefectoryAll">
+      <checkbox class="check-refectory-all" checked="{{isAllRefectorySelected}}" value="1"></checkbox>
+    </checkbox-group>
+  </view>
+  <checkbox-group class="checkbox-group-refectory" bindchange="checkboxChangeRefectory">
+    <view class="list-refectory" wx:for="{{refectorys}}">
+      <text class="item-refectory">{{item.name}}</text>
+      <picker class="picker-ratio" data-refectory="{{item.name}}" bindchange="onRatioChange" range="{{ratioList}}" value="{{item.ratio-1}}">{{ratioList[item.ratio-1]}}</picker>
+      <checkbox class="check-refectory" checked="{{item.selected}}" value="{{item.name}}" color="#f25506"></checkbox>
+    </view>
+  </checkbox-group>
+</view>
