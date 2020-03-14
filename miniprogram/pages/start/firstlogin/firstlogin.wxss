@@ -13,7 +13,8 @@ Page{
   
 }
 
-  .log{
+.log{
+  height: 80rpx;
   margin-right: 250rpx;
   margin-top: 100px;
   margin-bottom: 60rpx;
