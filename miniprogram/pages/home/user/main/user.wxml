@@ -112,6 +112,14 @@
     </view>
   </view>
 </navigator>
+<navigator url="../../where/where" hover-class="none">
+  <view class="address-box">
+    <view class="address-manage">
+      <image style="height:60rpx;width:60rpx" src="../../image/where.jpg"></image>
+      <text style="margin-left:10rpx;">哪里吃饭天注定</text>
+    </view>
+  </view>
+</navigator>
 
 <!-- 分界线 -->
 <view class="div-line"></view>

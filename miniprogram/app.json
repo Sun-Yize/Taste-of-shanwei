@@ -14,6 +14,7 @@
     "pages/home/pay/pay",
     "pages/home/deliver/deliver",
     "pages/home/food/food0",
+    "pages/home/where/where",
     "pages/home/dininghall/huiyuan/dininghall-floor",
     "pages/home/dininghall/xinyuan/dininghall-floor",
     "pages/home/dininghall/taiyuan/dininghall-floor",
@@ -29,8 +30,8 @@
     "pages/home/user/aboutus/aboutus",
     "pages/home/user/news/news",
 
-    "pages/rider/w-01/w-01",
     "pages/rider/windex/windex",
+    "pages/rider/w-01/w-01",
     "pages/rider/myData/myData",
     "pages/rider/setting/setting",
     "pages/rider/ticketRule/ticketRule",

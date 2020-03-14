@@ -16,7 +16,7 @@
          <view class="item-right">
            <view style="font-size:45rpx;font-weight:bold;margin:30rpx 0 0 0">{{item.name}}</view>
            <view style="font-size:30rpx;margin:30rpx 0 30rpx 0;">￥：{{item.price}}</view>
-           <button size="mini">进入点单</button>
+           <button size="mini" bindtap="gotores" data-id="{{item.res_id}}">进入点单</button>
            <view style="font-size:28rpx;color:red;font-weight:bold;margin:30rpx 0 30rpx 0;">{{item.introduce}}</view>
            <view style="height:2px;background:gray"></view>
          </view> 

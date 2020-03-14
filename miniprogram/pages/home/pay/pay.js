@@ -147,42 +147,50 @@ Page({
   submitOrder: function(){
     var timestamp = Date.parse(new Date());
     var date = new Date(timestamp);
-    var time = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + "\t" + date.getHours() + ":" + date.getMinutes()
+    var time = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + "\t" + (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes())
 
     var _this = this
-    wx.cloud.callFunction({
-      name: 'user_createorder',
-      data: {
-        user_id: wx.getStorageSync('user_id'),
-        res_id: _this.data.res_id,
-        user_name: _this.data.address.nickName,
-        phone: _this.data.address.phone,
-        order: _this.data.order,
-        billmoney: _this.data.totalMoney,
-        destination: _this.data.address.destination,
-        resname: _this.data.resname,
-        image: _this.data.image,
-        date: String(time),
-      },
-      success: res => {
-        _this.onShow(true)
-        wx.showToast({
-          title: '提交订单成功',
-          icon: 'none',
-          duration: 1500
-        })
-        wx.redirectTo({
-          url: '../deliver/deliver?id=' + res.result._id,
-        })
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '提交订单失败',
-        })
-        console.error('[云函数] [sum] 调用失败：', err)
-      }
-
-    })
+    if(this.data.address.destination == "点击修改"){
+      wx.showToast({
+        title: '请填写配送信息！',
+        icon: 'none',
+        duration: 2000
+      })
+    }else{
+      wx.cloud.callFunction({
+        name: 'user_createorder',
+        data: {
+          user_id: wx.getStorageSync('user_id'),
+          res_id: _this.data.res_id,
+          user_name: _this.data.address.nickName,
+          phone: _this.data.address.phone,
+          order: _this.data.order,
+          billmoney: _this.data.totalMoney,
+          destination: _this.data.address.destination,
+          resname: _this.data.resname,
+          image: _this.data.image,
+          date: String(time),
+          tname: _this.data.address.tname,
+        },
+        success: res => {
+          _this.onShow(true)
+          wx.showToast({
+            title: '提交订单成功',
+            icon: 'none',
+            duration: 1500
+          })
+          wx.redirectTo({
+            url: '../deliver/deliver?id=' + res.result._id,
+          })
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '提交订单失败',
+          })
+          console.error('[云函数] [sum] 调用失败：', err)
+        }
+      })
+    }
   }
 })

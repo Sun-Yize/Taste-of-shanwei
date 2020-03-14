@@ -1,0 +1,138 @@
+/* miniprogram/pages/home/where/where.wxss */
+.picker-school{
+  border: 1rpx solid #3b7960;
+  border-radius: 10rpx;
+  box-shadow: 1px 1px #7ebe15;
+  font-size: 36rpx;
+  line-height: 2;
+  text-align: center;
+  width: 600rpx;
+}
+.btn {
+  width: 500rpx;
+  height: 90rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  background: #AB956D;
+  color: white;
+  margin: 50rpx;
+  border-radius: 15rpx;
+  align-content: center;
+}
+.btn text{
+  margin-left: 2rpx;
+  margin-right: 2rpx;
+  padding-left: 2rpx;
+  padding-right: 2rpx;
+
+}
+.container {
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.header-refectory{
+  margin: 10rpx 0 20rpx;
+  padding: 10rpx 20rpx 0;
+  font-weight: 700;
+  border-top: 3rpx solid #65318e;
+  width: 100%;
+  text-align: center;
+  line-height: 2;
+  display: flex;
+  align-items: center;
+}
+.header-refectory checkbox-group{
+  margin-right: 80rpx;
+}
+
+.list-refectory{
+  font-size: 30rpx;
+  line-height: 2;
+  width: 100%;
+  height: 80rpx;
+  margin-bottom: 10rpx;
+  display: flex;
+  align-items: center;
+}
+
+.item-refectory{
+  display: inline-block;
+  margin: 0;
+  width:100rpx;
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.container-button{
+  margin: 50rpx 0;
+}
+
+.button{
+  font-size: 32rpx;
+  line-height: 2.4;
+  width: 600rpx;
+}
+
+.button-primary{
+  background: #AB956D;
+  color: #fff;
+  box-shadow: 1px 1px #AB956D;
+}
+
+.button-secondary{
+  margin-top: 30rpx;
+  background: #bae120;
+  color: #fff;
+  box-shadow: 1px 1px #7aa100;
+}
+
+.button-reset{
+  margin-top: 30rpx;
+  background: #dcc930;
+  color: #fff;
+  box-shadow: 1px 1px #bca910;
+}
+
+.container-result{
+  font-size:30rpx;
+  padding-top:10rpx
+}
+.text-result{
+  color: #2e2930;
+  text-decoration: underline;
+}
+.text-result:before, .text-result:after{
+  display: inline-block;
+  content: '';
+  width: 10rpx;
+}
+
+.picker-ratio{
+  display: inline-block;
+  width: 160rpx;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+  margin-right: 80rpx;
+}
+.header-refectory .picker-ratio{
+  border-bottom: none;
+}
+
+.checkbox-group-refectory{
+  width: 100%;
+}
+
+.check-refectory{
+  margin-right: 80rpx;
+}
