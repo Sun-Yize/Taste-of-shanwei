@@ -55,15 +55,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
     this.setData({
       activeId: options.activeId
     })
-    
-
-    
-      
-
     //console.log(res)
     db.collection("dish")
       .where({
@@ -86,27 +80,21 @@ Page({
           if (p[i].tag == id) {
             list0.push(p[i])
           }
-
         }
-
         this.setData({
-          tasks: list0,
-          
-        })
-
-        
+          tasks: list0,     
+        })       
       })
-
-
-
-
-
   },
-
-
-
 
   onPullDownRefresh: function () {
     wx.stopPullDownRefresh();
+  },
+
+  gotores: function(e){
+    console.log(e.target.dataset.id)
+    wx.navigateTo({
+      url: '../store/store?id=' + e.target.dataset.id,
+    })
   }
 })

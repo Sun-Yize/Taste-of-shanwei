@@ -120,6 +120,16 @@ Page({
           place1: res.data[0].place1,
           place2: res.data[0].place2,
         })
+        if(res.data[0].on == false){
+          wx.showModal({
+            title: '餐厅打烊啦',
+            content: '请您稍后再来~',
+            showCancel: false,
+            success: function (res) {
+              wx.navigateBack()
+            }
+          })
+        }
       }
     })
     //读取餐馆对应菜品

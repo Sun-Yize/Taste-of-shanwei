@@ -41,10 +41,10 @@
       <view class="info">
         <view class="title">配送</view>
         <view class="del-info">
-          <text>起送￥{{minDelPrice}}</text>
+          <text>起送￥{{delivery}}</text>
           <text>{{restaurant[place1][place2]}}</text>
         </view>
-        <view class="time-info">配送时间:5:00-6:00</view>
+        <view class="time-info">配送时间:8:00-21:00</view>
       </view>
       <view class="public info">
         <view class="title info">公告</view>
