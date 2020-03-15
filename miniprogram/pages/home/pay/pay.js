@@ -25,6 +25,7 @@ Page({
       totalMoney: parseInt(options.totalMoney) + 2,
       resname: options.resname,
       image: options.image,
+      start: options.start
     })
     for (var i = 0; i < this.data.order.length; i++) {
       db.collection('dish').doc(this.data.order[i].id).get({
@@ -48,8 +49,6 @@ Page({
         }
       })
     }
-
-
   },
 
   /**
@@ -175,6 +174,7 @@ Page({
           image: _this.data.image,
           date: String(time),
           tname: _this.data.address.tname,
+          start: _this.data.start,
         },
         success: res => {
           _this.onShow(true)

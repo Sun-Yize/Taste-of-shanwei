@@ -227,7 +227,7 @@ Page({
           }
         }
       }
-    })
+    })   
   },
 
   /**
@@ -502,7 +502,7 @@ Page({
   getIntoStore: function(e) {
     if (this.data.totalMoney >= this.data.delivery) {
       wx.navigateTo({
-        url: '../pay/pay?id=' + this.data.res_id + '&order=' + JSON.stringify(this.data.order) + '&totalMoney=' + this.data.totalMoney + '&resname=' + this.data.storeName + '&image=' + this.data.storeImgUrl,
+        url: '../pay/pay?id=' + this.data.res_id + '&order=' + JSON.stringify(this.data.order) + '&totalMoney=' + this.data.totalMoney + '&resname=' + this.data.storeName + '&image=' + this.data.storeImgUrl + '&start=' + this.data.restaurant[this.data.place1][this.data.place2],
       })
     }
   }

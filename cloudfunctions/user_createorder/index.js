@@ -24,6 +24,7 @@ exports.main = async (event, context) => {
         resname: event.resname,
         image: event.image,
         tname: event.tname,
+        start: event.start,
       }
     })
 }

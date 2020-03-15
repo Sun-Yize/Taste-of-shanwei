@@ -22,6 +22,11 @@ Page({
 
   },
 
+  onPullDownRefresh: function () {
+    this.onShow(true)
+    wx.stopPullDownRefresh();
+  },
+
   onShow: function() {
     var _this = this
     db.collection('rider')

@@ -7,7 +7,7 @@
 
   <view class="bottom">
     <view class="store-name">
-      商家名称:\t {{resname}}
+      商家名称:\t {{resname}}({{start}})
     </view>
     <view class="divLine"></view>
 
