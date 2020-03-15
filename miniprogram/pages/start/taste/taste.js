@@ -1,4 +1,3 @@
-// pages/multiple/multiple.js
 const app = getApp();
 const db = wx.cloud.database();
 const _ = db.command
@@ -7,16 +6,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-
     nickname: '',
-    items: [
-      { value: '盘餐', checked: 'true' },
-      { value: '爱吃面食', checked: 'true' },
-      { value: '吃辣小能手', checked: '' },
-      { value: '素食主义', checked: '' },
-      { value: '甜品爱好者', checked: '' },
-      { value: '爱奶茶', checked: '' },
-      { value: '就爱吃肉', checked: '' },
+    items: [{
+        value: '盘餐',
+        checked: 'true'
+      },
+      {
+        value: '爱吃面食',
+        checked: 'true'
+      },
+      {
+        value: '吃辣小能手',
+        checked: ''
+      },
+      {
+        value: '素食主义',
+        checked: ''
+      },
+      {
+        value: '甜品爱好者',
+        checked: ''
+      },
+      {
+        value: '爱奶茶',
+        checked: ''
+      },
+      {
+        value: '就爱吃肉',
+        checked: ''
+      },
     ],
     arr: [], //标签数组：用来存储选中的值
   },
@@ -54,7 +72,6 @@ Page({
           arr.splice(i, 1);
         }
       }
-
     }
     items[index].checked = !val;
 
@@ -64,7 +81,6 @@ Page({
     })
 
   },
-
 
   //默认选中为true的
   selectEd(e) {
@@ -82,17 +98,16 @@ Page({
       }
     }
   },
-   
 
-  goindex: function (options) {
+  goindex: function(options) {
     var _this = this
     var temp = wx.getStorageSync('userInfo')
     wx.navigateTo({
-      url: '../../home/user/settings/myData',
-    }),
+        url: '../../home/user/settings/myData',
+      }),
       console.log(this.data.arr)
+    
     //上传到数据库
-
     db.collection('user_self')
       .where({
         _openid: _.eq('userInfo.openid'),
@@ -108,7 +123,7 @@ Page({
               avatarUrl: temp.avatarUrl,
               openid: temp.openid,
             },
-            success: function (res) {
+            success: function(res) {
               db.collection("user").add({
                 data: {
                   _id: res._id,
@@ -116,7 +131,7 @@ Page({
                   star: [],
                   nickName: temp.nickName,
                 },
-                success: function (res) {
+                success: function(res) {
                   console.log("添加用户空白记录成功", res)
                   wx.setStorageSync('user_id', res._id)
                 },
@@ -134,87 +149,72 @@ Page({
             data: {
               taste: this.data.arr
             },
-            success:function(res){
-              console.log('添加成功',res)
+            success: function(res) {
+              console.log('添加成功', res)
             }
           })
         }
       })
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     this.selectEd();
-
     var self = this;
-    /**
-     * 获取用户信息
-     */
     this.setData({
       thumb: wx.getStorageSync("userInfo").avatarUrl,
       nickname: wx.getStorageSync("userInfo").nickName
     })
-   
-
-    
-
-   
-    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
-  },
-
- 
+  }
 })
-
-

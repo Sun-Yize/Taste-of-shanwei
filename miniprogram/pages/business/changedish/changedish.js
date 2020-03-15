@@ -7,17 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-
     src: '',
     price: 0,
     name: '',
     introduce: '',
     tag: '',
     getimage: false
-
-
   },
-  
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -105,7 +102,8 @@ Page({
               data: {
                 path: wx.getStorageSync('current') + '/' + Date.parse(new Date()) + '.png',
                 file: res.data
-              }, success: _res => {
+              },
+              success: _res => {
                 console.log(_res.result.fileID)
                 _this.setData({
                   src_temp: _res.result.fileID
@@ -117,6 +115,7 @@ Page({
       }
     })
   },
+
   preview: function(e) {
 
     wx.previewImage({
@@ -124,28 +123,33 @@ Page({
       urls: this.data.src
     })
   },
+
   name: function(e) {
     this.setData({
       name: e.detail.value
     })
   },
+
   price: function(e) {
     let m = parseFloat(e.detail.value)
     this.setData({
       price: m
     })
-    
+
   },
+
   tag: function(e) {
     this.setData({
       tag: e.detail.value
     })
   },
+
   introduce: function(e) {
     this.setData({
       introduce: e.detail.value
     })
   },
+
   //上传按钮
   changeData: function(e) {
     var id = this.data.id
@@ -169,23 +173,22 @@ Page({
         console.log(err);
       }
     })
-
     wx.navigateBack({
       delta: 1
     })
-
   },
-  onbindchange: function (e) {
+
+  onbindchange: function(e) {
     console.log(e)
     this.setData({
       notsell: e.detail.value
     })
-
   },
-  delete: function (e) {
+
+  delete: function(e) {
     var id = this.data.id
     db.collection('dish').doc(id).remove({
-      success: function (res) {
+      success: function(res) {
         console.log(res.data)
       }
     })
@@ -193,4 +196,5 @@ Page({
       delta: 1
     })
   }
+  
 })

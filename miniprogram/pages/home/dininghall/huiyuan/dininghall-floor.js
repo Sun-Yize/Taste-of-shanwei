@@ -4,7 +4,7 @@ const _ = db.command;
 Page({
   data: {
     tasks: [],
-    condition:{},
+    condition: {},
     activeId: 0,
     leftMenuList: [{
       "id": 0,
@@ -14,21 +14,21 @@ Page({
       "floor": "二楼"
     }]
   },
-    
-    selectFloor(e){
-      this.setData({
-        condition:{},
-        tasks:[],
-        activeId: e.currentTarget.dataset.id
-      })
-      this.onLoad(true)
-    },
+
+  selectFloor(e) {
+    this.setData({
+      condition: {},
+      tasks: [],
+      activeId: e.currentTarget.dataset.id
+    })
+    this.onLoad(true)
+  },
 
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var _this = this
     db.collection("restaurant")
       .where({
@@ -55,16 +55,16 @@ Page({
         }
       })
   },
-  
-  getIntoStore:function(e){
+
+  getIntoStore: function(e) {
     console.log(e)
     wx.navigateTo({
-      url: '../../store/store?id='+e.target.dataset.item._id,
+      url: '../../store/store?id=' + e.target.dataset.item._id,
     })
   },
 
 
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     this.onLoad(true)
     wx.stopPullDownRefresh();
   }

@@ -1,18 +1,14 @@
-wx.cloud.init({
-  env: 'newenv-llmat'
-})
 var app = getApp()
 const db = wx.cloud.database();
 
 Page({
-  data:{
-    clientHeight:'',
+  data: {
+    clientHeight: '',
     currentTab: 0,
-    good:[],
-    bad:[],
-    userInfo:{},
-    kind: [
-      {
+    good: [],
+    bad: [],
+    userInfo: {},
+    kind: [{
         title: "好评"
       },
       {
@@ -21,12 +17,12 @@ Page({
     ]
   },
 
-  onLoad: function () {
+  onLoad: function() {
     var good = []
-    var bad=[]
+    var bad = []
     db.collection('order')
       .where({
-        evaluate: 5,       
+        evaluate: 5,
       })
       .get({
         success: (res) => {
@@ -36,7 +32,7 @@ Page({
           })
         }
       }),
-    db.collection('order')
+      db.collection('order')
       .where({
         evaluate: db.command.neq(5),
       }).where({
@@ -53,12 +49,12 @@ Page({
       })
   },
 
-  onShow:function(e){
+  onShow: function(e) {
     var clientHeight = ''
     wx.getSystemInfo({
       success: res => {
         console.log(res)
-        clientHeight = res.windowHeight-180
+        clientHeight = res.windowHeight - 180
       }
     })
     this.setData({
@@ -69,7 +65,7 @@ Page({
     })
   },
 
-  switchNav: function (e) {
+  switchNav: function(e) {
     console.log(e.currentTarget.dataset.current)
     var that = this
     var cur = e.currentTarget.dataset.current;
@@ -83,7 +79,7 @@ Page({
   },
 
   // 滚动切换标签样式 
-  switchTab: function (e) {
+  switchTab: function(e) {
     var that = this;
     that.setData({
       currentTab: e.detail.current
@@ -102,7 +98,7 @@ Page({
     })
   },
 
-  billDetail () {
+  billDetail() {
     wx.navigateTo({
       url: '/pages/rider/mineChildren/billDetail/billDetail'
     })

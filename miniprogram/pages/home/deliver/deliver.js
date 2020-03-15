@@ -56,14 +56,14 @@ Page({
           this.setData({
             condition: '订单已完成'
           })
-        }else{
+        } else {
           this.setData({
             condition: '商家正在准备商品'
           })
         }
       }
     })
-    
+
   },
 
   /**

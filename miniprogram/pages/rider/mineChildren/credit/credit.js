@@ -2,20 +2,20 @@ const app = getApp();
 const db = wx.cloud.database();
 
 Page({
-  data:{
-    historyorders:[],       //历史订单
-    mycredit:0             //我的信用分
+  data: {
+    historyorders: [], //历史订单
+    mycredit: 0 //我的信用分
   },
 
-  onShow: function(){
+  onShow: function() {
     this.page = 0
-    this.setData({    //每次重新进入页面评价重新加载
+    this.setData({ //每次重新进入页面评价重新加载
       historyorders: []
     })
     this.gethistoryorders(true)
     db.collection('rider')
       .where({
-        _id:wx.getStorageSync('user_id'),
+        _id: wx.getStorageSync('user_id'),
       })
       .get({
         success: res => {
@@ -32,7 +32,7 @@ Page({
       title: '加载中',
     })
     db.collection('order').where({
-      condition:4
+      condition: 4
     }).skip(this.page * PAGE).limit(PAGE).get({
       success: res => {
         if (isInit) {

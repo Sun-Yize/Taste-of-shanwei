@@ -3,8 +3,8 @@ const db = wx.cloud.database();
 const _ = db.command
 
 Page({
-  
-  
+
+
   /**
    * 页面的初始数据
    */
@@ -15,31 +15,31 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var userInfo = wx.getStorageSync('userInfo')
     this.setData({
       userInfo: userInfo
-    }) 
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 

@@ -29,7 +29,6 @@ Page({
         var price = []
         //先想办法得到一个goods
         for (var j = 0; j < res.data.length; j++) {
-          // a.push(res.data[j].age),
           id.push(res.data[j]._id),
             name.push(res.data[j].name),
             tag.push(res.data[j].tag),
@@ -37,7 +36,6 @@ Page({
             introduce.push(res.data[j].introduce),
             price.push(res.data[j].price)
         }
-        // console.log(tag);
         for (var h = 0; h < tag.length; h++) {
           same.push({
             id: id[h],
@@ -75,7 +73,6 @@ Page({
         this.setData({
           goods: goods,
           goodsList: goodsList,
-
         })
         console.log(this.data)
       },
@@ -161,7 +158,7 @@ Page({
       });
     }, 100);
   },
-  
+
   onbindtap: function(e) {
     wx.navigateTo({
       url: "../adddish/adddish"

@@ -1,6 +1,4 @@
-// pages/eva/eva.js
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -115,7 +113,7 @@ Page({
         id: this.data.order_id,
         evaluatedetail: this.data.evaluatedetail,
         evaluate: this.data.one_2,
-        etime:String(time),
+        etime: String(time),
       },
       success: res => {
         wx.showToast({
@@ -134,7 +132,6 @@ Page({
         })
         console.error('[云函数] [sum] 调用失败：', err)
       }
-
     })
   }
 })

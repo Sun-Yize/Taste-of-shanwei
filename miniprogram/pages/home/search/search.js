@@ -2,6 +2,7 @@ const app = getApp();
 const db = wx.cloud.database();
 const _ = db.command
 let timeId = null;
+
 Page({
   data: {
     history: [],
@@ -28,21 +29,22 @@ Page({
   },
 
   searchInput(e) {
-    if (e.detail.value != 0){
-    db.collection("restaurant").where({
-      restaurant: db.RegExp({
-        regexp: e.detail.value,
-        options: 'i',
-      })}).get({
+    if (e.detail.value != 0) {
+      db.collection("restaurant").where({
+        restaurant: db.RegExp({
+          regexp: e.detail.value,
+          options: 'i',
+        })
+      }).get({
         success: res => {
-          if(res.data==0){
+          if (res.data == 0) {
             this.setData({
               showKeywords: true,
               keywords: ['抱歉，未查询到相关内容']
             })
-          }else{
-            for(var index1 in res.data){
-              var temp = "keywords["+ index1 +"]"
+          } else {
+            for (var index1 in res.data) {
+              var temp = "keywords[" + index1 + "]"
               this.setData({
                 showKeywords: true,
                 [temp]: res.data[index1].restaurant
@@ -51,7 +53,7 @@ Page({
           }
         }
       })
-    }else{
+    } else {
       this.setData({
         showKeywords: false,
         keywords: []
@@ -94,7 +96,7 @@ Page({
     });
   },
 
-  getIntoStore: function (e) {
+  getIntoStore: function(e) {
     console.log(e)
     wx.navigateTo({
       url: '../store/store?id=' + e.target.dataset.item._id,

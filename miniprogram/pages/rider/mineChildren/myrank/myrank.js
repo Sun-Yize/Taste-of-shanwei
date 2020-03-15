@@ -1,7 +1,6 @@
 Page({
   data: {
-    rankrule: [
-      {
+    rankrule: [{
         title: "收入榜"
       },
       {
@@ -13,7 +12,7 @@ Page({
 
 
   // 点击标题切换当前页时改变样式
-  switchNav: function (e) {
+  switchNav: function(e) {
     console.log(e.currentTarget.dataset.current)
     var that = this
     var cur = e.currentTarget.dataset.current;
@@ -27,15 +26,14 @@ Page({
   },
 
   // 滚动切换标签样式 
-  switchTab: function (e) {
+  switchTab: function(e) {
     var that = this;
     that.setData({
       currentTab: e.detail.current
     });
     if (e.detail.current == 0) {
       console.log('收入榜')
-    }
-    else if (e.detail.current == 1) {
+    } else if (e.detail.current == 1) {
       console.log('好评榜')
     }
   }

@@ -7,12 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classifyViewed:'s0',
+    classifyViewed: 's0',
     classifySeleted: 's0',
     editTrue: true,
     showModalStatus: false,
     changeText: '收藏',
-    evaluate:[],
+    evaluate: [],
     tabState: 0,
     viewTo: "",
     viewToLeft: "",
@@ -58,55 +58,49 @@ Page({
         text: "赠"
       }
     },
-    storeInfo: {
-      //服务端获取信息
-      
-    },
     storeId: 1,
     storeName: "",
     storeImgUrl: "",
     score: 4.4,
     delPrice: 2,
-
     service: ["支持自取"],
     actives: [{
-      activeId: 1,
-      acticeText: "满20减3"
-    },
-    {
-      activeId: 2,
-      acticeText: "本店新用户立减1元"
-    },
-    {
-      activeId: 3,
-      acticeText: "部分菜品9折起"
-    }
+        activeId: 1,
+        acticeText: "满20减3"
+      },
+      {
+        activeId: 2,
+        acticeText: "本店新用户立减1元"
+      },
+      {
+        activeId: 3,
+        acticeText: "部分菜品9折起"
+      }
     ],
     publicMsg: "",
-    // food: [],
     place1: 0,
     place2: 0,
-    restaurant:[
-      ['馨园一楼','馨园二楼','馨园三楼'],
-      ['荟园一楼','荟园二楼','0'],
-      ['泰园二楼','泰园三楼','泰园四楼'],
-      ['雀园一楼','0','0']
+    restaurant: [
+      ['馨园一楼', '馨园二楼', '馨园三楼'],
+      ['荟园一楼', '荟园二楼', '0'],
+      ['泰园二楼', '泰园三楼', '泰园四楼'],
+      ['雀园一楼', '0', '0']
     ]
   },
-  
+
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var _this = this
     var tag = 0 //遍历时自变量
     var show1 = [] //临时存储数组
-
     //将商家id从上一界面读取
     this.setData({
       res_id: options.id
     })
+
     //读取餐馆详细信息
     db.collection('restaurant').where({
       _id: this.data.res_id
@@ -120,18 +114,19 @@ Page({
           place1: res.data[0].place1,
           place2: res.data[0].place2,
         })
-        if(res.data[0].on == false){
+        if (res.data[0].on == false) {
           wx.showModal({
             title: '餐厅打烊啦',
             content: '请您稍后再来~',
             showCancel: false,
-            success: function (res) {
+            success: function(res) {
               wx.navigateBack()
             }
           })
         }
       }
     })
+
     //读取餐馆对应菜品
     db.collection('dish').where({
       res_id: this.data.res_id
@@ -197,6 +192,7 @@ Page({
         console.log("error")
       }
     })
+
     //读取餐馆评价
     db.collection('order').where({
       res_id: this.data.res_id,
@@ -204,7 +200,9 @@ Page({
       success: res => {
         while (tag < res.data.length) {
           if (res.data[tag].evaluate != undefined) {
-            var obj = Object.assign({ neva: 5 - res.data[tag].evaluate }, res.data[tag]);
+            var obj = Object.assign({
+              neva: 5 - res.data[tag].evaluate
+            }, res.data[tag]);
             show1.push(obj)
             this.setData({
               evaluate: show1,
@@ -215,16 +213,17 @@ Page({
         }
       }
     })
+
     //读取用户是否曾收藏商家
     db.collection('user').doc(wx.getStorageSync('user_id')).get({
       success: res => {
         console.log(res.data.star)
-        for(var str = 0;str<res.data.star.length;str++){
-          if(res.data.star[str]==this.data.res_id){
+        for (var str = 0; str < res.data.star.length; str++) {
+          if (res.data.star[str] == this.data.res_id) {
             this.setData({
               editTrue: false,
               changeText: '已收藏'
-            })  
+            })
           }
         }
       }
@@ -234,7 +233,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
     let height1, height2;
     let res = wx.getSystemInfoSync();
     let winHeight = res.windowHeight;
@@ -257,35 +256,15 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     //页面顶部显示商家名称
     var _this = this
-    setTimeout(function () {
+    setTimeout(function() {
       wx.setNavigationBarTitle({
         title: _this.data.storeName
       });
     }, 800)
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {},
 
   //侧边栏点击绑定函数
   selectFood(e) {
@@ -295,7 +274,7 @@ Page({
       classifyViewed: id
     });
     var self = this;
-    setTimeout(function () {
+    setTimeout(function() {
       self.setData({
         classifySeleted: id
       });
@@ -336,7 +315,7 @@ Page({
       h = 0,
       classifySeleted,
       len = this.data.goodsList.length;
-    this.data.goodsList.forEach(function (classify, i) {
+    this.data.goodsList.forEach(function(classify, i) {
       var _h = 70 + classify.goods.length * (46 * 3 + 20 * 2);
       if (scrollTop >= h - 100 / scale) {
         classifySeleted = classify.id;
@@ -356,38 +335,46 @@ Page({
     var m = e.target.dataset.id
     var o = this.data.goods[m].number + 1;
     var p = this.data.goods[m].price + this.data.totalMoney
-    if (len != 0){
-      for(var i=0;i < len;i++){   
-        if(this.data.order[i].id == this.data.goods[m].id){
-          var n = this.data.order[i].number+1; 
-          var temp1 = 'order['+ i +'].number'
-          var temp3 = 'goods['+ m +'].number'
+    if (len != 0) {
+      for (var i = 0; i < len; i++) {
+        if (this.data.order[i].id == this.data.goods[m].id) {
+          var n = this.data.order[i].number + 1;
+          var temp1 = 'order[' + i + '].number'
+          var temp3 = 'goods[' + m + '].number'
           this.setData({
             [temp1]: n,
             [temp3]: o,
             totalMoney: p
           })
           console.log(this.data.order)
-          flag=1
+          flag = 1
         }
       }
-      if(flag == 0){
-        console.log(len)   
+      if (flag == 0) {
+        console.log(len)
         var temp2 = 'order[' + len + ']'
         var temp4 = 'goods[' + m + '].number'
         this.setData({
-          [temp2]: { 'name': this.data.goods[m].name,'id': this.data.goods[m].id, 'number': 1 },
+          [temp2]: {
+            'name': this.data.goods[m].name,
+            'id': this.data.goods[m].id,
+            'number': 1
+          },
           [temp4]: o,
           totalMoney: p
         })
         console.log(this.data.order)
       }
-    }else{
-      console.log(len) 
+    } else {
+      console.log(len)
       var temp2 = 'order[' + len + ']'
       var temp4 = 'goods[' + m + '].number'
       this.setData({
-        [temp2]: { 'name': this.data.goods[m].name,'id': this.data.goods[m].id, 'number': 1 },
+        [temp2]: {
+          'name': this.data.goods[m].name,
+          'id': this.data.goods[m].id,
+          'number': 1
+        },
         [temp4]: o,
         totalMoney: p
       })
@@ -412,14 +399,14 @@ Page({
           [temp3]: o,
           totalMoney: p
         })
-        if (this.data.goods[m].number == 0){
+        if (this.data.goods[m].number == 0) {
           delete this.data.order[i]
         }
         console.log(this.data.order)
       }
     }
   },
-  
+
   //切换菜单、评价、商家栏
   selectTabItem(e) {
     if (e.target.dataset.index) {
@@ -430,7 +417,7 @@ Page({
   },
 
   //点击导航
-  tabSwitch: function (e) {
+  tabSwitch: function(e) {
     let index = e.currentTarget.dataset.index;
     this.setData({
       tabState: index
@@ -452,7 +439,7 @@ Page({
   },
 
   //收藏商家函数
-  getStar:function(e){
+  getStar: function(e) {
     var flag = 0
     var _this = this
     db.collection('user').doc(wx.getStorageSync('user_id')).get({
@@ -467,7 +454,7 @@ Page({
             flag = 1
           }
         }
-        if(flag == 0){
+        if (flag == 0) {
           db.collection('user').doc(wx.getStorageSync('user_id')).update({
             data: {
               star: _.push(e.target.dataset.item)
@@ -478,7 +465,7 @@ Page({
             icon: 'none',
             duration: 1500
           })
-        }else{
+        } else {
           db.collection('user').doc(wx.getStorageSync('user_id')).update({
             data: {
               star: this.data.star
@@ -495,7 +482,7 @@ Page({
   },
 
   //收藏按钮变化控制函数
-  showChange: function () {
+  showChange: function() {
     var that = this;
     if (that.data.editTrue == true) {
       that.setData({
@@ -512,12 +499,12 @@ Page({
   },
 
   //前往去结算界面
-  getIntoStore: function (e) {
-    if(this.data.totalMoney >= this.data.delivery){
+  getIntoStore: function(e) {
+    if (this.data.totalMoney >= this.data.delivery) {
       wx.navigateTo({
         url: '../pay/pay?id=' + this.data.res_id + '&order=' + JSON.stringify(this.data.order) + '&totalMoney=' + this.data.totalMoney + '&resname=' + this.data.storeName + '&image=' + this.data.storeImgUrl,
       })
     }
-  },
-  
+  }
+
 });

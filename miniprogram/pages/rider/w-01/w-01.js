@@ -4,29 +4,29 @@ const _ = db.command
 var flag = 0
 Page({
   data: {
-    bill:0,
-    mycredit:100,
-    getting:0,
-    phone:'',
-    mycredit:'',
-    tapIndex: '0',     //默认接单
+    bill: 0,
+    mycredit: 100,
+    getting: 0,
+    phone: '',
+    mycredit: '',
+    tapIndex: '0', //默认接单
     statusMap: {
       0: '已开工',
       1: '休假中'
     },
     orderlists: [],
-    ordername:[]
+    ordername: []
   },
 
-  onLoad:function(){
-    
+  onLoad: function() {
+
   },
 
-  onShow: function () {
+  onShow: function() {
     var _this = this
     db.collection('rider')
       .where({
-        _id:wx.getStorageSync('user_id')
+        _id: wx.getStorageSync('user_id')
       })
       .get({
         success: res => {
@@ -39,15 +39,15 @@ Page({
         }
       })
 
-    this.page = 0      
-    this.setData({    //每次重新进入页面时订单池重新加载
-      orderlists:[],
+    this.page = 0
+    this.setData({ //每次重新进入页面时订单池重新加载
+      orderlists: [],
       userInfo: wx.getStorageSync('userInfo')
     })
     this.getList(true)
   },
 
-  changeStatus: function () {
+  changeStatus: function() {
     var that = this;
     var tapIndex = that.data.tapIndex;
     wx.showActionSheet({
@@ -60,7 +60,7 @@ Page({
     })
   },
 
-  onReachBottom:function(){        //触底加载
+  onReachBottom: function() { //触底加载
     this.page += 1
     this.getList(true)
   },
@@ -68,15 +68,15 @@ Page({
   getList(isInit) {
     var show = []
     var _this = this
-    const PAGE = 3                //PAGE后期可改，每次新加载出的订单个数
+    const PAGE = 3 //PAGE后期可改，每次新加载出的订单个数
     wx.showLoading({
       title: '加载中',
     })
     db.collection('order')
       .where({
-        condition: 1                   //待接单的订单
+        condition: 1 //待接单的订单
       }).where({
-        cook:true                   //待接单的订单
+        cook: true //待接单的订单
       })
       .skip(this.page * PAGE).limit(PAGE).get({
         success: res => {
@@ -87,10 +87,10 @@ Page({
           wx.hideLoading()
         }
       })
-    
+
   },
 
-  onmyData() {                  //点击头像进入“我的”详情页面
+  onmyData() { //点击头像进入“我的”详情页面
     wx.navigateTo({
       url: '/pages/rider/myData/myData'
     })
@@ -131,12 +131,12 @@ Page({
   },
 
   btnTap(e) {
-    var _this=this
+    var _this = this
     wx.showModal({
       title: '提示',
       content: '亲，你确定要接单吗？',
       success(res) {
-        if(res.confirm){
+        if (res.confirm) {
           const item = e.currentTarget.dataset.item._id
           console.log(_this.data.orderlists)
           var orderlists = _this.data.orderlists
@@ -166,36 +166,35 @@ Page({
                 title: '接单失败',
               })
             }
-            
           })
         }
       }
     })
   },
 
-  homeNav:function(e){
+  homeNav: function(e) {
     flag = 1
     wx.switchTab({
       url: '../../home/index/index',
     })
   },
 
-  orderNav:function(){
+  orderNav: function() {
     flag = 1
     wx.switchTab({
       url: '../../home/allorder/allorder',
     })
   },
 
-  mineNav:function(){
+  mineNav: function() {
     flag = 1
     wx.switchTab({
       url: '../../home/user/main/user',
     })
   },
 
-  onUnload: function () {
-    if(flag == 0){
+  onUnload: function() {
+    if (flag == 0) {
       wx.switchTab({
         url: '../../home/index/index'
       })

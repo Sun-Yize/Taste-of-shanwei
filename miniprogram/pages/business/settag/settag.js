@@ -2,12 +2,12 @@
 const app = getApp();
 const db = wx.cloud.database();
 const _ = db.command
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-
     nickname: '',
     items: [{
         value: '麻辣香锅',
@@ -70,15 +70,12 @@ Page({
           arr.splice(i, 1);
         }
       }
-
     }
     items[index].checked = !val;
-
     that.setData({
       items: items,
       arr: arr
     })
-
   },
 
 
@@ -158,14 +155,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function(option) {
-    // var id=option.id
-    // console.log('id')
-    // this.selectEd();
-    // db.collection('restuarant').doc(id).get().then(res => {
-    //   console.log("success")
-
-    // }
-    // )
 
   },
 

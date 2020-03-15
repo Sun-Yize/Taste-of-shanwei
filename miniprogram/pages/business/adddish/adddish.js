@@ -14,19 +14,14 @@ Page({
     introduce: '',
     tag: '',
     getimage: false,
-    src_temp:'',
+    src_temp: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // var userInfo = wx.getStorageSync('userInfo');
-    // var openid = userInfo.openid
-    // console.log(openid)
-    // this.setData({
-    //   openid:openid
-    // })
+ 
   },
 
   /**
@@ -93,7 +88,7 @@ Page({
           src: res.tempFilePaths,
           getimage: true
         })
-        
+
         wx.getFileSystemManager().readFile({
           filePath: filePath, //选择图片返回的相对路径
           encoding: 'base64', //编码格式
@@ -101,9 +96,10 @@ Page({
             wx.cloud.callFunction({
               name: 'res_resimg',
               data: {
-                path: wx.getStorageSync('current') + '/'+Date.parse(new Date())+'.png',
+                path: wx.getStorageSync('current') + '/' + Date.parse(new Date()) + '.png',
                 file: res.data
-              }, success: _res => {
+              },
+              success: _res => {
                 console.log(_res.result.fileID)
                 _this.setData({
                   src_temp: _res.result.fileID
@@ -117,34 +113,38 @@ Page({
       }
     })
   },
+
   preview: function(e) {
-
     wx.previewImage({
-
       urls: this.data.src
     })
   },
+
   name: function(e) {
     this.setData({
       name: e.detail.value
     })
   },
+
   price: function(e) {
     let m = parseFloat(e.detail.value);
     this.setData({
       price: m
     })
   },
+
   tag: function(e) {
     this.setData({
       tag: e.detail.value
     })
   },
+
   introduce: function(e) {
     this.setData({
       introduce: e.detail.value
     })
   },
+  
   //上传按钮
   upData: function(e) {
     db.collection('dish').add({

@@ -1,22 +1,22 @@
 @import 'pages/rider/images/styles/iconfont.wxss';
 @import 'miniprogram_npm/vant-weapp/common/index.wxss';
 
-
-.no_order{
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
+.no_order {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.no_order image{
-padding-top: 40rpx;
+.no_order image {
+  padding-top: 40rpx;
 }
 
 page {
   background-color: #fbf9fe;
   height: 100%;
 }
+
 .container {
   display: flex;
   flex-direction: column;
@@ -25,7 +25,6 @@ page {
   justify-content: space-between;
 }
 
-
 .page-header {
   display: flex;
   font-size: 32rpx;
@@ -33,9 +32,10 @@ page {
   justify-content: center;
   margin-top: 50rpx;
 }
+
 .page-header-text {
   padding: 20rpx 40rpx;
-  border-bottom: 1px solid #ccc; 
+  border-bottom: 1px solid #ccc;
 }
 
 .page-body {
@@ -46,6 +46,7 @@ page {
   flex-grow: 1;
   overflow-x: hidden;
 }
+
 .page-body-wrapper {
   margin-top: 100rpx;
   display: flex;
@@ -53,13 +54,16 @@ page {
   align-items: center;
   width: 100%;
 }
+
 .page-body-wrapper form {
   width: 100%;
 }
+
 .page-body-wording {
   text-align: center;
   padding: 200rpx 100rpx;
 }
+
 .page-body-info {
   display: flex;
   flex-direction: column;
@@ -69,20 +73,24 @@ page {
   width: 100%;
   padding: 50rpx 0 150rpx 0;
 }
+
 .page-body-title {
   margin-bottom: 100rpx;
   font-size: 32rpx;
 }
+
 .page-body-text {
   font-size: 30rpx;
   line-height: 26px;
   color: #ccc;
 }
+
 .page-body-text-small {
   font-size: 24rpx;
   color: #000;
   margin-bottom: 100rpx;
 }
+
 .page-body-form {
   width: 100%;
   background-color: #fff;
@@ -91,6 +99,7 @@ page {
   width: 100%;
   border: 1px solid #eee;
 }
+
 .page-body-form-item {
   display: flex;
   align-items: center;
@@ -98,9 +107,11 @@ page {
   border-bottom: 1px solid #eee;
   height: 80rpx;
 }
+
 .page-body-form-key {
   width: 180rpx;
 }
+
 .page-body-form-value {
   flex-grow: 1;
 }
@@ -115,6 +126,7 @@ page {
   padding-right: 20rpx;
   border-bottom: 1px solid #eee;
 }
+
 .page-body-form-picker-value {
   color: #ccc;
 }
@@ -122,13 +134,16 @@ page {
 .page-body-buttons {
   width: 100%;
 }
+
 .page-body-button {
   margin: 25rpx;
 }
+
 .page-body-button image {
   width: 150rpx;
   height: 150rpx;
 }
+
 .page-footer {
   text-align: center;
   color: #1aad19;
@@ -136,148 +151,163 @@ page {
   margin: 20rpx 0;
 }
 
-.green{
-    color: #09BB07;
-}
-.red{
-    color: #F76260;
-}
-.blue{
-    color: #10AEFF;
-}
-.yellow{
-    color: #FFBE00;
-}
-.gray{
-    color: #C9C9C9;
+.green {
+  color: #09bb07;
 }
 
-.strong{
-    font-weight: bold;
+.red {
+  color: #f76260;
 }
 
-.bc_green{
-    background-color: #09BB07;
-}
-.bc_red{
-    background-color: #F76260;
-}
-.bc_blue{
-    background-color: #10AEFF;
-}
-.bc_yellow{
-    background-color: #FFBE00;
-}
-.bc_gray{
-    background-color: #C9C9C9;
+.blue {
+  color: #10aeff;
 }
 
-.tc{
-    text-align: center;
+.yellow {
+  color: #ffbe00;
 }
 
-.page input{
-    padding: 10px 15px;
-    background-color: #fff;
-}
-checkbox, radio{
-    margin-right: 5px;
+.gray {
+  color: #c9c9c9;
 }
 
-.btn-area{
-    padding: 0 15px;
+.strong {
+  font-weight: bold;
 }
-.btn-area button{
-    margin-top: 10px;
-    margin-bottom: 10px;
+
+.bc_green {
+  background-color: #09bb07;
+}
+
+.bc_red {
+  background-color: #f76260;
+}
+
+.bc_blue {
+  background-color: #10aeff;
+}
+
+.bc_yellow {
+  background-color: #ffbe00;
+}
+
+.bc_gray {
+  background-color: #c9c9c9;
+}
+
+.tc {
+  text-align: center;
+}
+
+.page input {
+  padding: 10px 15px;
+  background-color: #fff;
+}
+
+checkbox, radio {
+  margin-right: 5px;
+}
+
+.btn-area {
+  padding: 0 15px;
+}
+
+.btn-area button {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .page {
-    min-height: 100%;
-    flex: 1;
-    background-color: #FBF9FE;
-    font-size: 16px;
-    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
-    overflow: hidden;
-}
-.page__hd{
-    padding: 40px;
-}
-.page__title{
-    display: block;
-    font-size: 20px;
-}
-.page__desc{
-    margin-top: 5px;
-    font-size: 14px;
-    color: #888888;
+  min-height: 100%;
+  flex: 1;
+  background-color: #fbf9fe;
+  font-size: 16px;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+  overflow: hidden;
 }
 
-.section{
-    margin-bottom: 40px;
-}
-.section_gap{
-    padding: 0 15px;
-}
-.section__title{
-    margin-bottom: 8px;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-.section_gap .section__title{
-    padding-left: 0;
-    padding-right: 0;
+.page__hd {
+  padding: 40px;
 }
 
+.page__title {
+  display: block;
+  font-size: 20px;
+}
 
+.page__desc {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #888;
+}
 
+.section {
+  margin-bottom: 40px;
+}
 
+.section_gap {
+  padding: 0 15px;
+}
+
+.section__title {
+  margin-bottom: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.section_gap .section__title {
+  padding-left: 0;
+  padding-right: 0;
+}
 
 /* 骑手css文件 */
-.div-line{
+
+.div-line {
   height: 15rpx;
   background-color: rgba(218, 210, 210, 0.185);
   margin-top: 5rpx;
   margin-bottom: 5rpx;
 }
+
 /* 公用字体 */
-.font-32-c{
+
+.font-32-c {
   font-size: 32rpx;
-  color: #333333
+  color: #333;
 }
 
-.font-32-r{
+.font-32-r {
   font-size: 32rpx;
-  color: #fd4830
+  color: #fd4830;
 }
 
-.font-24-r{
+.font-24-r {
   font-size: 24rpx;
-  color: #fd4830
+  color: #fd4830;
 }
 
-.font-28-r{
+.font-28-r {
   font-size: 24rpx;
-  color: #fd4830
+  color: #fd4830;
 }
 
-.font-28-6{
+.font-28-6 {
   font-size: 28rpx;
-  color: #666666
+  color: #666;
 }
 
-.font-28-b{
-  font-size: 28rpx
+.font-28-b {
+  font-size: 28rpx;
 }
 
-.font-24-9{
+.font-24-9 {
   font-size: 24rpx;
-  color: #666666
+  color: #666;
 }
 
-.font-24-3{
+.font-24-3 {
   font-size: 24rpx;
-  color: #333333
+  color: #333;
 }
 
 .gz-cell-group {
@@ -293,16 +323,17 @@ checkbox, radio{
 
 .gz-grade-tag.van-hairline--surround::after {
   border-radius: 20px;
-  border: 0 solid #ffffff;
+  border: 0 solid #fff;
   border-width: 1px;
 }
 
 /* 优惠字体 */
+
 .tag-first {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: #fff;
   height: 28rpx;
   width: 28rpx;
   background-color: #fbb143;
@@ -312,7 +343,7 @@ checkbox, radio{
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: #fff;
   height: 28rpx;
   width: 28rpx;
   background-color: #fb4830;
@@ -322,22 +353,21 @@ checkbox, radio{
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #ffffff;
+  color: #fff;
   height: 28rpx;
   width: 28rpx;
   background-color: #02afff;
 }
 
-
 /* 公共按钮样式 */
-.wrap .van-button{
+
+.wrap .van-button {
   height: 80rpx;
   border-radius: 40rpx;
   font-size: 32rpx;
-  color: #ffffff;
-  border: none
+  color: #fff;
+  border: none;
 }
-
 
 .navbar-box {
   height: 90rpx;
@@ -361,7 +391,7 @@ checkbox, radio{
   box-sizing: border-box;
 }
 
-.bottom{
+.bottom {
   margin-top: -60rpx;
   height: 1000rpx;
 }
@@ -378,26 +408,25 @@ checkbox, radio{
   margin-top: 50rpx;
 }
 
-.sub-left{
-  flex:1;
+.sub-left {
+  flex: 1;
   margin-right: 10rpx;
 }
 
-.sub-center{
-  flex:2;
+.sub-center {
+  flex: 2;
 }
 
-.sub-right{
-  flex:1;
+.sub-right {
+  flex: 1;
   margin-left: 10rpx;
 }
-
 
 .order_content {
   padding: 20rpx 60rpx;
   height: 150rpx;
   display: flex;
-  position:relative;
+  position: relative;
 }
 
 .order_img image {
@@ -411,7 +440,7 @@ checkbox, radio{
   font-weight: bold;
   display: flex;
   flex-direction: column;
-  justify-content:space-around;
+  justify-content: space-around;
 }
 
 .order_img_name {
@@ -424,7 +453,7 @@ checkbox, radio{
   font-weight: normal;
 }
 
-.btn2{
+.btn2 {
   display: inline-block;
   background-color: #e75b96;
   border-radius: 40rpx;
@@ -434,17 +463,13 @@ checkbox, radio{
   font-size: 30rpx;
   font-weight: bold;
   vertical-align: middle;
-  position:absolute;
+  position: absolute;
   right: 30rpx;
-  bottom:26rpx;
+  bottom: 26rpx;
 }
 
-
-
-
-
-
 /* 商家小程序 */
+
 page {
   line-height: 1.6;
   font-family: -apple-system-font, Helvetica Neue, sans-serif;
@@ -1640,8 +1665,8 @@ icon {
   white-space: nowrap;
 }
 
-.divLine{
-background: #E0E3DA;
-width: 100%;
-height: 5rpx;
+.divLine {
+  background: #e0e3da;
+  width: 100%;
+  height: 5rpx;
 }

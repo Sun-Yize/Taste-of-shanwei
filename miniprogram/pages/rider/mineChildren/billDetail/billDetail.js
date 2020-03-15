@@ -1,17 +1,18 @@
 const app = getApp();
 const db = wx.cloud.database();
 // 得到今日日期的js文件，用于筛选今日订单
-import { formatTime } from '../../utils/util'
+import {
+  formatTime
+} from '../../utils/util'
 
 Page({
   data: {
     clientHeight: '',
     todaydate: '',
-    ordersContent1: [],    //今日订单
-    ordersContent2: [],   //全部订单
+    ordersContent1: [], //今日订单
+    ordersContent2: [], //全部订单
     currentTab: 0,
-    orderrule: [
-      {
+    orderrule: [{
         title: "今日"
       },
       {
@@ -20,7 +21,7 @@ Page({
     ]
   },
 
-  onShow: function () {
+  onShow: function() {
     var clientHeight = ''
     wx.getSystemInfo({
       success: res => {
@@ -36,19 +37,18 @@ Page({
     this.setData({
       todaydate: todaydate
     })
-    console.log(todaydate)   //得到今日日期
+    console.log(todaydate) //得到今日日期
     this.getordersContent1()
     this.getordersContent2()
   },
 
-
-//得到今日订单
-  getordersContent1(){
+  //得到今日订单
+  getordersContent1() {
     var ordersContent1 = []
     db.collection('order')
       .where({
         rid_id: wx.getStorageSync('user_id'),
-        condition:4,
+        condition: 4,
         date: db.RegExp({
           regexp: this.data.todaydate
         })
@@ -70,10 +70,10 @@ Page({
   getordersContent2() {
     var ordersContent2 = []
     db.collection('order')
-    .where({
-      rid_id: wx.getStorageSync('user_id'),                 //全部已完成订单
-      condition: 4
-      }).orderBy('date', 'desc')            
+      .where({
+        rid_id: wx.getStorageSync('user_id'), //全部已完成订单
+        condition: 4
+      }).orderBy('date', 'desc')
       .get({
         success: (res) => {
           console.log("全部订单：", res)
@@ -87,8 +87,7 @@ Page({
       })
   },
 
-
-  switchNav: function (e) {
+  switchNav: function(e) {
     console.log(e.currentTarget.dataset.current)
     var that = this
     var cur = e.currentTarget.dataset.current;
@@ -99,16 +98,15 @@ Page({
         currentTab: cur
       })
     }
-    this.getordersContent1() 
-    this.getordersContent2() 
+    this.getordersContent1()
+    this.getordersContent2()
   },
 
   // 滚动切换标签样式 
-  switchTab: function (e) {
+  switchTab: function(e) {
     var that = this;
     that.setData({
       currentTab: e.detail.current
     })
   }
-
 })

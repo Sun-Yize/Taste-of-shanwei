@@ -44,7 +44,6 @@ Page({
       ['泰园二楼', '泰园三楼', '泰园四楼'],
       ['雀园一楼', '0', '0']
     ]
-
   },
 
   /**
@@ -99,19 +98,16 @@ Page({
           }
           console.log("order:", order)
           this.setData({
-
               orderList1: order,
-
             }),
             order = []
         }
       }),
       //查询已接单信息
       db.collection('order')
-      .where(_.or([
-        {
-          cook:true,
-          condition:1,
+      .where(_.or([{
+          cook: true,
+          condition: 1,
           res_id: wx.getStorageSync('current')
         },
         {
@@ -128,18 +124,16 @@ Page({
           }
           console.log("order:", order)
           this.setData({
-
               orderList2: order,
-
             }),
             order = []
-            console.log(this.data)
+          console.log(this.data)
         }
       }),
       //查询配送中信息
       db.collection('order')
       .where({
-        condition:3,
+        condition: 3,
         res_id: wx.getStorageSync('current'),
       }).orderBy('date', 'desc')
       .get({
@@ -152,9 +146,7 @@ Page({
           }
           console.log("order:", order)
           this.setData({
-
               orderList3: order,
-
             }),
             order = []
         }
@@ -175,9 +167,7 @@ Page({
           }
           console.log("order:", order)
           this.setData({
-
               orderList4: order,
-
             }),
             order = []
         }
@@ -230,17 +220,14 @@ Page({
           }
           console.log("order:", order)
           this.setData({
-
               orderList1: order,
-
             }),
             order = []
         }
       }),
       //查询已接单信息
       db.collection('order')
-      .where(_.or([
-        {
+      .where(_.or([{
           cook: true,
           condition: 1,
           res_id: wx.getStorageSync('current')
@@ -259,9 +246,7 @@ Page({
           }
           console.log("order:", order)
           this.setData({
-
               orderList2: order,
-
             }),
             order = []
         }
@@ -282,9 +267,7 @@ Page({
           }
           console.log("order:", order)
           this.setData({
-
               orderList3: order,
-
             }),
             order = []
         }
@@ -305,9 +288,7 @@ Page({
           }
           console.log("order:", order)
           this.setData({
-
               orderList4: order,
-
             }),
             order = []
         }
@@ -341,7 +322,6 @@ Page({
       } else {
         //其他的位置为false
         this.data.buttons[i].checked = false;
-
       }
     }
     // 点击按钮传递id,根据id显示或隐藏不同state的订单列,id=0即"全部"按钮
@@ -387,7 +367,6 @@ Page({
         })
         break;
     }
-    // console.log(this.data.hidden1, this.data.hidden2, this.data.hidden3, this.data.hidden4)
     this.setData({
       buttons: this.data.buttons,
       msg: "id:" + id
@@ -397,7 +376,7 @@ Page({
 
   //接单按钮
   receiveOrder: function(event) {
-    const item=event.currentTarget.id
+    const item = event.currentTarget.id
     wx.cloud.callFunction({
       name: 'res_get',
       data: {
@@ -423,6 +402,5 @@ Page({
       },
     })
   }
-
 
 })

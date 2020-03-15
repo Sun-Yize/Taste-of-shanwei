@@ -2,6 +2,7 @@
 const app = getApp()
 const db = wx.cloud.database()
 const _ = db.command
+
 Page({
   /**
    * 页面的初始数据
@@ -10,18 +11,15 @@ Page({
     name: "",
     id: 1,
     temp: ""
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // console.log(options)
     this.setData({
       notice: options.notice,
       id: options.id
-
     })
   },
 
@@ -73,12 +71,13 @@ Page({
   onShareAppMessage: function() {
 
   },
+
   onbindinput: function(e) {
-    // console.log(e.detail.value)
     this.setData({
       temp: e.detail.value
     })
   },
+
   onbindtap: function(e) {
     var h = this.data.temp
     var id = this.data.id
@@ -91,7 +90,6 @@ Page({
         notice: h
       },
       success: function(res) {
-        // console.log(res)
         let pages = getCurrentPages();
         let minePage = pages[pages.length - 2]
         minePage.setData({
@@ -102,9 +100,8 @@ Page({
           })
       }
     })
-
-
   },
+  
   onback: function(e) {
     wx.navigateBack({
       delta: 1

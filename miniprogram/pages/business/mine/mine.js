@@ -3,6 +3,7 @@ const app = getApp()
 const db = wx.cloud.database()
 const _ = db.command
 var p = 0
+
 Page({
 
   /**
@@ -11,7 +12,7 @@ Page({
   data: {
     name: '',
     phone: '',
-    taste:[],
+    taste: [],
     restaurant: '',
     place1: 0,
     place2: 0,
@@ -23,18 +24,20 @@ Page({
       ['一楼', '二楼', '三楼']
     ],
   },
+
   bindViewTap: function() {
     wx.navigateto({
       url: ''
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
 
   onLoad: function() {
     var temp = wx.getStorageSync('userInfo')
-    var _this=this
+    var _this = this
     //查询商家个人信息
     db.collection('restaurant_self')
       .where({
@@ -51,7 +54,7 @@ Page({
               avatarUrl: temp.avatarUrl,
               openid: temp.openid,
             },
-            success:function(res){
+            success: function(res) {
               wx.setStorageSync('current', res._id)
               console.log(temp.avatarUrl)
               db.collection("restaurant").add({
@@ -60,16 +63,16 @@ Page({
                   name: '',
                   phone: '',
                   restaurant: '',
-                  delivery:'',
+                  delivery: '',
                   place1: 1,
                   place2: 1,
                   image: '',
                   notice: '',
                   on: false,
                   book: false,
-                  taste:[],
+                  taste: [],
                 },
-                success: function (res) {
+                success: function(res) {
                   console.log("添加空白记录成功", res)
                 },
                 fail(res) {
@@ -85,7 +88,7 @@ Page({
           db.collection('restaurant').where({
             _id: res.data[0]._id
           }).get({
-            success:function(res){
+            success: function(res) {
               console.log(res.data[0]._id)
               _this.setData({
                 id: res.data[0]._id,
@@ -94,18 +97,18 @@ Page({
                 restaurant: res.data[0].restaurant,
                 place1: res.data[0].place1,
                 place2: res.data[0].place2,
-                delivery:res.data[0].delivery,
+                delivery: res.data[0].delivery,
                 multiIndex: [res.data[0].place1, res.data[0].place2],
                 image: res.data[0].image,
                 notice: res.data[0].notice,
                 on: res.data[0].on,
                 book: res.data[0].book,
-                taste:res.data[0].taste
+                taste: res.data[0].taste
               })
               wx.setStorageSync('current', res.data[0]._id)
             }
-          }) 
-          
+          })
+
         }
       })
   },
@@ -223,6 +226,7 @@ Page({
         }
       })
   },
+
   bindMultiPickerColumnChange: function(e) {
     // var id = this.data.id
     console.log('修改的列为', e.detail.column, '，值为', e.detail.value);
@@ -261,8 +265,8 @@ Page({
         })
       };
     };
-
   },
+
   getout: function() {
     this.setData({
       hasUserInfo: false
@@ -271,6 +275,7 @@ Page({
       url: '../../start/firstlogin/firstlogin',
     })
   },
+
   gotoShow: function() {
     var _this = this
     var id = this.data.id
@@ -288,7 +293,7 @@ Page({
             image: res.tempFilePaths,
             getimage: true
           }),
-          
+
           wx.getFileSystemManager().readFile({
             filePath: filePath, //选择图片返回的相对路径
             encoding: 'base64', //编码格式
@@ -296,9 +301,10 @@ Page({
               wx.cloud.callFunction({
                 name: 'res_resimg',
                 data: {
-                  path: wx.getStorageSync('current')+'/res_image.png',
+                  path: wx.getStorageSync('current') + '/res_image.png',
                   file: res.data
-                },success: _res => {
+                },
+                success: _res => {
                   console.log(_res.result.fileID)
                   _this.setData({
                     image: _res.result.fileID
@@ -311,23 +317,9 @@ Page({
                 }
               })
             }
-          })         
+          })
       }
     })
   }
-  // getPhoneNumber: function(e) {
-  //   console.log(e);
-  //   wx.callFunction({
-  //     name: 'getphone',
-  //     data: {
-  //       cloudID: e.detail.cloudID
-  //     }
-  //   }).then(res => {
-  //     this.setData({
-  //       phone: res.result
-  //     })
-  //   }).catch(err => {
-  //     console.log("error")
-  //   })
-  // }
+
 })

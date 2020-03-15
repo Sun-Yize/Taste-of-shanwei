@@ -2,14 +2,13 @@ const app = getApp();
 const db = wx.cloud.database();
 Page({
   data: {
-    clientHeight:'',
-    ordersContent1:[],    //待取货订单
-    ordersContent2:[],   //待送达订单
-    res1: [],    //餐馆头像名称缓存
-    res2: [],    //餐馆头像名称缓存
+    clientHeight: '',
+    ordersContent1: [], //待取货订单
+    ordersContent2: [], //待送达订单
+    res1: [], //餐馆头像名称缓存
+    res2: [], //餐馆头像名称缓存
     currentTab: 0,
-    orderrule: [
-      {
+    orderrule: [{
         title: "待取货"
       },
       {
@@ -18,11 +17,11 @@ Page({
     ]
   },
 
-  onShow: function () {
-    var clientHeight=''        
+  onShow: function() {
+    var clientHeight = ''
     wx.getSystemInfo({
-      success: res=> {
-        clientHeight=res.windowHeight
+      success: res => {
+        clientHeight = res.windowHeight
       }
     })
     this.setData({
@@ -38,7 +37,7 @@ Page({
     var ordersContent1 = []
     db.collection('order').where({
       rid_id: wx.getStorageSync("user_id"),
-      condition:2
+      condition: 2
     }).get({
       success: ress => {
         this.setData({
@@ -71,7 +70,7 @@ Page({
     })
   },
 
-  switchNav: function (e) {
+  switchNav: function(e) {
     console.log(e.currentTarget.dataset.current)
     var that = this
     var cur = e.currentTarget.dataset.current;
@@ -82,12 +81,12 @@ Page({
         currentTab: cur
       })
     }
-    this.getordersContent1()          //每次切换Tab时更新数据
+    this.getordersContent1() //每次切换Tab时更新数据
     this.getordersContent2()
   },
 
   // 滚动切换标签样式 
-  switchTab: function (e) {
+  switchTab: function(e) {
     var that = this;
     that.setData({
       currentTab: e.detail.current
@@ -103,16 +102,16 @@ Page({
     }
     return fileList
   },
-  
-  btnTap1:function(e){
-    var _this=this
+
+  btnTap1: function(e) {
+    var _this = this
     const item = e.currentTarget.dataset.item._id
     // console.log(app.globalData.myorders)
     wx.showModal({
       title: '提示',
       content: '亲，你确定取货吗？',
-      success:res=>{
-        if (res.confirm){
+      success: res => {
+        if (res.confirm) {
           console.log(_this.data.ordersContent1)
           var ordersContent1 = _this.data.ordersContent1
           ordersContent1 = _this.deleteItem(item, _this.data.ordersContent1)
@@ -133,7 +132,6 @@ Page({
                 icon: 'none',
                 duration: 1500
               })
-
             }
           })
         }
@@ -141,7 +139,7 @@ Page({
     })
   },
 
-  btnTap2: function (e) {
+  btnTap2: function(e) {
     var _this = this
     const item = e.currentTarget.dataset.item._id
     // console.log(app.globalData.myorders)
@@ -172,7 +170,7 @@ Page({
               })
             }
           })
-          
+
         }
         let tmp = wx.getStorageSync('user_id')
         db.collection('rider').doc(tmp).update({

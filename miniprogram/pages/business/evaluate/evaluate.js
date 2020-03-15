@@ -2,7 +2,7 @@
 var app = getApp();
 const db = wx.cloud.database()
 const _ = db.command
-var p=0
+var p = 0
 
 Page({
 
@@ -10,12 +10,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // num:[],//后端给的分数,显示相应的星星
-    // one_1:[],
-    // two_1: [],
     items: [],
     name: []
-
   },
 
   /**
@@ -26,11 +22,13 @@ Page({
     var show = []
     db.collection('order').where({
       res_id: wx.getStorageSync('current')
-      }) .get({
+    }).get({
       success: res => {
-        while(i<res.data.length){
-          if (res.data[i].evaluate != undefined){
-            var obj = Object.assign({ neva: 5 - res.data[i].evaluate }, res.data[i]);
+        while (i < res.data.length) {
+          if (res.data[i].evaluate != undefined) {
+            var obj = Object.assign({
+              neva: 5 - res.data[i].evaluate
+            }, res.data[i]);
             show.push(obj)
             this.setData({
               items: show,

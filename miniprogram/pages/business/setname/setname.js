@@ -2,6 +2,7 @@
 const app = getApp()
 const db = wx.cloud.database()
 const _ = db.command
+
 Page({
 
   /**
@@ -11,18 +12,15 @@ Page({
     notice: "",
     id: 1,
     temp: ""
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // console.log(options)
     this.setData({
       name: options.name,
       id: options.id
-
     })
   },
 
@@ -83,8 +81,6 @@ Page({
   onbindtap: function(e) {
     var h = this.data.temp
     var id = this.data.id
-    // console.log(h)
-    // console.log(id)
     db.collection('restaurant').doc(id).update({
       // data 传入需要局部更新的数据
       data: {
@@ -92,7 +88,6 @@ Page({
         restaurant: h
       },
       success: function(res) {
-        // console.log(res)
         let pages = getCurrentPages();
         let minePage = pages[pages.length - 2]
         minePage.setData({
@@ -106,6 +101,7 @@ Page({
 
 
   },
+  
   onback: function(e) {
     wx.navigateBack({
       delta: 1

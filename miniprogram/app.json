@@ -4,7 +4,6 @@
     "pages/start/firstlogin/firstlogin",
     "pages/start/secondlogin/secondlogin",
     "pages/start/taste/taste",
-
     "pages/home/discount/discount",
     "pages/home/store/store",
     "pages/home/allorder/allorder",
@@ -29,7 +28,6 @@
     "pages/home/user/going-order/going-order",
     "pages/home/user/aboutus/aboutus",
     "pages/home/user/news/news",
-
     "pages/rider/windex/windex",
     "pages/rider/w-01/w-01",
     "pages/rider/myData/myData",
@@ -43,7 +41,6 @@
     "pages/rider/mineChildren/orders/orders",
     "pages/rider/mineChildren/myEvaluate/myEvaluate",
     "pages/rider/mineChildren/myrank/myrank",
-
     "pages/business/mine/mine",
     "pages/business/evaluate/evaluate",
     "pages/business/order/order",

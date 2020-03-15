@@ -3,11 +3,11 @@ const db = wx.cloud.database();
 const _ = db.command
 Page({
   data: {
-    nickname:'',
-    number:'',
+    nickname: '',
+    number: '',
   },
 
-  onShow: function () {
+  onShow: function() {
     db.collection('user').doc(wx.getStorageSync('user_id')).get({
       success: res => {
         this.setData({
@@ -24,7 +24,6 @@ Page({
     })
   },
 
-  
   ticketRule() {
     wx.navigateTo({
       url: '/pages/rider/ticketRule/ticketRule'
@@ -36,5 +35,5 @@ Page({
       url: '/pages/rider/setting/setting'
     })
   }
-  
+
 })

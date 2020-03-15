@@ -2,51 +2,51 @@ const app = getApp();
 const db = wx.cloud.database();
 Page({
   data: {
-    cashBalance: 0,     //总收入
-    cash_left:0,
+    cashBalance: 0, //总收入
+    cash_left: 0,
     drawMoeny: '',
   },
 
-  comment: function (e) {
+  comment: function(e) {
     console.log(e.detail.value)
     this.setData({
       comment: e.detail.value,
     })
   },
 
-  onLoad (options) {
-    console.log('从上一页传入总收入：',options.cash)
+  onLoad(options) {
+    console.log('从上一页传入总收入：', options.cash)
     console.log('从上一页传入余额：', options.cash_left)
     this.setData({
       cashBalance: options.cash,
       cash_left: options.cash_left
     })
   },
-  
-  onallDrawBalance () {
+
+  onallDrawBalance() {
     this.setData({
       drawMoeny: this.data.cash_left
     })
   },
 
-  onDrawBalanceChange (e) {
+  onDrawBalanceChange(e) {
     let num = e.detail
     this.setData({
       drawMoeny: num
     })
   },
 
-  onconfrimDraw () {
+  onconfrimDraw() {
     let _this = this
     let tmp = wx.getStorageSync('user_id')
     db.collection('rider').doc(tmp).update({
       data: {
         drawmoney: db.command.push(_this.data.drawMoeny),
       },
-      success:res =>{
+      success: res => {
         console.log('提款金额已上传：', _this.data.drawMoeny)
         db.collection('rider').doc(tmp).get({
-          success:res =>{
+          success: res => {
             console.log(res.data.drawmoney)
             var drawMoeny_all = res.data.drawmoney.map(Number).reduce(
               (a, i) => a + i
@@ -63,7 +63,7 @@ Page({
                 data: {
                   drawmoney: db.command.pop(),
                 },
-                success:res=>{
+                success: res => {
                   cons.log('提现失败')
                 }
               })

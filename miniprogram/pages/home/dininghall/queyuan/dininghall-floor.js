@@ -25,7 +25,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     var _this = this
     db.collection("restaurant")
       .where({
@@ -53,14 +53,14 @@ Page({
       })
   },
 
-  getIntoStore: function (e) {
+  getIntoStore: function(e) {
     console.log(e)
     wx.navigateTo({
       url: '../../store/store?id=' + e.target.dataset.item._id,
     })
   },
 
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     this.onLoad(true)
     wx.stopPullDownRefresh();
   }

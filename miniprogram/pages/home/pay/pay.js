@@ -8,57 +8,61 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showlist:[],
-    tag:0,
-    discount:0,
+    showlist: [],
+    tag: 0,
+    discount: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    var show=[]
+  onLoad: function(options) {
+    var show = []
     let tmp = JSON.parse(options.order)
     this.setData({
       order: tmp,
       res_id: options.id,
-      totalMoney: parseInt(options.totalMoney)+2,
+      totalMoney: parseInt(options.totalMoney) + 2,
       resname: options.resname,
       image: options.image,
     })
-    for(var i = 0;i < this.data.order.length;i++){
+    for (var i = 0; i < this.data.order.length; i++) {
       db.collection('dish').doc(this.data.order[i].id).get({
-        success:res => {
+        success: res => {
           console.log(res.data._id)
           for (var m = 0; m < this.data.order.length; m++) {
-            if (res.data._id == this.data.order[m].id){
-              var obj = Object.assign({ number: this.data.order[m].number }, {per: this.data.order[m].number * res.data.price },res.data);
+            if (res.data._id == this.data.order[m].id) {
+              var obj = Object.assign({
+                number: this.data.order[m].number
+              }, {
+                per: this.data.order[m].number * res.data.price
+              }, res.data);
               show.push(obj)
               this.setData({
                 showlist: show,
               })
               // console.log(obj)
             }
-          }   
+          }
           console.log(this.data.showlist)
         }
       })
     }
 
-    
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     var _this = this
     db.collection('user').doc(wx.getStorageSync('user_id')).get({
       success: res => {
@@ -77,7 +81,7 @@ Page({
         }
       }
     })
-    setTimeout(function(){
+    setTimeout(function() {
       if (_this.data.tag == 1) {
         _this.setData({
           totalMoney: _this.data.totalMoney - 3,
@@ -93,70 +97,70 @@ Page({
           discount: _this.data.totalMoney,
           totalMoney: 0,
         })
-      } else { }
-    },500)
+      } else {}
+    }, 500)
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
-  changeAddress: function(){
+  changeAddress: function() {
     wx.navigateTo({
       url: '../user/address/address',
     })
   },
 
-  gototicket: function(){
+  gototicket: function() {
     wx.navigateTo({
       url: '../discount/discount?totalMoney=' + this.data.totalMoney + '&tag=' + this.data.tag,
     })
   },
 
-  submitOrder: function(){
+  submitOrder: function() {
     var timestamp = Date.parse(new Date());
     var date = new Date(timestamp);
     var time = date.getFullYear() + '-' + (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-' + (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + "\t" + (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ":" + (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes())
-
     var _this = this
-    if(this.data.address.destination == "点击修改"){
+    
+    if (this.data.address.destination == "点击修改") {
       wx.showToast({
         title: '请填写配送信息！',
         icon: 'none',
         duration: 2000
       })
-    }else{
+    } else {
       wx.cloud.callFunction({
         name: 'user_createorder',
         data: {
