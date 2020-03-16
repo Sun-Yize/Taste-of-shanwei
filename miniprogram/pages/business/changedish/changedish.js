@@ -26,7 +26,7 @@ Page({
       id: options.id,
       name: options.name,
       introduce: options.introduce,
-      price: options.price
+      price: Number(options.price)
     })
   },
 
